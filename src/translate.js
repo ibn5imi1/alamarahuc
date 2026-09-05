@@ -2,7 +2,7 @@ let arTranslations = {};
 let originalTexts = new Map();
 let isLoaded = false;
 
-// تحميل ملف الترجمة العربي مرة وحدة بس
+// Download the Arabic subtitle file only once
 async function loadArabicTranslations() {
     if (isLoaded) return;
     const response = await fetch('/translate_ar.json');
@@ -10,7 +10,7 @@ async function loadArabicTranslations() {
     isLoaded = true;
 }
 
-// حفظ النصوص الانكليزية الأصلية أول مرة (قبل أي تحويل)
+// Save the original English texts the first time (before any conversion)
 function cacheOriginalTexts() {
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
@@ -20,10 +20,12 @@ function cacheOriginalTexts() {
     });
 }
 
-// التحويل للعربي
+// Convert to Arabic
 export async function toArabic() {
     await loadArabicTranslations();
-    cacheOriginalTexts(); // نحفظ الانكليزي قبل ما نستبدله
+
+    // We memorize the English language before we replace it
+    cacheOriginalTexts(); 
 
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
@@ -37,7 +39,7 @@ export async function toArabic() {
     localStorage.setItem('lang', 'ar');
 }
 
-// الرجوع للانجليزي
+// Return to English
 export function toEnglish() {
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
@@ -51,7 +53,7 @@ export function toEnglish() {
     localStorage.setItem('lang', 'en');
 }
 
-// دالة تبديل تلقائية (تستخدمها بزر واحد)
+// Automatic switching function (used with one button)
 export async function toggleLanguage() {
     const current = document.documentElement.lang;
     if (current === 'ar') {
@@ -61,11 +63,20 @@ export async function toggleLanguage() {
     }
 }
 
-// تحميل اللغة المحفوظة عند فتح الصفحة (تستدعيها بعد ما تركب كل الـ HTML بالصفحة)
+// Load the saved language when the page is opened (you call it after you have installed all the HTML on the page)
 export async function initLanguage() {
     cacheOriginalTexts();
     const savedLang = localStorage.getItem('lang') || 'en';
     if (savedLang === 'ar') {
         await toArabic();
     }
+
+    // Link the event to the button via data-i18n="nav.en"
+    document.body.addEventListener('click', async (e) => {
+        const langBtn = e.target.closest('[data-i18n="nav.en"]');
+        if (langBtn) {
+            e.preventDefault();
+            await toggleLanguage();
+        }
+    });
 }
