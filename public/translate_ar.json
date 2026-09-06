@@ -1,4 +1,5 @@
 {
+  "college_name": "كلية العمارة الجامعة",
   "nav.home": "الرئيسية",
   "nav.about": "حول الكلية",
   "nav.about_sub": "عن الكلية",
@@ -11,7 +12,7 @@
   "nav.certifications": "الشهادات والتصنيفات",
   "nav.strategic_plan": "الخطة الاستراتيجية",
   "nav.facilities": "المنشآت والمعلومات",
-  "nav.location": "الموقع الجغرافي",
+  "location": "الموقع الجغرافي",
   "nav.activities": "نشاطات الكلية",
   "nav.statistics": "الإحصائيات",
   "nav.transparency": "مبدأ الشفافية",
@@ -72,6 +73,7 @@
   "nav.email": "البريد الإلكتروني",
   "nav.related_sites": "المواقع ذات الصلة",
   "nav.complaints_feedback": "الشكاوى والملاحظات",
-  "nav.contact_us": "الاتصال بنا",
-  "nav.en": "AR"
+  "contact_us": "الاتصال بنا",
+  "social_media": "التواصل الإجتماعي",
+  "nav.en": "EN"
 }

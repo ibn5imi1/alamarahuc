@@ -8,6 +8,11 @@ export function header() {
                 <span></span>
             </button>
 
+            <!-- College name for small and medium screens -->
+            <a href="/" class="brand_logo" data-i18n="college_name">
+                AL-Amarah University College
+            </a>
+
             <ul class="nav_list" id="nav-list">
                 <li class="nav_item"><a href="/" data-i18n="nav.home">Home</a></li>
                 
@@ -35,7 +40,7 @@ export function header() {
                         <li class="dropdown_item has-submenu">
                             <a href="#" data-i18n="nav.facilities">Facilities and Information</a>
                             <ul class="submenu">
-                                <li><a href="#" data-i18n="nav.location">Location</a></li>
+                                <li><a href="#" data-i18n="location">Location</a></li>
                                 <li><a href="#" data-i18n="nav.activities">Activities</a></li>
                                 <li><a href="#" data-i18n="nav.statistics">Statistics</a></li>
                                 <li><a href="#" data-i18n="nav.transparency">Transparency</a></li>
@@ -163,7 +168,7 @@ export function header() {
                     </ul>
                 </li>
 
-                <li class="nav_item"><a href="/contactUs" data-i18n="nav.contact_us">Contact Us</a></li>
+                <li class="nav_item"><a href="/contactUs" data-i18n="contact_us">Contact Us</a></li>
                 <li class="nav_item"><a href="#" data-i18n="nav.en">AR</a></li>
             </ul>
         </nav>

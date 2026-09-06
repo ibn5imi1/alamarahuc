@@ -1,4 +1,4 @@
-
+@use '../scss/variables.scss' as *;
 @use 'components/header.scss';
 @use 'components/footer.scss';
 
@@ -7,6 +7,10 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+// General Reset for consistency, especially when changing dir attributes
+html,
 body {
-    height: 400vh;
+  overflow-x: hidden;
+  padding-top: 35px;
 }

@@ -6,6 +6,7 @@ const app = document.getElementById("app");
 // إدراج محتوى الهيدر داخل عنصر app
 app.innerHTML = `
 ${header()}
+
 ${footer()}
 `;
 
