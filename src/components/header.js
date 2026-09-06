@@ -169,7 +169,7 @@ export function header() {
                 </li>
 
                 <li class="nav_item"><a href="/contactUs" data-i18n="contact_us">Contact Us</a></li>
-                <li class="nav_item"><a href="#" data-i18n="nav.en">AR</a></li>
+                <li class="nav_item"><a href="#" data-i18n="nav.en">عربي</a></li>
             </ul>
         </nav>
         <div class="nav_overlay" id="nav-overlay"></div>

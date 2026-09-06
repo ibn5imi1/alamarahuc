@@ -1,0 +1,16 @@
+@mixin flex-container(
+  $max-width: 1200px,
+  $justify: space-between,
+  $align: flex-start,
+  $gap: 30px
+) {
+  max-width: $max-width;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+

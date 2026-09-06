@@ -1,5 +1,5 @@
 @import "../variables.scss";
-
+@import "../mixin.scss";
 .footer {
     background-color: $bg-color;
     color: $text-color;
@@ -7,13 +7,7 @@
     padding: 40px 20px;
 
     .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 30px;
+        @include flex-container;
 
         @media (max-width: 768px) {
             flex-direction: column;
@@ -30,7 +24,7 @@
         text-align: center;
 
         h3 {
-            color: $main-color;
+            color: $text-color;
             font-size: 1.3rem;
             margin-bottom: 20px;
             display: flex;
