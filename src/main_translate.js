@@ -5,7 +5,7 @@ let isLoaded = false;
 // Download the Arabic subtitle file only once
 async function loadArabicTranslations() {
     if (isLoaded) return;
-    const response = await fetch('/translate_ar.json');
+    const response = await fetch('/main_translate_ar.json');
     arTranslations = await response.json();
     isLoaded = true;
 }
