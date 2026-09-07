@@ -1,6 +1,6 @@
 import { header, initMobileMenu  } from "./components/header";
 import { footer  } from "./components/footer";
-import {home} from "./pages/home"
+import {home, initSlider, initCounters} from "./pages/home"
 import { initLanguage } from './translate';
 const app = document.getElementById("app");
 
@@ -16,3 +16,7 @@ initLanguage();
 
 
 initMobileMenu()
+
+initSlider();
+
+initCounters()

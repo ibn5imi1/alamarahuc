@@ -135,7 +135,7 @@
 }
 .header .navbar .nav_list .nav_item .dropdown_menu li a:hover {
   color: #f4d35e;
-  background-color: rgb(0, 56.0952380952, 114);
+  background-color: rgb(0%, 21.9981325864%, 44.7058823529%);
 }
 .header .navbar .nav_list .nav_item .dropdown_menu .has-submenu {
   position: relative;
@@ -151,7 +151,7 @@
 }
 .header .navbar .nav_list .nav_item .dropdown_menu .has-submenu:hover > a {
   color: #f4d35e;
-  background-color: rgb(0, 56.0952380952, 114);
+  background-color: rgb(0%, 21.9981325864%, 44.7058823529%);
 }
 .header .navbar .nav_list .nav_item .dropdown_menu .has-submenu:hover > a::after {
   border-left-color: #f4d35e;
@@ -401,7 +401,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: rgb(0, 56.0952380952, 114);
+  background-color: rgb(0%, 21.9981325864%, 44.7058823529%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -449,7 +449,7 @@
   color: #ffffff;
   text-decoration: none;
   padding: 10px 15px;
-  border: 1px solid rgb(0, 81.1904761905, 165);
+  border: 1px solid rgb(0%, 31.8394024276%, 64.7058823529%);
   border-radius: 8px;
   transition: all 0.3s ease;
 }
@@ -458,7 +458,7 @@
   font-size: 1.3rem;
 }
 .footer .location-footer .location-info .location-link:hover {
-  background-color: rgb(0, 51.0761904762, 103.8);
+  background-color: rgb(0%, 20.0298786181%, 40.7058823529%);
   border-color: #f4d35e;
   color: #f4d35e;
   transform: translateY(-2px);
@@ -481,28 +481,27 @@
   padding: 80px 20px;
   color: #ffffff;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  /* إنتاج الخلفية المتحركة بالألوان الهادئة */
   background: linear-gradient(-45deg, #0a192f, #0d3b66, #112d4e, #1b263b);
   background-size: 400% 400%;
   animation: ambientGradient 15s ease infinite;
 }
 .hero-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* توسيط أفقي لجميع العناصر */
+  justify-content: center;
+  text-align: center; /* توسيط كافة النصوص */
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  flex-direction: column;
-  text-align: center;
 }
 .hero-section .college-title {
   font-size: 2.5rem;
   font-weight: 700;
   color: #ffffff;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   position: relative;
+  text-align: center;
 }
 .hero-section .college-title::after {
   content: "";
@@ -510,7 +509,7 @@
   width: 60px;
   height: 4px;
   background-color: #f4d35e;
-  margin: 12px auto 0;
+  margin: 12px auto 0 auto; /* ضمان توسيط الخط السفلي */
   border-radius: 2px;
 }
 @media (max-width: 768px) {
@@ -523,20 +522,19 @@
   font-size: 1.05rem;
   line-height: 1.8;
   color: white;
-  margin-bottom: 20px;
+  margin: 0 auto 30px auto; /* توسيط المكون وحفظ المسافة التحتية */
+  text-align: center;
 }
 @media (max-width: 768px) {
   .hero-section .college_description {
     font-size: 0.95rem;
   }
 }
-.hero-section {
-  /* شبكة الإحصائيات */
-}
 .hero-section .stats-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 20px;
   width: 100%;
   margin-top: 20px;
@@ -553,6 +551,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 .hero-section .stats-wrapper .stat-card:hover {
@@ -568,6 +568,7 @@
 .hero-section .stats-wrapper .stat-card .stat-label {
   font-size: 0.95rem;
   color: #ffffff;
+  margin: 0;
 }
 
 /* باقي الصفحة تكون بخلفية منفصلة تماماً */
@@ -668,6 +669,178 @@
     font-size: 0.95rem;
     line-height: 1.7;
   }
+}
+
+.slider-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.slider-section .slider-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.slider-section .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.slider-section .slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+.slider-section .slide.active .slide-bg {
+  transform: scale(1.05);
+}
+.slider-section .slide.active .slide-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+.slider-section .slide .slide-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 6s ease-out;
+}
+.slider-section .slide .slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.75), rgba(0, 31, 63, 0.85));
+  backdrop-filter: blur(4px);
+}
+.slider-section .slide .slide-content {
+  position: relative;
+  z-index: 3;
+  max-width: 800px;
+  padding: 35px;
+  margin: 0 20px;
+  text-align: center;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease 0.3s;
+}
+.slider-section .slide .slide-content .badge-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.slider-section .slide .slide-content .badge-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.slider-section .slide .slide-content h4 {
+  font-size: 2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #f4d35e;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+.slider-section .slide .slide-content p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.slider-section {
+  /* أزرار التحكم باللغة الإنجليزية (LTR) */
+}
+.slider-section .slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+.slider-section .slider-btn:hover {
+  background: #f4d35e;
+  color: #001f3f;
+  transform: translateY(-50%) scale(1.1);
+}
+.slider-section .slider-btn.prev-btn {
+  left: 30px;
+}
+.slider-section .slider-btn.next-btn {
+  right: 30px;
+}
+.slider-section .slider-dots {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 12px;
+}
+.slider-section .slider-dots .dot {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.slider-section .slider-dots .dot.active {
+  background: #f4d35e;
+  width: 32px;
+  border-radius: 8px;
+}
+
+/* إصلاح الاتجاهات للغة العربية (RTL) مع ضبط وظيفة الأسهم */
+html[dir=rtl] .slider-section .slider-btn {
+  /* نقل زر السابق لليمين والتالي لليسار بما يناسب اتجاه القراءة العربي */
+}
+html[dir=rtl] .slider-section .slider-btn.prev-btn {
+  left: auto;
+  right: 30px;
+}
+html[dir=rtl] .slider-section .slider-btn.next-btn {
+  right: auto;
+  left: 30px;
 }
 
 * {
