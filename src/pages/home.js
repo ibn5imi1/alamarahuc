@@ -1,11 +1,11 @@
-import deanImg from '../assets/images/dean.jpeg';
-import greenMetric from '../assets/images/green-metric.jpg';
-import rur from '../assets/images/rur.jpg';
-import iso_21001_2018 from '../assets/images/ISO-21001-2018.png';
-import iso_9001_2015 from '../assets/images/ISO-9001-2015.png';
-import iso_50001_2018 from '../assets/images/ISO-50001-2018.png';
-import iso_45001_2018 from '../assets/images/ISO-45001-2018.png';
-import wm_ranking from '../assets/images/wm-ranking.jpg';
+import deanImg from '../assets/images/teachers/dean.jpeg';
+import greenMetric from '../assets/images/logos/green-metric.jpg';
+import rur from '../assets/images/logos/rur.jpg';
+import iso_21001_2018 from '../assets/images/logos/ISO-21001-2018.png';
+import iso_9001_2015 from '../assets/images/logos/ISO-9001-2015.png';
+import iso_50001_2018 from '../assets/images/logos/ISO-50001-2018.png';
+import iso_45001_2018 from '../assets/images/logos/ISO-45001-2018.png';
+import wm_ranking from '../assets/images/logos/wm-ranking.jpg';
 
 export function home() {
     return (

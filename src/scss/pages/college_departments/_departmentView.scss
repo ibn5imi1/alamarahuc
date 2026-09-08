@@ -1,0 +1,156 @@
+@use '../../variables' as *;
+@use '../../mixin' as *;
+
+.department-page {
+  padding: 50px 20px;
+  background-color: #f8f9fa;
+  min-height: 80vh;
+
+  .dept-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+  }
+
+  .dept-header {
+    text-align: center;
+    border-bottom: 3px solid $accent-color;
+    padding-bottom: 20px;
+
+    .dept-title {
+      color: $primary-color;
+      font-size: 2.6rem;
+      font-weight: 700;
+    }
+  }
+
+  .head-section {
+    .head-card {
+      background: #ffffff;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      padding: 35px;
+      display: flex;
+      gap: 35px;
+      align-items: flex-start;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .head-image-wrapper {
+        flex-shrink: 0;
+        width: 220px;
+        height: 260px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 4px solid $accent-color;
+
+        .head-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .head-details {
+        flex-grow: 1;
+
+        .head-title-label {
+          color: $primary-color;
+          font-size: 1.6rem;
+          margin-bottom: 8px;
+          font-weight: 700;
+        }
+
+        .head-name {
+          color: #d97706;
+          font-size: 1.25rem;
+          margin-bottom: 15px;
+          font-weight: 600;
+        }
+
+        .head-speech {
+          color: #374151;
+          line-height: 1.9;
+          font-size: 1.15rem;
+          text-align: justify;
+          white-space: pre-line;
+        }
+      }
+    }
+  }
+
+  .section-main-title {
+    color: $primary-color;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    position: relative;
+    
+    &::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: $accent-color;
+      margin-top: 8px;
+      border-radius: 2px;
+    }
+  }
+
+  // الرؤية والرسالة والأهداف رأسياً
+  .vmg-section {
+    .vmg-vertical-list {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+      .vmg-item {
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+        border-right: 6px solid $primary-color; // للشاشات التي تستخدم الاتجاه العربي
+
+        [dir="ltr"] & {
+          border-right: none;
+          border-left: 6px solid $primary-color;
+        }
+
+        .vmg-item-title {
+          color: $primary-color;
+          font-size: 1.45rem;
+          font-weight: 700;
+          margin-bottom: 12px;
+        }
+
+        .vmg-item-text {
+          color: #374151;
+          line-height: 1.9;
+          font-size: 1.15rem;
+          text-align: justify;
+          white-space: pre-line;
+        }
+      }
+    }
+  }
+
+  .about-dept-section {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+    .about-content p {
+      color: #374151;
+      line-height: 1.9;
+      font-size: 1.15rem;
+      text-align: justify;
+    }
+  }
+}

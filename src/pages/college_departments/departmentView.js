@@ -1,31 +1,69 @@
-import { departmentsData } from './departmentsData.js';
+import { getDepartmentHeadImage } from './departmentsData.js';
 import { applyDeptLanguage } from '../../department_translate.js';
 
 export function departmentView(deptId) {
-    const dept = departmentsData[deptId];
-    if (!dept) return `<h2>Department Not Found</h2>`;
+  const headImageSrc = getDepartmentHeadImage(deptId);
 
-    // استدعاء الترجمة بعد إضافة العناصر للـ DOM
-    setTimeout(() => {
-        applyDeptLanguage();
-    }, 0);
+  requestAnimationFrame(() => {
+    applyDeptLanguage();
+  });
 
-    return `
-        <div class="department-page">
-            <h1 data-i18n="dept.${deptId}.name"></h1>
+  return `
+    <div class="department-page">
+      <div class="dept-container">
+        
+        <!-- 1. عنوان القسم الرئيسي -->
+        <header class="dept-header">
+          <h1 class="dept-title" data-i18n="dept.${deptId}.name">اسم القسم</h1>
+        </header>
+
+        <!-- 2. كارت رئيس القسم -->
+        <section class="head-section">
+          <div class="head-card">
+            <div class="head-image-wrapper">
+              <img src="${headImageSrc}" alt="Head of Department" class="head-image" onerror="this.src='/src/assets/images/teachers/default_head.jpg';" />
+            </div>
+            <div class="head-details">
+              <h3 class="head-title-label" data-i18n="dept.c_title">كلمة السيد رئيس القسم</h3>
+              <h4 class="head-name" data-i18n="dept.${deptId}.head_name"></h4>
+              <p class="head-speech" data-i18n="dept.${deptId}.head_speech">نص كلمة رئيس القسم قيد الإضافة...</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. الرؤية والرسالة والأهداف (رأسياً واحدة تلو الأخرى) -->
+        <section class="vmg-section">
+          <h2 class="section-main-title" data-i18n="dept.vmg_title">الرؤية والرسالة والأهداف</h2>
+          
+          <div class="vmg-vertical-list">
             
-            <div class="head-section">
-                <img src="${dept.headImage}" alt="${dept.headName}" />
-                <h3 data-i18n="dept.${deptId}.head_title"></h3>
-                <p data-i18n="dept.${deptId}.head_speech"></p>
+            <div class="vmg-item vision-item">
+              <h3 class="vmg-item-title" data-i18n="dept.vision_label">الرؤية</h3>
+              <p class="vmg-item-text" data-i18n="dept.${deptId}.vision">رؤية القسم قيد الإضافة...</p>
             </div>
 
-            <div class="dept-details">
-                <h3 data-i18n="dept.${deptId}.vision"></h3>
-                <h3 data-i18n="dept.${deptId}.mission"></h3>
-                <h3 data-i18n="dept.${deptId}.goals"></h3>
-                <h3 data-i18n="dept.${deptId}.about"></h3>
+            <div class="vmg-item mission-item">
+              <h3 class="vmg-item-title" data-i18n="dept.mission_label">الرسالة</h3>
+              <p class="vmg-item-text" data-i18n="dept.${deptId}.mission">رسالة القسم قيد الإضافة...</p>
             </div>
-        </div>
-    `;
+
+            <div class="vmg-item goals-item">
+              <h3 class="vmg-item-title" data-i18n="dept.goals_label">الأهداف</h3>
+              <p class="vmg-item-text" data-i18n="dept.${deptId}.goals">أهداف القسم قيد الإضافة...</p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- 4. حول القسم -->
+        <section class="about-dept-section">
+          <h2 class="section-main-title" data-i18n="dept.about_label">حول القسم</h2>
+          <div class="about-content">
+            <p data-i18n="dept.${deptId}.about">نبذة عن القسم قيد الإضافة...</p>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  `;
 }

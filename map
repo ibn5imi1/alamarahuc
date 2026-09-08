@@ -4,6 +4,8 @@ public
 src
 -assets
 --images
+---logos
+---teachers
 -components
 --footer.js
 --header.js
@@ -58,6 +60,16 @@ src
 --contact_us.js
 --home.js
 -scss
+--components
+---_footer.scss
+---_header.scss
+----pages
+-----college_departments
+------_departmentView.scss
+-----_home.scss
+----mixin.scss
+----style.scss
+----variables.scss
 -main_translate.js
 -main.js
 -rounter.js
