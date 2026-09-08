@@ -135,7 +135,7 @@
 }
 .header .navbar .nav_list .nav_item .dropdown_menu li a:hover {
   color: #f4d35e;
-  background-color: rgb(0%, 21.9981325864%, 44.7058823529%);
+  background-color: rgb(0, 56.0952380952, 114);
 }
 .header .navbar .nav_list .nav_item .dropdown_menu .has-submenu {
   position: relative;
@@ -151,7 +151,7 @@
 }
 .header .navbar .nav_list .nav_item .dropdown_menu .has-submenu:hover > a {
   color: #f4d35e;
-  background-color: rgb(0%, 21.9981325864%, 44.7058823529%);
+  background-color: rgb(0, 56.0952380952, 114);
 }
 .header .navbar .nav_list .nav_item .dropdown_menu .has-submenu:hover > a::after {
   border-left-color: #f4d35e;
@@ -401,7 +401,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: rgb(0%, 21.9981325864%, 44.7058823529%);
+  background-color: rgb(0, 56.0952380952, 114);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -449,7 +449,7 @@
   color: #ffffff;
   text-decoration: none;
   padding: 10px 15px;
-  border: 1px solid rgb(0%, 31.8394024276%, 64.7058823529%);
+  border: 1px solid rgb(0, 81.1904761905, 165);
   border-radius: 8px;
   transition: all 0.3s ease;
 }
@@ -458,7 +458,7 @@
   font-size: 1.3rem;
 }
 .footer .location-footer .location-info .location-link:hover {
-  background-color: rgb(0%, 20.0298786181%, 40.7058823529%);
+  background-color: rgb(0, 51.0761904762, 103.8);
   border-color: #f4d35e;
   color: #f4d35e;
   transform: translateY(-2px);
@@ -972,6 +972,10 @@ html[dir=rtl] .slider-section .slider-btn.next-btn {
   line-height: 1.9;
   font-size: 1.15rem;
   text-align: justify;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 * {

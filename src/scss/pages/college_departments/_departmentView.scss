@@ -1,5 +1,5 @@
-@use '../../variables' as *;
-@use '../../mixin' as *;
+@use "../../variables" as *;
+@use "../../mixin" as *;
 
 .department-page {
   padding: 50px 20px;
@@ -91,9 +91,9 @@
     font-weight: 700;
     margin-bottom: 25px;
     position: relative;
-    
+
     &::after {
-      content: '';
+      content: "";
       display: block;
       width: 60px;
       height: 4px;
@@ -151,6 +151,10 @@
       line-height: 1.9;
       font-size: 1.15rem;
       text-align: justify;
+      white-space: pre-wrap;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      max-width: 100%;
     }
   }
 }
