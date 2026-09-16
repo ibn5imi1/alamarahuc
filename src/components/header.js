@@ -23,34 +23,34 @@ export function header() {
                         <li class="dropdown_item has-submenu">
                             <a href="#" data-i18n="nav.about_sub">About</a>
                             <ul class="submenu">
-                                <li><a href="#" data-i18n="nav.about_inner">About</a></li>
-                                <li><a href="#" data-i18n="nav.vision_mission">Vision, mission and goals</a></li>
-                                <li><a href="#" data-i18n="nav.dean_speech">Dean Speech</a></li>
+                                <li><a href="/about/college" data-i18n="nav.about_inner">About</a></li>
+                                <li><a href="/about/vision" data-i18n="nav.vision_mission">Vision, mission and goals</a></li>
+                                <li><a href="/about/dean-speech" data-i18n="nav.dean_speech">Dean Speech</a></li>
                             </ul>
                         </li>
                         <li class="dropdown_item has-submenu">
                             <a href="#" data-i18n="nav.programs_structure">Programs and Academic Structure</a>
                             <ul class="submenu">
-                                <li><a href="#" data-i18n="nav.academic_program">Academic Program</a></li>
+                                <li><a href="/about/academic-program" data-i18n="nav.academic_program">Academic Program</a></li>
                                 <li><a href="#" data-i18n="nav.college_structure">College Structure</a></li>
-                                <li><a href="#" data-i18n="nav.certifications">Certifications and Ratings</a></li>
-                                <li><a href="#" data-i18n="nav.strategic_plan">Strategic Plan</a></li>
+                                <li><a href="/about/certifications" data-i18n="nav.certifications">Certifications and Ratings</a></li>
+                                <li><a href="/about/strategic-plan" data-i18n="nav.strategic_plan">Strategic Plan</a></li>
                             </ul>
                         </li>
                         <li class="dropdown_item has-submenu">
                             <a href="#" data-i18n="nav.facilities">Facilities and Information</a>
                             <ul class="submenu">
-                                <li><a href="#" data-i18n="location">Location</a></li>
-                                <li><a href="#" data-i18n="nav.activities">Activities</a></li>
-                                <li><a href="#" data-i18n="nav.statistics">Statistics</a></li>
-                                <li><a href="#" data-i18n="nav.transparency">Transparency</a></li>
+                                <li><a href="/about/location" data-i18n="location">Location</a></li>
+                                <li><a href="/about/activities" data-i18n="nav.activities">Activities</a></li>
+                                <li><a href="/about/statistics" data-i18n="nav.statistics">Statistics</a></li>
+                                <li><a href="/about/transparency" data-i18n="nav.transparency">Transparency</a></li>
                             </ul>
                         </li>
                         <li class="dropdown_item has-submenu">
                             <a href="#" data-i18n="nav.recruitment_policies">Recruitment and Policies</a>
                             <ul class="submenu">
-                                <li><a href="#" data-i18n="nav.college_instructions">College Instructions and Policy</a></li>
-                                <li><a href="#" data-i18n="nav.jobs">Jobs</a></li>
+                                <li><a href="/about/instructions" data-i18n="nav.college_instructions">College Instructions and Policy</a></li>
+                                <li><a href="/about/jobs" data-i18n="nav.jobs">Jobs</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -63,34 +63,34 @@ export function header() {
         <li class="dropdown_item has-submenu">
             <a href="#" data-i18n="nav.medical_departments">Medical Departments</a>
             <ul class="submenu">
-                <li><a href="#department?id=dentistry" data-i18n="nav.dentistry">Department of Dentistry</a></li>
-                <li><a href="#department?id=pharmacy" data-i18n="nav.pharmacy">Pharmacy Department</a></li>
-                <li><a href="#department?id=radiology" data-i18n="nav.radiology">Radiology and Sonography Technologies Department</a></li>
-                <li><a href="#department?id=dental_industry" data-i18n="nav.dental_industry">Dental Industry Technical Department</a></li>
-                <li><a href="#department?id=cosmetic_laser" data-i18n="nav.cosmetic_laser">Cosmetic and Laser Technology Department</a></li>
-                <li><a href="#department?id=medical_lab" data-i18n="nav.medical_lab">Medical Laboratory Sciences Department</a></li>
+                <li><a href="/department?id=dentistry" data-i18n="nav.dentistry">Department of Dentistry</a></li>
+                <li><a href="/department?id=pharmacy" data-i18n="nav.pharmacy">Pharmacy Department</a></li>
+                <li><a href="/department?id=radiology" data-i18n="nav.radiology">Radiology and Sonography Technologies Department</a></li>
+                <li><a href="/department?id=dental_industry" data-i18n="nav.dental_industry">Dental Industry Technical Department</a></li>
+                <li><a href="/department?id=cosmetic_laser" data-i18n="nav.cosmetic_laser">Cosmetic and Laser Technology Department</a></li>
+                <li><a href="/department?id=medical_lab" data-i18n="nav.medical_lab">Medical Laboratory Sciences Department</a></li>
             </ul>
         </li>
         <li class="dropdown_item has-submenu">
             <a href="#" data-i18n="nav.engineering_departments">Engineering Departments</a>
             <ul class="submenu">
-                <li><a href="#department?id=petroleum_eng" data-i18n="nav.petroleum_eng">Petroleum Engineering Department</a></li>
-                <li><a href="#department?id=mechanical_eng" data-i18n="nav.mechanical_eng">Mechanical Power Technical Engineering Department</a></li>
-                <li><a href="#department?id=medical_devices_eng" data-i18n="nav.medical_devices_eng">Medical Devices Technical Engineering Department</a></li>
-                <li><a href="#department?id=electrical_eng" data-i18n="nav.electrical_eng">Electrical Power Technology Engineering</a></li>
-                <li><a href="#department?id=chemical_eng" data-i18n="nav.chemical_eng">Chemical Engineering and Petroleum Industries Department</a></li>
-                <li><a href="#department?id=cybersecurity_eng" data-i18n="nav.cybersecurity_eng">Cybersecurity Technical Engineering Department</a></li>
-                <li><a href="#department?id=ai_eng" data-i18n="nav.ai_eng">Artificial Intelligence Engineering Department</a></li>
-                <li><a href="#department?id=civil_eng" data-i18n="nav.civil_eng">Civil Engineering Department</a></li>
+                <li><a href="/department?id=petroleum_eng" data-i18n="nav.petroleum_eng">Petroleum Engineering Department</a></li>
+                <li><a href="/department?id=mechanical_eng" data-i18n="nav.mechanical_eng">Mechanical Power Technical Engineering Department</a></li>
+                <li><a href="/department?id=medical_devices_eng" data-i18n="nav.medical_devices_eng">Medical Devices Technical Engineering Department</a></li>
+                <li><a href="/department?id=electrical_eng" data-i18n="nav.electrical_eng">Electrical Power Technology Engineering</a></li>
+                <li><a href="/department?id=chemical_eng" data-i18n="nav.chemical_eng">Chemical Engineering and Petroleum Industries Department</a></li>
+                <li><a href="/department?id=cybersecurity_eng" data-i18n="nav.cybersecurity_eng">Cybersecurity Technical Engineering Department</a></li>
+                <li><a href="/department?id=ai_eng" data-i18n="nav.ai_eng">Artificial Intelligence Engineering Department</a></li>
+                <li><a href="/department?id=civil_eng" data-i18n="nav.civil_eng">Civil Engineering Department</a></li>
             </ul>
         </li>
         <li class="dropdown_item has-submenu">
             <a href="#" data-i18n="nav.humanities_departments">Humanities Departments</a>
             <ul class="submenu">
-                <li><a href="#department?id=law" data-i18n="nav.law">Law Department</a></li>
-                <li><a href="#department?id=accounting" data-i18n="nav.accounting">Accounting Department</a></li>
-                <li><a href="#department?id=english_edu" data-i18n="nav.english_edu">English Education Department</a></li>
-                <li><a href="#department?id=oil_gas_mgmt" data-i18n="nav.oil_gas_mgmt">Oil and Gas Management and Marketing Department</a></li>
+                <li><a href="/department?id=law" data-i18n="nav.law">Law Department</a></li>
+                <li><a href="/department?id=accounting" data-i18n="nav.accounting">Accounting Department</a></li>
+                <li><a href="/department?id=english_edu" data-i18n="nav.english_edu">English Education Department</a></li>
+                <li><a href="/department?id=oil_gas_mgmt" data-i18n="nav.oil_gas_mgmt">Oil and Gas Management and Marketing Department</a></li>
             </ul>
         </li>
     </ul>
@@ -104,7 +104,7 @@ export function header() {
                         <li class="dropdown_item has-submenu">
                             <a href="#" data-i18n="nav.publishing">Publishing</a>
                             <ul class="submenu">
-                                <li><a href="#" data-i18n="nav.researches">Researches</a></li>
+                                <li><a href="/researches" data-i18n="nav.researches">Researches</a></li>
                                 <li><a href="#" data-i18n="nav.patents">Patents</a></li>
                                 <li><a href="#" data-i18n="nav.books">Books</a></li>
                             </ul>
@@ -126,10 +126,10 @@ export function header() {
                 <li class="nav_item has-dropdown">
                     <a href="#" data-i18n="nav.students">Students</a>
                     <ul class="dropdown_menu">
-                        <li><a href="#" data-i18n="nav.academic_calendar">Academic Calendar</a></li>
-                        <li><a href="#" data-i18n="nav.examination_committee">Examination Committee Numbers</a></li>
-                        <li><a href="#" data-i18n="nav.top_students">Top Students</a></li>
-                        <li><a href="#" data-i18n="nav.graduates">Graduates</a></li>
+                        <li><a href="/students/calendar" data-i18n="nav.academic_calendar">Academic Calendar</a></li>
+                        <li><a href="/students/exams" data-i18n="nav.examination_committee">Examination Committee Numbers</a></li>
+                        <li><a href="/students/top-rank" data-i18n="nav.top_students">Top Students</a></li>
+                        <li><a href="/students/graduates" data-i18n="nav.graduates">Graduates</a></li>
                     </ul>
                 </li>
 
@@ -137,15 +137,15 @@ export function header() {
                 <li class="nav_item has-dropdown">
                     <a href="#" data-i18n="nav.repository">E-Repository</a>
                     <ul class="dropdown_menu">
-                        <li><a href="#" data-i18n="nav.lectures">Lectures</a></li>
-                        <li><a href="#" data-i18n="nav.graduate_research">Graduate Research</a></li>
-                        <li><a href="#" data-i18n="nav.e_library">E-Library</a></li>
-                        <li><a href="#" data-i18n="nav.library">Library</a></li>
+                        <li><a href="/repository/lectures" data-i18n="nav.lectures">Lectures</a></li>
+                        <li><a href="/repository/projects" data-i18n="nav.graduate_research">Graduate Research</a></li>
+                        <li><a href="/repository/e-library" data-i18n="nav.e_library">E-Library</a></li>
+                        <li><a href="/repository/library" data-i18n="nav.library">Library</a></li>
                         <li class="dropdown_item has-submenu">
                             <a href="#" data-i18n="nav.media">Media</a>
                             <ul class="submenu">
-                                <li><a href="#" data-i18n="nav.video_gallery">Video Gallery</a></li>
-                                <li><a href="#" data-i18n="nav.photo_gallery">Photo Gallery</a></li>
+                                <li><a href="/repository/photos" data-i18n="nav.video_gallery">Video Gallery</a></li>
+                                <li><a href="/repository/videos" data-i18n="nav.photo_gallery">Photo Gallery</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -153,23 +153,23 @@ export function header() {
 
                 <!-- Electronic Services -->
                 <li class="nav_item has-dropdown">
-                    <a href="#" data-i18n="nav.services">Electronic Services</a>
+                    <a href="" data-i18n="nav.services">Electronic Services</a>
                     <ul class="dropdown_menu">
                         <li class="dropdown_item has-submenu">
-                            <a href="#" data-i18n="nav.educational_platforms">Educational Platforms</a>
+                            <a href="" data-i18n="nav.educational_platforms">Educational Platforms</a>
                             <ul class="submenu">
-                                <li><a href="#" data-i18n="nav.google_classroom">Google Classroom</a></li>
+                                <li><a href="" data-i18n="nav.google_classroom">Google Classroom</a></li>
                                 <li><a href="#" data-i18n="nav.moodle">Moodle</a></li>
                             </ul>
                         </li>
                         <li><a href="#" data-i18n="nav.email">Email</a></li>
-                        <li><a href="#" data-i18n="nav.related_sites">Related Sites</a></li>
-                        <li><a href="#" data-i18n="nav.complaints_feedback">Complaints and Feedback</a></li>
+                        <li><a href="/services/websites" data-i18n="nav.related_sites">Related Sites</a></li>
+                        <li><a href="/services/complaints" data-i18n="nav.complaints_feedback">Complaints and Feedback</a></li>
                     </ul>
                 </li>
 
-                <li class="nav_item"><a href="/contactUs" data-i18n="contact_us">Contact Us</a></li>
-                <li class="nav_item"><a href="#" data-i18n="nav.en">عربي</a></li>
+                <li class="nav_item"><a href="/contact_us" data-i18n="contact_us">Contact Us</a></li>
+                <li class="nav_item"><a href="" data-i18n="nav.en">عربي</a></li>
             </ul>
         </nav>
         <div class="nav_overlay" id="nav-overlay"></div>

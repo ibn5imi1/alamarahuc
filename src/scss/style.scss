@@ -3,15 +3,44 @@
 @use 'components/footer.scss';
 @use '../scss/pages/home';
 @use 'pages/college_departments/departmentView';
+@use 'pages/contac_us';
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+// Custom Scrollbar Styling (Webkit Browsers: Chrome, Safari, Edge, Opera)
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: $hero-bg-1; // خلفية المسار داكنة ومتناسقة مع الـ Hero
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, $primary-color, $hero-bg-3); // تدرج أنيق ومريح للعين
+    border-radius: 5px;
+    border: 2px solid $hero-bg-1; // مسافة فاصلة تجعل الشريط يبدو أنيقاً ومجوفاً
+    transition: background 0.3s ease;
+
+    &:hover {
+        background: $accent-color; // إضاءة باللون الذهبي/الأصفر عند تحريك الماوس فوقه
+    }
+}
+
+// Firefox Scrollbar Support
+html {
+    scrollbar-width: thin;
+    scrollbar-color: $primary-color $hero-bg-1;
+}
+
 // General Reset for consistency, especially when changing dir attributes
 html,
 body {
-  overflow-x: hidden;
-  padding-top: 35px;
+    overflow-x: hidden;
+    padding-top: 35px;
 }
