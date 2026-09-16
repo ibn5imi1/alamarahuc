@@ -20,6 +20,7 @@ import { jobsView } from './pages/about_college/employment_and_policies/jobs.js'
 import { booksView } from './pages/faculty_members/publications/books.js';
 import { patentView } from './pages/faculty_members/publications/patent.js';
 import { researchView } from './pages/faculty_members/publications/research.js';
+import {teachingView} from './pages/faculty_members/teaching_staff.js';
 
 // Students
 import { academicCalendarView } from './pages/students/academic_calendar.js';
@@ -85,10 +86,13 @@ const routes = {
   '/about/instructions': () => renderView(collegeInstructionsAndPolicyView),
   '/about/jobs': () => renderView(jobsView),
 
+  
+
   // Faculty Members
   '/faculty/books': () => renderView(booksView),
   '/faculty/patents': () => renderView(patentView),
   '/faculty/research': () => renderView(researchView),
+  '/faculty/teaching': ()=> renderView(teachingView),
 
   // Students
   '/students/calendar': () => renderView(academicCalendarView),

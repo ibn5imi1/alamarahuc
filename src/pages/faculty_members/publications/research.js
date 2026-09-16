@@ -1,3 +1,3 @@
 export function researchView() {
-    return `<h1>hhh</h1>`
+    return `<h1>reserch</h1>`
 }

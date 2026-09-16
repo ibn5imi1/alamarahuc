@@ -100,13 +100,13 @@ export function header() {
                 <li class="nav_item has-dropdown">
                     <a href="#" data-i18n="nav.teachers">Teachers</a>
                     <ul class="dropdown_menu">
-                        <li><a href="#" data-i18n="nav.teaching_staff">Teaching Staff</a></li>
+                        <li><a href="/faculty/teaching" data-i18n="nav.teaching_staff">Teaching Staff</a></li>
                         <li class="dropdown_item has-submenu">
                             <a href="#" data-i18n="nav.publishing">Publishing</a>
                             <ul class="submenu">
-                                <li><a href="/researches" data-i18n="nav.researches">Researches</a></li>
-                                <li><a href="#" data-i18n="nav.patents">Patents</a></li>
-                                <li><a href="#" data-i18n="nav.books">Books</a></li>
+                                <li><a href="/faculty/research" data-i18n="nav.researches">Researches</a></li>
+                                <li><a href="/faculty/patents" data-i18n="nav.patents">Patents</a></li>
+                                <li><a href="/faculty/books" data-i18n="nav.books">Books</a></li>
                             </ul>
                         </li>
                         <li class="dropdown_item has-submenu">
