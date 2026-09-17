@@ -14,3 +14,15 @@
 }
 
 
+@mixin fade-up-on-scroll($duration: 0.6s, $delay: 0s, $distance: 30px) {
+  opacity: 0;
+  transform: translateY($distance);
+  transition: opacity $duration ease-out $delay, transform $duration ease-out $delay;
+  will-change: opacity, transform;
+
+  // عند تفعيل الكلاس عبر JS
+  &.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+}

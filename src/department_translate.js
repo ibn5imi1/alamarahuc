@@ -1,3 +1,4 @@
+// department_translate.js
 let deptAr = null;
 let deptEn = null;
 
@@ -17,13 +18,13 @@ async function loadDeptTranslations() {
 
 export async function applyDeptLanguage() {
   await loadDeptTranslations();
-  
+
   const currentLang = localStorage.getItem('lang') || 'ar';
   const translations = currentLang === 'ar' ? deptAr : deptEn;
 
   document.querySelectorAll('[data-i18n]').forEach(element => {
     const key = element.getAttribute('data-i18n');
-    
+
     if (translations && key in translations) {
       const val = translations[key];
 

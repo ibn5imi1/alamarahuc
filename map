@@ -1,6 +1,7 @@
 public
 -main_translate_ar.json
 -department_translate_ar.json
+-teachers_translate_ar.json
 src
 -assets
 --images
@@ -66,12 +67,16 @@ src
 ----pages
 -----college_departments
 ------_departmentView.scss
+-----faculty_members
+------_teaching_staff.scss
 -----_home.scss
 ----mixin.scss
 ----style.scss
 ----variables.scss
 -main_translate.js
+-teachers_translate.js
 -main.js
 -rounter.js
 -style.css
+-scrollReveal.js
 -style.css.map

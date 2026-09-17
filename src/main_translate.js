@@ -25,7 +25,7 @@ export function cacheOriginalTexts() {
 
 export async function toArabic() {
   await loadArabicTranslations();
-  cacheOriginalTexts(); 
+  cacheOriginalTexts();
 
   document.querySelectorAll('[data-i18n]').forEach(element => {
     const key = element.getAttribute('data-i18n');
@@ -53,15 +53,20 @@ export function toEnglish() {
 }
 
 export async function toggleLanguage() {
-  const current = document.documentElement.lang;
-  if (current === 'ar') {
-    toEnglish();
-  } else {
+  const currentLang = localStorage.getItem('lang') || 'ar';
+  const newLang = currentLang === 'ar' ? 'en' : 'ar';
+
+  // ✅ نستخدم الدوال الموجودة فعليًا بدل applyLanguage الوهمية
+  if (newLang === 'ar') {
     await toArabic();
+  } else {
+    toEnglish();
   }
+
+  // 🔔 نبلّغ باقي النظام (الراوتر) إن اللغة تغيّرت
+  window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang: newLang } }));
 }
 
-// دالة يتم استدعاؤها من الـ Router عند التنقل لإعادة تطبيق اللغة الحالية
 export async function applyMainLanguage() {
   cacheOriginalTexts();
   const savedLang = localStorage.getItem('lang') || 'en';
@@ -72,7 +77,6 @@ export async function applyMainLanguage() {
   }
 }
 
-// دالة تفعيل زر اللغة
 export function initLanguage() {
   applyMainLanguage();
 
