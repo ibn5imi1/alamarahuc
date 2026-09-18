@@ -112,11 +112,11 @@ export function header() {
                         <li class="dropdown_item has-submenu">
                             <a href="#" data-i18n="nav.research_database">Research Database</a>
                             <ul class="submenu">
-                                <li><a href="#" data-i18n="nav.iraqi_virtual_library">Iraqi Virtual Library</a></li>
-                                <li><a href="#" data-i18n="nav.google_scholar">Google Scholar</a></li>
-                                <li><a href="#" data-i18n="nav.researchgate">ResearchGate</a></li>
-                                <li><a href="#" data-i18n="nav.researcher_id">ResearcherID</a></li>
-                                <li><a href="#" data-i18n="nav.scopus">Scopus</a></li>
+                                <li><a target="_blank" href="https://iurp.uobaghdad.edu.iq/?page_id=16126" data-i18n="nav.iraqi_virtual_library">Iraqi Virtual Library</a></li>
+                                <li><a target="_blank" href="https://scholar.google.com/" data-i18n="nav.google_scholar">Google Scholar</a></li>
+                                <li><a target="_blank" href="https://iafor.org/" data-i18n="nav.researchgate">ResearchGate</a></li>
+                                <li><a target="_blank" href="https://researchid.co/" data-i18n="nav.researcher_id">ResearcherID</a></li>
+                                <li><a target="_blank" href="https://www.elsevier.com/products/scopus" data-i18n="nav.scopus">Scopus</a></li>
                             </ul>
                         </li>
                     </ul>

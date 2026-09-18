@@ -18,7 +18,7 @@ import { jobsView } from './pages/about_college/employment_and_policies/jobs.js'
 
 // Faculty Members
 import { booksView } from './pages/faculty_members/publications/books.js';
-import { patentView } from './pages/faculty_members/publications/patent.js';
+import { patentView } from './pages/faculty_members/publications/patents.js';
 import { researchView } from './pages/faculty_members/publications/research.js';
 import { teachingView } from './pages/faculty_members/teaching_staff.js';
 
