@@ -68,6 +68,10 @@ src
 -----college_departments
 ------_departmentView.scss
 -----faculty_members
+------publications
+-------_books.scss
+-------_research.scss
+-------_patent.scss
 ------_teaching_staff.scss
 -----_home.scss
 ----mixin.scss

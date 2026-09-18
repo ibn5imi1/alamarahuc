@@ -1,5 +1,5 @@
-@import "../variables.scss";
-@import "../mixin.scss";
+@use "../variables.scss" as *;
+@use "../mixin.scss" as *;
 .footer {
     background-color: $bg-color;
     color: $text-color;

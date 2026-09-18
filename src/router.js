@@ -137,7 +137,7 @@ export function handleRouting() {
   // تطبيق الترجمة المناسبة بعد استبدال محتوى mainContent
   if (path === '/department') {
     if (typeof applyDeptLanguage === 'function') applyDeptLanguage();
-  } else if (path === '/faculty/teaching') {
+  } else if (path === '/faculty/teaching' || path === '/faculty/research' || path === '/faculty/books' || path === '/faculty/patents') {
     if (typeof applyTeachersLanguage === 'function') applyTeachersLanguage();
   } else {
     if (typeof applyMainLanguage === 'function') applyMainLanguage();
@@ -190,7 +190,7 @@ window.addEventListener('languageChanged', () => {
 
   if (path === '/department') {
     if (typeof applyDeptLanguage === 'function') applyDeptLanguage();
-  } else if (path === '/faculty/teaching') {
+  } else if (path === '/faculty/teaching' || path === '/faculty/research' || path === '/faculty/books' || path === '/faculty/patents') {
     if (typeof applyTeachersLanguage === 'function') applyTeachersLanguage();
   } else {
     if (typeof applyMainLanguage === 'function') applyMainLanguage();

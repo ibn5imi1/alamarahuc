@@ -1,9 +1,9 @@
-@import "../variables.scss";
-@import "../mixin.scss";
+@use "../variables.scss" as *;
+@use "../mixin.scss" as *;
 
 /* خلفية تدرج ألوان ناعمة ومتحركة هادئة */
-@import "../variables.scss";
-@import "../mixin.scss";
+@use "../variables.scss" as *;
+@use "../mixin.scss" as *;
 
 @keyframes ambientGradient {
     0% {

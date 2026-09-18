@@ -11,5 +11,81 @@
   "heads.card4_name": "أ.م.د. كمال جواد كاظم",
   "heads.card4_title": "رئيس قسم القانون",
   "heads.card5_name": "أ.م.د. سلمان حمادي",
-  "heads.card5_title": "رئيس قسم المحاسبة"
+  "heads.card5_title": "رئيس قسم المحاسبة",
+
+  "research.hero_title": "البحوث العلمية",
+  "research.section_title": "أبحاث منشورة",
+  "research.col_title": "عنوان البحث",
+  "research.col_researcher": "الباحث",
+  "research.col_department": "القسم",
+  "patent.col_date": "التاريخ",
+  "research.col_journal": "المجلة",
+  "research.col_date": "تاريخ النشر",
+  "research.scopus_journal": "سكوباس",
+  "research.clarvit_journal": "كلارفيت",
+  "research.international_journal": "دولي",
+  "dept.petroleum_eng": "هندسة النفط",
+  "dept.mechanical_power_eng": "هندسة تقنيات ميكانيك القوى",
+  "dept.law": "القانون",
+  "dept.accounting": "المحاسبة",
+
+
+  "research.row1_title": "التدريب الهيدروستاتيكي وتوصيف سبائك النيكل والمنغنيز والغاليوم (Ni-Mn-Ga) القريبة من التكافؤ العنصري (الستوكيومتري)",
+  "research.row1_researcher": "صالح محمد قيتاوي",
+
+  "research.row2_title": "دراسة عدادية لنقل نواتج الحفر (الصخور الحافرة) باستخدام سوائل الحفر القائمة على الجسيمات النانوية",
+  "research.row2_researcher": "مرتضى سعدون محمد",
+
+
+  "research.row3_title": "دور البنوك في حماية الاعتماد المستندي من الغش",
+  "research.row3_researcher": "ماهر السعيد محمد جبر",
+  "research.row3_journal": "مجلة الدراسات الفقهية والقانونية – سلطنة عمان",
+
+  "research.row4_title": "نظام نهر الفرات من البليوسين إلى العصر الحديث: المعمارية الرسوبية كنظير للمكامن التحت سطحية",
+  "research.row4_researcher": "عامر علي ضامن",
+
+  "research.row5_title": "سلسلة مؤتمرات IOP: علوم وهندسة المواد",
+  "research.row5_researcher": "هديل صالح مهدي",
+
+  "research.row6_title": "التآكل التحتّي التآكلي لأنابيب الحفر أثناء عمليات الحفر",
+  "research.row6_researcher": "مرتضى سعدون محمد",
+
+  "research.row7_title": "مراجعة شاملة للغاز الطبيعي في العراق: الواقع الحالي والآفاق المستقبلية لتحسين الوضع الاقتصادي والبيئي",
+  "research.row7_researcher": "ضياء جمعة جاسم",
+
+  "research.row8_title": "تحليل وحل وطني لغاز ثاني أكسيد الكربون في حقول نفط ميسان",
+  "research.row8_researcher": "ضياء جمعة جاسم",
+
+  "research.row9_title": "التسوية المشروطة وطرق استرداد البنك لقيمة الاعتماد",
+  "research.row9_researcher": "ماهر السعيد محمد جبر",
+
+  "research.row10_title": "أهلية تطبيق التعليم الالكتروني بالنسبة لمدرسي التربية الرياضية في المنطقة الجنوبية في ظل جائحة كورونا",
+  "research.row10_researcher": "مقداد بشير حسين",
+
+  "books.hero_title": "الكتب و المؤلفات",
+  "books.section_title": "الكتب المنشورة",
+  "books.col_title": "عنوان الكتاب",
+  "books.col_author": "المؤلف",
+  
+  "books.row1_title": "صيانة محركات السيارات وملحقاتها",
+  "books.row1_author": "د. عبدالحسين حريجة",
+
+  "books.row2_title": "امثلية الانتاج والتكاليف والارباح",
+  "books.row2_author": "د. عدنان داود محمد",
+
+  "books.row3_title": "الوجيز في نظرية القانون الدستوري",
+  "books.row3_author": "ا.د. وائل محمد اسماعيل",
+
+  "books.row4_title": "لعب اللغز والشطرنج في دول الشرق الاوسط",
+  "books.row5_title": "مستقبل التغيير في النظام الدولي",
+  "books.row6_title": "الشؤون الخارجية في العلاقة بين الرئيس والكونغرس في النظام السياسي الامريكي",
+
+  "patent.hero_title": "براءات الاختراع",
+  "patent.section_title": "براءات الاختراع المسجلة",
+  "patent.col_title": "براءة الاختراع",
+  "patent.col_inventor": "المخترع",
+
+  "patent.row1_title": "منظومة تبريد هواء محرك ديزل بالماء",
+  "patent.row1_inventor": "ا.م.د. عبدالحسين حريجة رفيس"
+
 }

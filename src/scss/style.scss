@@ -5,6 +5,10 @@
 @use 'pages/college_departments/departmentView';
 @use 'pages/contac_us';
 @use 'pages/faculty_members/teaching_staff';
+@use 'pages/faculty_members/publications/research';
+@use 'pages/faculty_members/publications/books';
+@use 'pages/faculty_members/publications/patent';
+
 * {
     padding: 0;
     margin: 0;
