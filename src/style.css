@@ -135,7 +135,7 @@
 }
 .header .navbar .nav_list .nav_item .dropdown_menu li a:hover {
   color: #f4d35e;
-  background-color: rgb(0, 56.0952380952, 114);
+  background-color: rgb(0%, 21.9981325864%, 44.7058823529%);
 }
 .header .navbar .nav_list .nav_item .dropdown_menu .has-submenu {
   position: relative;
@@ -151,7 +151,7 @@
 }
 .header .navbar .nav_list .nav_item .dropdown_menu .has-submenu:hover > a {
   color: #f4d35e;
-  background-color: rgb(0, 56.0952380952, 114);
+  background-color: rgb(0%, 21.9981325864%, 44.7058823529%);
 }
 .header .navbar .nav_list .nav_item .dropdown_menu .has-submenu:hover > a::after {
   border-left-color: #f4d35e;
@@ -401,7 +401,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: rgb(0, 56.0952380952, 114);
+  background-color: rgb(0%, 21.9981325864%, 44.7058823529%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -449,7 +449,7 @@
   color: #ffffff;
   text-decoration: none;
   padding: 10px 15px;
-  border: 1px solid rgb(0, 81.1904761905, 165);
+  border: 1px solid rgb(0%, 31.8394024276%, 64.7058823529%);
   border-radius: 8px;
   transition: all 0.3s ease;
 }
@@ -458,7 +458,7 @@
   font-size: 1.3rem;
 }
 .footer .location-footer .location-info .location-link:hover {
-  background-color: rgb(0, 51.0761904762, 103.8);
+  background-color: rgb(0%, 20.0298786181%, 40.7058823529%);
   border-color: #f4d35e;
   color: #f4d35e;
   transform: translateY(-2px);
@@ -1670,6 +1670,212 @@ html[dir=rtl] .contact-us-page .contact-info-wrapper .info-card {
 @media (max-width: 576px) {
   .patent-page .patent-container .table-wrapper table {
     min-width: 550px;
+  }
+}
+.academic-calendar-page {
+  width: 100%;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+.academic-calendar-page .reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out 0s, transform 0.6s ease-out 0s;
+  will-change: opacity, transform;
+}
+.academic-calendar-page .reveal.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.academic-calendar-page .calendar-hero {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  min-height: 280px;
+  background: url("/src/assets/images/build.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.academic-calendar-page .calendar-hero .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.85), rgba(13, 59, 102, 0.8));
+  z-index: 1;
+}
+.academic-calendar-page .calendar-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  padding: 0 20px;
+}
+.academic-calendar-page .calendar-hero .hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+.academic-calendar-page .calendar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+.academic-calendar-page .calendar-container .section-header {
+  margin-bottom: 30px;
+}
+.academic-calendar-page .calendar-container .section-header h2 {
+  font-size: 1.8rem;
+  color: #0d3b66;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.academic-calendar-page .calendar-container .section-header .header-line {
+  width: 80px;
+  height: 4px;
+  background-color: #f4d35e;
+  border-radius: 2px;
+}
+.academic-calendar-page .calendar-container .years-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.academic-calendar-page .calendar-container .years-list .year-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 25px 30px;
+  text-align: right;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.academic-calendar-page .calendar-container .years-list .year-card:hover {
+  transform: translateX(-8px);
+  box-shadow: 0 12px 25px rgba(13, 59, 102, 0.15);
+}
+.academic-calendar-page .calendar-container .years-list .year-card .year-icon {
+  font-size: 2.2rem;
+  flex-shrink: 0;
+}
+.academic-calendar-page .calendar-container .years-list .year-card h3 {
+  color: #0d3b66;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0;
+  flex: 1;
+}
+.academic-calendar-page .calendar-container .years-list .year-card .view-label {
+  font-size: 0.9rem;
+  color: #f4d35e;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.academic-calendar-page .pdf-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.academic-calendar-page .pdf-modal.active {
+  display: flex;
+}
+.academic-calendar-page .pdf-modal .pdf-modal-content {
+  background: #ffffff;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 900px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.academic-calendar-page .pdf-modal .pdf-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background: #0d3b66;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+.academic-calendar-page .pdf-modal .pdf-modal-header h3 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+.academic-calendar-page .pdf-modal .pdf-modal-header .pdf-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.academic-calendar-page .pdf-modal .pdf-modal-header .pdf-modal-actions a {
+  color: #f4d35e;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.academic-calendar-page .pdf-modal .pdf-modal-header .pdf-modal-actions a:hover {
+  text-decoration: underline;
+}
+.academic-calendar-page .pdf-modal .pdf-modal-header .pdf-modal-actions button {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+}
+.academic-calendar-page .pdf-modal .pdf-modal-body {
+  flex: 1;
+  overflow: hidden;
+}
+.academic-calendar-page .pdf-modal .pdf-modal-body iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media (max-width: 576px) {
+  .academic-calendar-page .calendar-container .years-list .year-card {
+    padding: 20px;
+    gap: 15px;
+  }
+  .academic-calendar-page .calendar-container .years-list .year-card h3 {
+    font-size: 1.1rem;
+  }
+  .academic-calendar-page .pdf-modal {
+    padding: 0;
+  }
+  .academic-calendar-page .pdf-modal .pdf-modal-content {
+    height: 100dvh;
+    max-height: 100dvh;
+    border-radius: 0;
+  }
+  .academic-calendar-page .pdf-modal .pdf-modal-header {
+    padding: 12px 15px;
+  }
+  .academic-calendar-page .pdf-modal .pdf-modal-header h3 {
+    font-size: 0.95rem;
+  }
+  .academic-calendar-page .pdf-modal .pdf-modal-header .pdf-modal-actions a {
+    font-size: 0.8rem;
   }
 }
 * {

@@ -1,5 +1,5 @@
 import { getDepartmentHeadImage } from './departmentsData.js';
-import { applyDeptLanguage } from '../../department_translate.js';
+import { applyDeptLanguage } from '../../translate/department_translate.js';
 
 export function departmentView(deptId) {
   const headImageSrc = getDepartmentHeadImage(deptId);

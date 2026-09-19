@@ -24,7 +24,6 @@ import { teachingView } from './pages/faculty_members/teaching_staff.js';
 
 // Students
 import { academicCalendarView } from './pages/students/academic_calendar.js';
-import { examinationCommitteeNumbersView } from './pages/students/examination_committee_numbers.js';
 import { graduatesView } from './pages/students/graduates.js';
 import { topRankingStudentsView } from './pages/students/top_ranking_students.js';
 
@@ -46,9 +45,10 @@ import { complaintsAndCommentsView } from './pages/electronic_services/complaint
 // Contact Us
 import { contactUsView } from './pages/contact_us.js';
 
-import { applyDeptLanguage } from './department_translate.js';
-import { applyMainLanguage } from './main_translate.js';
-import { applyTeachersLanguage } from './teachers_translate.js';
+import { applyDeptLanguage } from './translate/department_translate.js';
+import { applyMainLanguage } from './translate/main_translate.js';
+import { applyTeachersLanguage } from './translate/teachers_translate.js';
+import { applyStudentLanguage } from './translate/student_translate.js';
 
 import { initScrollReveal } from './scrollReveal.js';
 
@@ -99,7 +99,6 @@ const routes = {
 
   // Students
   '/students/calendar': () => renderView(academicCalendarView),
-  '/students/exams': () => renderView(examinationCommitteeNumbersView),
   '/students/graduates': () => renderView(graduatesView),
   '/students/top-rank': () => renderView(topRankingStudentsView),
 
@@ -136,12 +135,23 @@ export function handleRouting() {
 
   // تطبيق الترجمة المناسبة بعد استبدال محتوى mainContent
   if (path === '/department') {
-    if (typeof applyDeptLanguage === 'function') applyDeptLanguage();
-  } else if (path === '/faculty/teaching' || path === '/faculty/research' || path === '/faculty/books' || path === '/faculty/patents') {
-    if (typeof applyTeachersLanguage === 'function') applyTeachersLanguage();
-  } else {
-    if (typeof applyMainLanguage === 'function') applyMainLanguage();
-  }
+  if (typeof applyDeptLanguage === 'function') applyDeptLanguage();
+} else if (
+  path === '/faculty/teaching' ||
+  path === '/faculty/research' ||
+  path === '/faculty/books' ||
+  path === '/faculty/patents'
+) {
+  if (typeof applyTeachersLanguage === 'function') applyTeachersLanguage();
+} else if (
+  path === '/students/calendar' ||
+  path === '/students/graduates' ||
+  path === '/students/top-rank'
+) {
+  if (typeof applyStudentLanguage === 'function') applyStudentLanguage();
+} else {
+  if (typeof applyMainLanguage === 'function') applyMainLanguage();
+}
 
   initScrollReveal();
 

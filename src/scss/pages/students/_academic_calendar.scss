@@ -1,0 +1,246 @@
+@use "../../variables.scss" as *;
+@use "../../mixin.scss" as *;
+
+.academic-calendar-page {
+  width: 100%;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+
+  .reveal {
+    @include fade-up-on-scroll(0.6s, 0s, 30px);
+  }
+
+  // Hero Section
+  .calendar-hero {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    min-height: 280px;
+    background: url("/src/assets/images/build.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba($hero-bg-1, 0.85), rgba($hero-bg-2, 0.8));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: $text-color;
+      padding: 0 20px;
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #ffffff;
+      }
+    }
+  }
+
+  // Main Container
+  .calendar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+
+    .section-header {
+      margin-bottom: 30px;
+
+      h2 {
+        font-size: 1.8rem;
+        color: $primary-color;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .header-line {
+        width: 80px;
+        height: 4px;
+        background-color: $accent-color;
+        border-radius: 2px;
+      }
+    }
+
+    // قائمة السنوات (عمودية)
+    .years-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+
+      .year-card {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 25px 30px;
+        text-align: right;
+        cursor: pointer;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+          transform: translateX(-8px);
+          box-shadow: 0 12px 25px rgba($primary-color, 0.15);
+        }
+
+        .year-icon {
+          font-size: 2.2rem;
+          flex-shrink: 0;
+        }
+
+        h3 {
+          color: $primary-color;
+          font-size: 1.3rem;
+          font-weight: 700;
+          margin: 0;
+          flex: 1;
+        }
+
+        .view-label {
+          font-size: 0.9rem;
+          color: $accent-color;
+          font-weight: 600;
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+
+  // ==========================
+  // Modal لعرض ملف الـ PDF
+  // ==========================
+  .pdf-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+    &.active {
+      display: flex;
+    }
+
+    .pdf-modal-content {
+      background: #ffffff;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 900px;
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .pdf-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 20px;
+      background: $primary-color;
+      color: $text-color;
+      flex-shrink: 0;
+
+      h3 {
+        font-size: 1.1rem;
+        margin: 0;
+      }
+
+      .pdf-modal-actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        a {
+          color: $accent-color;
+          text-decoration: none;
+          font-size: 0.9rem;
+          font-weight: 600;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        button {
+          background: none;
+          border: none;
+          color: $text-color;
+          font-size: 1.5rem;
+          cursor: pointer;
+          line-height: 1;
+        }
+      }
+    }
+
+    .pdf-modal-body {
+      flex: 1;
+      overflow: hidden;
+    //   -webkit-overflow-scrolling: touch;
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    }
+  }
+}
+
+// ==========================
+// التجاوب مع الشاشات الصغيرة
+// ==========================
+@media (max-width: 576px) {
+  .academic-calendar-page {
+    .calendar-container .years-list .year-card {
+      padding: 20px;
+      gap: 15px;
+
+      h3 {
+        font-size: 1.1rem;
+      }
+    }
+
+    .pdf-modal {
+      padding: 0; // يلغي الهامش الخارجي بالجوال حتى تستغل المساحة كاملة
+
+      .pdf-modal-content {
+        height: 100dvh;       // ارتفاع دقيق يراعي شريط عنوان المتصفح المتحرك بالجوال
+        max-height: 100dvh;
+        border-radius: 0;     // يغطي الشاشة كاملة بدون حواف مقطوعة
+      }
+
+      .pdf-modal-header {
+        padding: 12px 15px;
+
+        h3 {
+          font-size: 0.95rem;
+        }
+
+        .pdf-modal-actions a {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}

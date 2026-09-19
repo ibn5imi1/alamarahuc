@@ -8,7 +8,9 @@
 @use 'pages/faculty_members/publications/research';
 @use 'pages/faculty_members/publications/books';
 @use 'pages/faculty_members/publications/patent';
-
+@use 'pages/students/academic_calendar';
+@use 'pages/students/graduates';
+@use 'pages/students/top_ranking_students';
 * {
     padding: 0;
     margin: 0;
@@ -47,4 +49,5 @@ html,
 body {
     overflow-x: hidden;
     padding-top: 35px;
+    // overscroll-behavior: none;
 }

@@ -127,7 +127,6 @@ export function header() {
                     <a href="#" data-i18n="nav.students">Students</a>
                     <ul class="dropdown_menu">
                         <li><a href="/students/calendar" data-i18n="nav.academic_calendar">Academic Calendar</a></li>
-                        <li><a href="/students/exams" data-i18n="nav.examination_committee">Examination Committee Numbers</a></li>
                         <li><a href="/students/top-rank" data-i18n="nav.top_students">Top Students</a></li>
                         <li><a href="/students/graduates" data-i18n="nav.graduates">Graduates</a></li>
                     </ul>
