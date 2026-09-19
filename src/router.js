@@ -198,10 +198,21 @@ export function initRouter() {
 window.addEventListener('languageChanged', () => {
   const path = window.location.pathname;
 
-  if (path === '/department') {
+   if (path === '/department') {
     if (typeof applyDeptLanguage === 'function') applyDeptLanguage();
-  } else if (path === '/faculty/teaching' || path === '/faculty/research' || path === '/faculty/books' || path === '/faculty/patents') {
+  } else if (
+    path === '/faculty/teaching' ||
+    path === '/faculty/research' ||
+    path === '/faculty/books' ||
+    path === '/faculty/patents'
+  ) {
     if (typeof applyTeachersLanguage === 'function') applyTeachersLanguage();
+  } else if (
+    path === '/students/calendar' ||
+    path === '/students/graduates' ||
+    path === '/students/top-rank'
+  ) {
+    if (typeof applyStudentLanguage === 'function') applyStudentLanguage();
   } else {
     if (typeof applyMainLanguage === 'function') applyMainLanguage();
   }
