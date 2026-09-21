@@ -136,7 +136,6 @@ export function header() {
                 <li class="nav_item has-dropdown">
                     <a href="#" data-i18n="nav.repository">E-Repository</a>
                     <ul class="dropdown_menu">
-                        <li><a href="/repository/lectures" data-i18n="nav.lectures">Lectures</a></li>
                         <li><a href="/repository/projects" data-i18n="nav.graduate_research">Graduate Research</a></li>
                         <li><a href="/repository/e-library" data-i18n="nav.e_library">E-Library</a></li>
                         <li><a href="/repository/library" data-i18n="nav.library">Library</a></li>

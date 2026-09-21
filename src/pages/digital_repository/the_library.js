@@ -1,3 +1,3 @@
 export function theLibraryView() {
-    return `<h1>hh</h1>`
+    return `<h1>lib</h1>`
 }

@@ -1,0 +1,178 @@
+@use "../../variables.scss" as *;
+@use "../../mixin.scss" as *;
+
+.electronic-library-page {
+  width: 100%;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+
+  .reveal {
+    @include fade-up-on-scroll(0.6s, 0s, 30px);
+  }
+
+  // Hero Section
+  .library-hero {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    min-height: 280px;
+    background: url("/src/assets/images/build.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba($hero-bg-1, 0.85), rgba($hero-bg-2, 0.8));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: $text-color;
+      padding: 0 20px;
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #ffffff;
+      }
+    }
+  }
+
+  .library-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+
+    .section-header {
+      margin-bottom: 25px;
+
+      h2 {
+        font-size: 1.8rem;
+        color: $primary-color;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .header-line {
+        width: 80px;
+        height: 4px;
+        background-color: $accent-color;
+        border-radius: 2px;
+      }
+    }
+
+    // أزرار فلترة الأقسام
+    .dept-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 35px;
+
+      .dept-btn {
+        padding: 10px 22px;
+        border: 2px solid $primary-color;
+        background: #ffffff;
+        color: $primary-color;
+        font-size: 0.95rem;
+        font-weight: 600;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+
+        &:hover {
+          background-color: rgba($primary-color, 0.08);
+          transform: translateY(-2px);
+        }
+
+        &.active {
+          background-color: $primary-color;
+          color: #ffffff;
+          border-color: $primary-color;
+        }
+      }
+    }
+
+    // الجدول
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      border-radius: 12px;
+
+      table {
+        @include data-table();
+
+        // عنوان الكتاب يأخذ أكبر مساحة، وعمود العرض أضيق
+        thead tr th:first-child,
+        tbody tr td:first-child {
+          width: 75%;
+        }
+
+        thead tr th:last-child,
+        tbody tr td:last-child {
+          width: 25%;
+        }
+
+        // أول حرف كبير، والباقي صغير تلقائيًا لعناوين الكتب
+        tbody tr td:first-child {
+          text-transform: capitalize !important;
+        }
+      }
+
+      .fade-transition {
+        transition: opacity 0.2s ease;
+        opacity: 1;
+      }
+
+      .fade-transition.fade-out {
+        opacity: 0;
+      }
+
+      .view-link {
+        display: inline-block;
+        padding: 6px 18px;
+        background-color: $primary-color;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        transition: background-color 0.25s ease, transform 0.2s ease;
+
+        &:hover {
+          background-color: $accent-color;
+          color: $primary-color;
+          transform: translateY(-2px);
+        }
+      }
+
+      .empty-row {
+        color: #999;
+        font-style: italic;
+        padding: 30px 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .electronic-library-page .library-container {
+    .dept-filters .dept-btn {
+      padding: 8px 16px;
+      font-size: 0.85rem;
+    }
+
+    .table-wrapper table {
+      min-width: 450px;
+    }
+  }
+}

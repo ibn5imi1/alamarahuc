@@ -30,10 +30,9 @@ import { topRankingStudentsView } from './pages/students/top_ranking_students.js
 // Digital Repository
 import { photoGalleryView } from './pages/digital_repository/image_library/photo_gallery.js';
 import { videoGalleryView } from './pages/digital_repository/image_library/video_gallery.js';
-import { electronicLibraryView } from './pages/digital_repository/electronic_library.js';
 import { graduationProjectsView } from './pages/digital_repository/graduation_projects.js';
-import { lecturesView } from './pages/digital_repository/lectures.js';
 import { theLibraryView } from './pages/digital_repository/the_library.js';
+import { electronicLibraryView } from './pages/digital_repository/electronic_library.js';
 
 // Electronic Services
 // import { googleClassroomView } from './pages/electronic_services/educational_platforms/google_classroom.js';
@@ -49,6 +48,7 @@ import { applyDeptLanguage } from './translate/department_translate.js';
 import { applyMainLanguage } from './translate/main_translate.js';
 import { applyTeachersLanguage } from './translate/teachers_translate.js';
 import { applyStudentLanguage } from './translate/student_translate.js';
+import { applyRepositoryLanguage } from './translate/repository_translate.js';
 
 import { initScrollReveal } from './scrollReveal.js';
 
@@ -89,8 +89,6 @@ const routes = {
   '/about/instructions': () => renderView(collegeInstructionsAndPolicyView),
   '/about/jobs': () => renderView(jobsView),
 
-
-
   // Faculty Members
   '/faculty/books': () => renderView(booksView),
   '/faculty/patents': () => renderView(patentView),
@@ -105,10 +103,9 @@ const routes = {
   // Digital Repository
   '/repository/photos': () => renderView(photoGalleryView),
   '/repository/videos': () => renderView(videoGalleryView),
-  '/repository/e-library': () => renderView(electronicLibraryView),
   '/repository/projects': () => renderView(graduationProjectsView),
-  '/repository/lectures': () => renderView(lecturesView),
   '/repository/library': () => renderView(theLibraryView),
+  '/repository/e-library': () => renderView(electronicLibraryView),
 
   // Electronic Services
   '/services/google-classroom': () => renderView(googleClassroomView),
@@ -120,6 +117,39 @@ const routes = {
   // Contact Us
   '/contact_us': () => renderView(contactUsView)
 };
+
+// مسارات المستودع الرقمي — قائمة واحدة يعاد استخدامها بمكانين (handleRouting و languageChanged)
+// حتى ما نكرر نفس الأسطر مرتين ونخاطر ننسى نحدث أحدهما بالمستقبل
+const REPOSITORY_PATHS = [
+  '/repository/projects',
+  '/repository/photos',
+  '/repository/videos',
+  '/repository/e-library',
+  '/repository/library'
+];
+
+function applyRouteLanguage(path) {
+  if (path === '/department') {
+    if (typeof applyDeptLanguage === 'function') applyDeptLanguage();
+  } else if (
+    path === '/faculty/teaching' ||
+    path === '/faculty/research' ||
+    path === '/faculty/books' ||
+    path === '/faculty/patents'
+  ) {
+    if (typeof applyTeachersLanguage === 'function') applyTeachersLanguage();
+  } else if (
+    path === '/students/calendar' ||
+    path === '/students/graduates' ||
+    path === '/students/top-rank'
+  ) {
+    if (typeof applyStudentLanguage === 'function') applyStudentLanguage();
+  } else if (REPOSITORY_PATHS.includes(path)) {
+    if (typeof applyRepositoryLanguage === 'function') applyRepositoryLanguage();
+  } else {
+    if (typeof applyMainLanguage === 'function') applyMainLanguage();
+  }
+}
 
 export function handleRouting() {
   const mainContent = document.getElementById('main-content');
@@ -133,25 +163,7 @@ export function handleRouting() {
     mainContent.innerHTML = content;
   }
 
-  // تطبيق الترجمة المناسبة بعد استبدال محتوى mainContent
-  if (path === '/department') {
-  if (typeof applyDeptLanguage === 'function') applyDeptLanguage();
-} else if (
-  path === '/faculty/teaching' ||
-  path === '/faculty/research' ||
-  path === '/faculty/books' ||
-  path === '/faculty/patents'
-) {
-  if (typeof applyTeachersLanguage === 'function') applyTeachersLanguage();
-} else if (
-  path === '/students/calendar' ||
-  path === '/students/graduates' ||
-  path === '/students/top-rank'
-) {
-  if (typeof applyStudentLanguage === 'function') applyStudentLanguage();
-} else {
-  if (typeof applyMainLanguage === 'function') applyMainLanguage();
-}
+  applyRouteLanguage(path);
 
   initScrollReveal();
 
@@ -170,15 +182,12 @@ export function initRouter() {
     if (link && link.origin === window.location.origin) {
       const href = link.getAttribute('href');
 
-      // إذا كان الرابط فارغ أو # أو رابط جافاسكريبت نتركه (خاص بالقوائم المنسدلة في الموبايل)
       if (!href || href === '#' || href.startsWith('javascript:')) return;
 
       e.preventDefault();
 
-      // التوجيه وتغيير الصفحة
       navigateTo(href);
 
-      // غلق قائمة الهواتف عند اختيار أي صفحة
       const navList = document.getElementById('nav-list');
       const overlay = document.getElementById('nav-overlay');
       const toggleBtn = document.getElementById('menu-toggle');
@@ -197,23 +206,5 @@ export function initRouter() {
 // إعادة تطبيق ترجمة الصفحة الحالية فقط عند تبديل اللغة، بدون Reload أو تغيير المسار
 window.addEventListener('languageChanged', () => {
   const path = window.location.pathname;
-
-   if (path === '/department') {
-    if (typeof applyDeptLanguage === 'function') applyDeptLanguage();
-  } else if (
-    path === '/faculty/teaching' ||
-    path === '/faculty/research' ||
-    path === '/faculty/books' ||
-    path === '/faculty/patents'
-  ) {
-    if (typeof applyTeachersLanguage === 'function') applyTeachersLanguage();
-  } else if (
-    path === '/students/calendar' ||
-    path === '/students/graduates' ||
-    path === '/students/top-rank'
-  ) {
-    if (typeof applyStudentLanguage === 'function') applyStudentLanguage();
-  } else {
-    if (typeof applyMainLanguage === 'function') applyMainLanguage();
-  }
+  applyRouteLanguage(path);
 });

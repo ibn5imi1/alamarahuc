@@ -39,7 +39,6 @@ src
 ----video_gallery.js
 ---electronic_library.js
 ---graduation_projects.js
----lectures.js
 ---the_library.js
 --electronic_services
 ---educational_platforms
@@ -56,7 +55,6 @@ src
 ---teaching_staff
 --students
 ---academic_calendar.js
----examination_committee_numbers.js
 ---graduates.js
 ---top_ranking_students.js
 --contact_us.js
@@ -78,6 +76,11 @@ src
 ------_academic_calendar.scss
 ------_graduates.scss
 ------_top_ranking_students.scss
+-----digital_repository
+------image_library
+------_electronic_library.scss
+------_graduation_projects.scss
+------_the_library.scss
 -----_home.scss
 ----mixin.scss
 ----style.scss
@@ -87,6 +90,7 @@ src
 --teachers_translate.js
 --department_translate.js
 --student_translate.js
+--repository_translate.js
 -main.js
 -router.js
 -style.css

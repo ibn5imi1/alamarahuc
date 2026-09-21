@@ -11,6 +11,10 @@
 @use 'pages/students/academic_calendar';
 @use 'pages/students/graduates';
 @use 'pages/students/top_ranking_students';
+@use 'pages/digital_repository/electronic_library';
+@use 'pages/digital_repository/graduation_projects';
+@use 'pages/digital_repository/the_library';
+
 * {
     padding: 0;
     margin: 0;

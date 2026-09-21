@@ -2168,6 +2168,328 @@ html[dir=rtl] .contact-us-page .contact-info-wrapper .info-card {
     min-width: 600px;
   }
 }
+.electronic-library-page {
+  width: 100%;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+.electronic-library-page .reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out 0s, transform 0.6s ease-out 0s;
+  will-change: opacity, transform;
+}
+.electronic-library-page .reveal.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.electronic-library-page .library-hero {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  min-height: 280px;
+  background: url("/src/assets/images/build.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.electronic-library-page .library-hero .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.85), rgba(13, 59, 102, 0.8));
+  z-index: 1;
+}
+.electronic-library-page .library-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  padding: 0 20px;
+}
+.electronic-library-page .library-hero .hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+.electronic-library-page .library-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+.electronic-library-page .library-container .section-header {
+  margin-bottom: 25px;
+}
+.electronic-library-page .library-container .section-header h2 {
+  font-size: 1.8rem;
+  color: #0d3b66;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.electronic-library-page .library-container .section-header .header-line {
+  width: 80px;
+  height: 4px;
+  background-color: #f4d35e;
+  border-radius: 2px;
+}
+.electronic-library-page .library-container .dept-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 35px;
+}
+.electronic-library-page .library-container .dept-filters .dept-btn {
+  padding: 10px 22px;
+  border: 2px solid #0d3b66;
+  background: #ffffff;
+  color: #0d3b66;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+.electronic-library-page .library-container .dept-filters .dept-btn:hover {
+  background-color: rgba(13, 59, 102, 0.08);
+  transform: translateY(-2px);
+}
+.electronic-library-page .library-container .dept-filters .dept-btn.active {
+  background-color: #0d3b66;
+  color: #ffffff;
+  border-color: #0d3b66;
+}
+.electronic-library-page .library-container .table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
+}
+.electronic-library-page .library-container .table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.electronic-library-page .library-container .table-wrapper table thead {
+  background: #0d3b66;
+}
+.electronic-library-page .library-container .table-wrapper table thead tr th {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-align: center;
+  padding: 16px 20px;
+  white-space: nowrap;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.electronic-library-page .library-container .table-wrapper table tbody tr {
+  transition: background-color 0.25s ease;
+}
+.electronic-library-page .library-container .table-wrapper table tbody tr:hover {
+  background-color: rgba(13, 59, 102, 0.05);
+}
+.electronic-library-page .library-container .table-wrapper table tbody tr td {
+  padding: 14px 20px;
+  font-size: 1.1rem;
+  color: #333;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.electronic-library-page .library-container .table-wrapper table thead tr th:first-child,
+.electronic-library-page .library-container .table-wrapper table tbody tr td:first-child {
+  width: 75%;
+}
+.electronic-library-page .library-container .table-wrapper table thead tr th:last-child,
+.electronic-library-page .library-container .table-wrapper table tbody tr td:last-child {
+  width: 25%;
+}
+.electronic-library-page .library-container .table-wrapper table tbody tr td:first-child {
+  text-transform: capitalize !important;
+}
+.electronic-library-page .library-container .table-wrapper .fade-transition {
+  transition: opacity 0.2s ease;
+  opacity: 1;
+}
+.electronic-library-page .library-container .table-wrapper .fade-transition.fade-out {
+  opacity: 0;
+}
+.electronic-library-page .library-container .table-wrapper .view-link {
+  display: inline-block;
+  padding: 6px 18px;
+  background-color: #0d3b66;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+.electronic-library-page .library-container .table-wrapper .view-link:hover {
+  background-color: #f4d35e;
+  color: #0d3b66;
+  transform: translateY(-2px);
+}
+.electronic-library-page .library-container .table-wrapper .empty-row {
+  color: #999;
+  font-style: italic;
+  padding: 30px 20px;
+}
+
+@media (max-width: 576px) {
+  .electronic-library-page .library-container .dept-filters .dept-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  .electronic-library-page .library-container .table-wrapper table {
+    min-width: 450px;
+  }
+}
+.graduation-projects-page {
+  width: 100%;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+.graduation-projects-page .reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out 0s, transform 0.6s ease-out 0s;
+  will-change: opacity, transform;
+}
+.graduation-projects-page .reveal.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.graduation-projects-page .projects-hero {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  min-height: 280px;
+  background: url("/src/assets/images/build.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.graduation-projects-page .projects-hero .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.85), rgba(13, 59, 102, 0.8));
+  z-index: 1;
+}
+.graduation-projects-page .projects-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  padding: 0 20px;
+}
+.graduation-projects-page .projects-hero .hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+.graduation-projects-page .projects-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+.graduation-projects-page .projects-container .section-header {
+  margin-bottom: 30px;
+}
+.graduation-projects-page .projects-container .section-header h2 {
+  font-size: 1.8rem;
+  color: #0d3b66;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.graduation-projects-page .projects-container .section-header .header-line {
+  width: 80px;
+  height: 4px;
+  background-color: #f4d35e;
+  border-radius: 2px;
+}
+.graduation-projects-page .projects-container .table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 12px;
+}
+.graduation-projects-page .projects-container .table-wrapper table tbody tr td:first-child {
+  text-transform: lowercase;
+}
+.graduation-projects-page .projects-container .table-wrapper table tbody tr td:first-child::first-letter {
+  text-transform: uppercase;
+}
+.graduation-projects-page .projects-container .table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.graduation-projects-page .projects-container .table-wrapper table thead {
+  background: #0d3b66;
+}
+.graduation-projects-page .projects-container .table-wrapper table thead tr th {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-align: center;
+  padding: 16px 20px;
+  white-space: nowrap;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.graduation-projects-page .projects-container .table-wrapper table tbody tr {
+  transition: background-color 0.25s ease;
+}
+.graduation-projects-page .projects-container .table-wrapper table tbody tr:hover {
+  background-color: rgba(13, 59, 102, 0.05);
+}
+.graduation-projects-page .projects-container .table-wrapper table tbody tr td {
+  padding: 14px 20px;
+  font-size: 1.1rem;
+  color: #333;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.graduation-projects-page .projects-container .table-wrapper table {
+  min-width: 650px;
+}
+.graduation-projects-page .projects-container .table-wrapper .view-link {
+  display: inline-block;
+  padding: 6px 18px;
+  background-color: #0d3b66;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+.graduation-projects-page .projects-container .table-wrapper .view-link:hover {
+  background-color: #f4d35e;
+  color: #0d3b66;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 576px) {
+  .graduation-projects-page .projects-container .table-wrapper table {
+    min-width: 550px;
+  }
+}
 * {
   padding: 0;
   margin: 0;
