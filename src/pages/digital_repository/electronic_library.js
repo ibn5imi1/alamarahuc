@@ -95,6 +95,22 @@ const BOOKS_DATA = {
   law: [
     { title: 'The Principle of Separation Between the Prosecution and Investigation Authorities in Algerian Criminal Procedure Law', titleKey: 'book.law.1.title', url: 'https://drive.google.com/file/d/1xFGPl6Ta70cAuWnAOuiqjSqdxbw_vn0h/view' },
     { title: 'The Legal Framework for the Protection of Forest Heritage in Light of the Principle of Sustainability and Its Relationship to Biodiversity', titleKey: 'book.law.2.title', url: 'https://drive.google.com/file/d/1j9dyDb3Zmos-_Zw8tIYQbKs_CJWOFx5C/view' },
+    { title: 'The Legal Framework for the Protection of Cultural Heritage', titleKey: 'book.law.3.title', url: 'https://drive.google.com/file/d/1DtqiJSX11XQ5W-MtpX7oGy93v23vqVw_/view' },
+    { title: 'International Criminal Responsibility of Individuals', titleKey: 'book.law.4.title', url: 'https://drive.google.com/file/d/1eUbGw-8XN41Hb5eggovpx6VtbBOsIxZO/view' },
+    { title: 'Criminal liability of the legal person A comparative study', titleKey: 'book.law.5.title', url: 'https://drive.google.com/file/d/1uDYlnrXjJBdRXzes2GxpCIdky1mEZh1o/view' },
+    { title: 'Criminal Responsibility of Heads of State and Leaders Before the International Criminal Court', titleKey: 'book.law.6.title', url: 'https://drive.google.com/file/d/1ySAvtwVtA7aZycl56QW7T9vMfzAy2NDc/view' },
+    { title: 'International Criminal Liability in International Criminal Jurisprudence and Case Law', titleKey: 'book.law.7.title', url: 'https://drive.google.com/file/d/1dw1xRfwa1hTHcwkmr-zLkZOCtkTocksP/view' },
+    { title: 'International Criminal Responsibility for the Crime of Genocide', titleKey: 'book.law.8.title', url: 'https://drive.google.com/file/d/1Rurc-bc1E9RoKAmnFCtapfReWPGX4oXJ/view' },
+    { title: 'International Criminal Liability for Crimes Against Humanity', titleKey: 'book.law.9.title', url: 'https://drive.google.com/file/d/1kAyIKPKg6jveNkc2ABRg1FpicMbjCCNn/view' },
+    { title: 'International Criminal Law', titleKey: 'book.law.10.title', url: 'https://drive.google.com/file/d/1j1RCJ8Cr-DuJ1JlfnH2oBKAyjMDrNDC1/view' },
+    { title: 'The Role of Regional Organizations in Combating the Crime of Terrorist Financing', titleKey: 'book.law.11.title', url: 'https://drive.google.com/file/d/1Rx52wjC7i6A_j8_vARrkLFBWZ2BU-ucL/view' },
+    { title: 'The Impossible Crime in Jurisprudence, Law, and Judicial Practice', titleKey: 'book.law.12.title', url: 'https://drive.google.com/file/d/1Is6XQxuc7n5QTj6B3kUTHmxxYExnkkhG/view' },
+    { title: 'Abuse of rights with the intent to harm others or to achieve an unlawful interest under Sharia and law', titleKey: 'book.law.13.title', url: 'https://drive.google.com/file/d/1LlMUwhmdBxnBKQwpfeXIbvAo9uGZcs6H/view' },
+    { title: 'Smuggling and Human Trafficking under Algerian Penal Legislation', titleKey: 'book.law.14.title', url: 'https://drive.google.com/file/d/1uBIrn7WKYhH7vYrYzQ08CTK4QXXsp8ZS/view' },
+    { title: 'Recent Transformations in the UN Human Rights Protection System', titleKey: 'book.law.15.title', url: 'https://drive.google.com/file/d/1y0g78-S0EG-rIoIfIT4kVBUj_AylLO4e/view' },
+    { title: 'Examining the nature of the legislative text', titleKey: 'book.law.16.title', url: 'https://drive.google.com/file/d/1-OqYgCgKYmPTMojjOX4T-tRolp5jUAk7/view' },
+    { title: 'Legal implications of space activities', titleKey: 'book.law.17.title', url: 'https://drive.google.com/file/d/1zNXcrhkl2pVMaaItHl0VtLBzpudiAoND/view' },
+    { title: 'Criminal Fault and Civil Fault', titleKey: 'book.law.18.title', url: 'https://drive.google.com/file/d/1RpwsET-nA1QSNf2spWulmLGCKPKBx1lZ/view' },
   ],
 };
 
