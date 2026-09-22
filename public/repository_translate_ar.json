@@ -132,6 +132,16 @@
 
   "video.hero_title": "معرض الفيديوهات",
   "video.section_title": "الفيديوهات",
-  "video.channel_label": "قناتنا على اليوتيوب"
+  "video.channel_label": "قناتنا على اليوتيوب",
+
+  "gallery.hero_title": "معرض الصور",
+  "gallery.section_title": "الصور",
+  "gallery.load_more": "تحميل المزيد",
+  "gallery.filter_all": "جميع الصور",
+  "gallery.filter_departments": "الأقسام",
+  "gallery.filter_trips": "سفرات",
+  "gallery.filter_factories": "معامل",
+  "gallery.filter_laboratories": "مختبرات",
+  "gallery.filter_workshops": "الورش"
 
 }

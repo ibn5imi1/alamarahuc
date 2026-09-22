@@ -42,21 +42,22 @@ function extractYouTubeId(url) {
 function buildVideoCards() {
   return VIDEOS_DATA.map((video, index) => {
     const videoId = extractYouTubeId(video.url);
+    // تم وضع (video.title || '') لتفادي ظهور undefined قبل التحميل
+    const displayTitle = video.title || '';
     return `
       <div class="video-card reveal" data-video-id="${videoId}" data-index="${index}">
         <div class="video-thumb-wrapper">
-          <!-- شريط العنوان والتفاصيل يظهر فوق المقطع تلقائياً -->
+          <!-- شريط العنوان والتفاصيل -->
           <div class="video-header-overlay">
-           
             <div class="video-info">
-              <h3 class="video-title" id="video-title-${videoId}">${video.title}</h3>
+              <h3 class="video-title" id="video-title-${videoId}">${displayTitle}</h3>
               <span class="channel-title">${CHANNEL_NAME}</span>
             </div>
           </div>
 
           <img
             src="https://img.youtube.com/vi/${videoId}/hqdefault.jpg"
-            alt="${video.title}"
+            alt="${displayTitle}"
             loading="lazy"
             class="video-thumb"
           />
@@ -121,14 +122,17 @@ export function videoGalleryView() {
   `;
 }
 
-// دالة لجلب العناوين تلقائياً من يوتيوب بدون الحاجة لمفتاح API
+// دالة لجلب العناوين من API يوتيوب oEmbed
 async function fetchYouTubeTitles() {
   VIDEOS_DATA.forEach(async (video) => {
     const videoId = extractYouTubeId(video.url);
     try {
-      const response = await fetch(`https://noembed.com/embed?dataType=json&url=https://www.youtube.com/watch?v=${videoId}`);
+      const response = await fetch(`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoId}&format=json`);
+      if (!response.ok) return;
       const data = await response.json();
       if (data.title) {
+        // حفظ العنوان في المصفوفة لتلافي إعادتها إذا جرى تغيير العرض
+        video.title = data.title;
         const titleEl = document.getElementById(`video-title-${videoId}`);
         if (titleEl) {
           titleEl.textContent = data.title;
@@ -141,7 +145,7 @@ async function fetchYouTubeTitles() {
 }
 
 export function initVideoGallery() {
-  // جلب العناوين تلقائياً بعد بناء الصفحة
+  // جلب العناوين مباشرة بعد بناء عناصر HTML
   fetchYouTubeTitles();
 
   document.body.addEventListener('click', (e) => {

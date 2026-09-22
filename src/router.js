@@ -28,7 +28,7 @@ import { graduatesView } from './pages/students/graduates.js';
 import { topRankingStudentsView } from './pages/students/top_ranking_students.js';
 
 // Digital Repository
-import { photoGalleryView } from './pages/digital_repository/media/photo_gallery.js';
+import { photoGalleryView, initPhotoGalleryGrid } from './pages/digital_repository/media/photo_gallery.js';
 import { videoGalleryView } from './pages/digital_repository/media/video_gallery.js';
 import { graduationProjectsView } from './pages/digital_repository/graduation_projects.js';
 import { theLibraryView, initTheLibraryStats } from './pages/digital_repository/the_library.js';
@@ -75,7 +75,7 @@ const routes = {
     return renderView(departmentView, deptId);
   },
 
-  // Digital Repository — المكتبة معرّفة هنا مرة واحدة فقط (النسخة الصحيحة مع initTheLibraryStats)
+  // Digital Repository — كل روت فيه منطق بعد الرندر (setTimeout) مجمّع هنا
   '/repository/library': () => {
     const html = theLibraryView();
     setTimeout(() => {
@@ -83,7 +83,13 @@ const routes = {
     }, 0);
     return html;
   },
-  '/repository/photos': () => renderView(photoGalleryView),
+  '/repository/photos': () => {
+    const html = photoGalleryView();
+    setTimeout(() => {
+      if (typeof initPhotoGalleryGrid === 'function') initPhotoGalleryGrid();
+    }, 0);
+    return html;
+  },
   '/repository/videos': () => renderView(videoGalleryView),
   '/repository/projects': () => renderView(graduationProjectsView),
   '/repository/e-library': () => renderView(electronicLibraryView),
