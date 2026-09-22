@@ -1,8 +1,8 @@
-// ============================================
-// الفئات المتاحة بمعرض الصور
-// ============================================
+import { initScrollReveal } from '../../../scrollReveal.js';
+
 const CATEGORIES = [
   { slug: 'all', labelKey: 'gallery.filter_all', label: 'All Photos' },
+  { slug: 'college', labelKey: 'gallery.filter_college', label: 'College' },
   { slug: 'departments', labelKey: 'gallery.filter_departments', label: 'Departments' },
   { slug: 'trips', labelKey: 'gallery.filter_trips', label: 'Trips' },
   { slug: 'factories', labelKey: 'gallery.filter_factories', label: 'Factories' },
@@ -10,20 +10,26 @@ const CATEGORIES = [
   { slug: 'workshops', labelKey: 'gallery.filter_workshops', label: 'Workshops' },
 ];
 
-// ============================================
-// عدد الصور بكل فئة — عدّل الأرقام حسب عدد صورك الفعلي بكل مجلد
-// المجموع الحالي = 500 (120+80+90+70+60+80)
-// ============================================
+// ⚠️ كل مفتاح هنا يطابق اسم مجلد فعلي
 const CATEGORY_COUNTS = {
-  departments: 120,
-  trips: 80,
-  factories: 90,
-  laboratories: 70,
-  workshops: 60,
-  courses: 80,
+  college: 49,
+  departments: 18,
+  trips: 15,
+  factories: 20,
+  laboratories: 25,
+  workshops: 26,
 };
 
-// يولّد مصفوفة صور فئة معينة تلقائيًا بالاعتماد على العدد والتسمية المتسلسلة
+// 🎲 دالة خلط العناصر بشكل عشوائي (Fisher-Yates Shuffle)
+function shuffleArray(array) {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 function buildCategoryImages(catSlug, count) {
   return Array.from({ length: count }, (_, i) => {
     const num = String(i + 1).padStart(3, '0');
@@ -36,20 +42,23 @@ function buildCategoryImages(catSlug, count) {
   });
 }
 
-// يجمع كل الفئات بمصفوفة واحدة كبيرة (500 عنصر)
 const ALL_IMAGES = Object.entries(CATEGORY_COUNTS).flatMap(([cat, count]) =>
   buildCategoryImages(cat, count)
 );
 
-const BATCH_SIZE = 24; // عدد الصور المعروضة بكل دفعة
+const BATCH_SIZE = 12;
 let activeFilter = 'all';
 let loadedCount = 0;
 let filteredImages = [];
+let isLoading = false;
 
+// 🔀 جلب الصور المفلترة وخلطها عشوائيًا في كل مرة
 function getFilteredImages(filterSlug) {
-  return filterSlug === 'all'
+  const images = filterSlug === 'all'
     ? ALL_IMAGES
     : ALL_IMAGES.filter(img => img.category === filterSlug);
+
+  return shuffleArray(images); // إرجاع النسخة المخلوطة عشوائيًا
 }
 
 function buildFilterButtons() {
@@ -75,34 +84,60 @@ function buildImageCards(images) {
   `).join('');
 }
 
-function renderGrid(reset = false) {
+function preloadImage(url) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => resolve(true);
+    img.onerror = () => resolve(false);
+    img.src = url;
+  });
+}
+
+function setLoadMoreLoading(loading) {
+  const btn = document.getElementById('load-more-btn');
+  const spinner = document.getElementById('gallery-spinner');
+  if (!btn || !spinner) return;
+
+  if (loading) {
+    btn.style.display = 'none';
+    spinner.style.display = 'flex';
+  } else {
+    spinner.style.display = 'none';
+  }
+}
+
+async function renderGrid(reset = false) {
+  if (isLoading) return;
+  isLoading = true;
+
   const grid = document.getElementById('gallery-grid');
   const loadMoreBtn = document.getElementById('load-more-btn');
-  if (!grid) return;
+  if (!grid) { isLoading = false; return; }
 
   if (reset) {
-    filteredImages = getFilteredImages(activeFilter);
+    filteredImages = getFilteredImages(activeFilter); // سيتم الخلط هنا عند التبديل بين الأقسام
     loadedCount = 0;
     grid.innerHTML = '';
   }
 
   const nextBatch = filteredImages.slice(loadedCount, loadedCount + BATCH_SIZE);
+
+  if (nextBatch.length > 0) {
+    setLoadMoreLoading(true);
+    await Promise.all(nextBatch.map(img => preloadImage(img.thumb)));
+    setLoadMoreLoading(false);
+  }
+
   grid.insertAdjacentHTML('beforeend', buildImageCards(nextBatch));
   loadedCount += nextBatch.length;
 
-  // إظهار/إخفاء زر "تحميل المزيد" حسب وجود صور متبقية
   if (loadMoreBtn) {
     loadMoreBtn.style.display = loadedCount < filteredImages.length ? 'inline-block' : 'none';
   }
 
-  // تفعيل أنميشن الظهور للعناصر الجديدة فقط
-  requestAnimationFrame(() => {
-    document.querySelectorAll('#gallery-grid .reveal:not(.visible)').forEach(el => {
-      if (el.getBoundingClientRect().top < window.innerHeight + 100) {
-        el.classList.add('visible');
-      }
-    });
-  });
+  initScrollReveal();
+
+  isLoading = false;
 }
 
 export function photoGalleryView() {
@@ -110,7 +145,6 @@ export function photoGalleryView() {
 
   return `
   <div class="photo-gallery-page">
-    <!-- Hero Banner -->
     <section class="gallery-hero">
       <div class="hero-overlay"></div>
       <div class="hero-content reveal">
@@ -118,7 +152,6 @@ export function photoGalleryView() {
       </div>
     </section>
 
-    <!-- Content Container -->
     <section class="gallery-container">
       <div class="section-header reveal">
         <h2 data-i18n="gallery.section_title">Browse Our Photos</h2>
@@ -131,6 +164,10 @@ export function photoGalleryView() {
 
       <div class="gallery-grid" id="gallery-grid"></div>
 
+      <div class="gallery-spinner" id="gallery-spinner">
+        <div class="spinner-circle"></div>
+      </div>
+
       <div class="load-more-wrapper">
         <button id="load-more-btn" class="load-more-btn" data-i18n="gallery.load_more">
           Load More
@@ -138,7 +175,6 @@ export function photoGalleryView() {
       </div>
     </section>
 
-    <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
       <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
       <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous">&#10094;</button>
@@ -149,10 +185,10 @@ export function photoGalleryView() {
   `;
 }
 
-// تُستدعى مرة واحدة فقط من main.js عند إقلاع الموقع (Event Delegation)
 export function initPhotoGallery() {
   let savedScrollY = 0;
   let currentLightboxIndex = -1;
+  let sentinelObserver = null;
 
   function lockBodyScroll() {
     savedScrollY = window.scrollY;
@@ -189,23 +225,38 @@ export function initPhotoGallery() {
     unlockBodyScroll();
   }
 
-  function showNext() {
-    if (currentLightboxIndex < filteredImages.length - 1) {
-      openLightbox(currentLightboxIndex + 1);
-    }
+  function isRTL() {
+    return document.documentElement.dir === 'rtl' || document.documentElement.lang === 'ar';
   }
 
+  function showNext() {
+    if (currentLightboxIndex < filteredImages.length - 1) openLightbox(currentLightboxIndex + 1);
+  }
   function showPrev() {
-    if (currentLightboxIndex > 0) {
-      openLightbox(currentLightboxIndex - 1);
-    }
+    if (currentLightboxIndex > 0) openLightbox(currentLightboxIndex - 1);
+  }
+
+  function watchLoadMoreButton() {
+    if (sentinelObserver) sentinelObserver.disconnect();
+
+    const btn = document.getElementById('load-more-btn');
+    if (!btn) return;
+
+    sentinelObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !isLoading) {
+          renderGrid(false);
+        }
+      });
+    }, { rootMargin: '200px' });
+
+    sentinelObserver.observe(btn);
   }
 
   document.body.addEventListener('click', (e) => {
     const pageContainer = document.querySelector('.photo-gallery-page');
-    if (!pageContainer) return; // نتأكد إننا فعلاً بصفحة المعرض
+    if (!pageContainer) return;
 
-    // الضغط على فلتر
     const filterBtn = e.target.closest('.filter-btn');
     if (filterBtn) {
       const newFilter = filterBtn.getAttribute('data-filter');
@@ -215,53 +266,53 @@ export function initPhotoGallery() {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       filterBtn.classList.add('active');
 
-      renderGrid(true);
+      renderGrid(true).then(watchLoadMoreButton);
       return;
     }
 
-    // الضغط على "تحميل المزيد"
     if (e.target.id === 'load-more-btn') {
       renderGrid(false);
       return;
     }
 
-    // الضغط على صورة بالمعرض → فتح Lightbox
     const galleryItem = e.target.closest('.gallery-item');
     if (galleryItem) {
-      const index = parseInt(galleryItem.getAttribute('data-index'), 10);
-      // نحسب الفهرس الحقيقي بمصفوفة filteredImages (يأخذ بعين الاعتبار كل الدفعات المحمّلة)
       const globalIndex = Array.from(document.querySelectorAll('.gallery-item')).indexOf(galleryItem);
       openLightbox(globalIndex);
       return;
     }
 
-    // أزرار الـ Lightbox
-    if (e.target.id === 'lightbox-close' || e.target.id === 'lightbox') {
-      closeLightbox();
-      return;
-    }
+    if (e.target.id === 'lightbox-close' || e.target.id === 'lightbox') { closeLightbox(); return; }
+
     if (e.target.id === 'lightbox-next') {
-      showNext();
+      isRTL() ? showPrev() : showNext();
       return;
     }
     if (e.target.id === 'lightbox-prev') {
-      showPrev();
+      isRTL() ? showNext() : showPrev();
       return;
     }
   });
 
-  // التنقل بالكيبورد داخل Lightbox
   document.addEventListener('keydown', (e) => {
     const lightbox = document.getElementById('lightbox');
     if (!lightbox || !lightbox.classList.contains('active')) return;
 
     if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') showPrev(); // بالعربي RTL: يمين = السابق بصريًا
-    if (e.key === 'ArrowLeft') showNext();
+    if (e.key === 'ArrowRight') {
+      isRTL() ? showNext() : showPrev();
+    }
+    if (e.key === 'ArrowLeft') {
+      isRTL() ? showPrev() : showNext();
+    }
   });
+
+  window.__watchGalleryLoadMore = watchLoadMoreButton;
 }
 
-// تُستدعى بعد إدخال المحتوى بالـ DOM (من الراوتر عبر setTimeout)
-export function initPhotoGalleryGrid() {
-  renderGrid(true);
+export async function initPhotoGalleryGrid() {
+  await renderGrid(true);
+  if (typeof window.__watchGalleryLoadMore === 'function') {
+    window.__watchGalleryLoadMore();
+  }
 }
