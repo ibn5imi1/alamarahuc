@@ -117,6 +117,21 @@
   "book.law.15.title": "التحولات الحديثة في المنظومة الأممية لحماية حقــوق الإنسان",
   "book.law.16.title": "البحث في نوعية النص التشريعي",
   "book.law.17.title": "الاثار القانونية للأنشطة الفضائية",
-  "book.law.18.title": "الخطأ الجنائي و الخطأ المدني"
+  "book.law.18.title": "الخطأ الجنائي و الخطأ المدني",
+
+
+    "library.hero_title": "مكتبة الكلية",
+  "library.stats_section_title": "احصاء الكتب في المكتبة",
+  "library.stat_total": "إجمالي الكتب",
+  "library.stat_english": "الكتب الإنجليزية",
+  "library.stat_arabic": "الكتب العربية",
+  "library.core_books_title": "كتب الأساس المعتمد",
+  "library.core_book1_title": "سجل الكتب الاساس المعتمد",
+  "library.core_book2_title": "عناوين الكتب",
+  "repository.download_label" : "تحميل",
+
+  "video.hero_title": "معرض الفيديوهات",
+  "video.section_title": "الفيديوهات",
+  "video.channel_label": "قناتنا على اليوتيوب"
 
 }

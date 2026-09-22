@@ -1,3 +1,3 @@
 export function photoGalleryView() {
-    return `<h1>hh</h1>`
+    return `<h1>photo</h1>`
 }

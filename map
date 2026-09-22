@@ -34,7 +34,7 @@ src
 ----departmentsData.js
 ----departmentView.js
 --digital_repository
----image_library
+---media
 ----photo_gallery.js
 ----video_gallery.js
 ---electronic_library.js
@@ -77,7 +77,9 @@ src
 ------_graduates.scss
 ------_top_ranking_students.scss
 -----digital_repository
-------image_library
+------media
+-------_photo_gallery.scss
+-------_video_gallery.scss
 ------_electronic_library.scss
 ------_graduation_projects.scss
 ------_the_library.scss

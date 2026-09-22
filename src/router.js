@@ -28,10 +28,10 @@ import { graduatesView } from './pages/students/graduates.js';
 import { topRankingStudentsView } from './pages/students/top_ranking_students.js';
 
 // Digital Repository
-import { photoGalleryView } from './pages/digital_repository/image_library/photo_gallery.js';
-import { videoGalleryView } from './pages/digital_repository/image_library/video_gallery.js';
+import { photoGalleryView } from './pages/digital_repository/media/photo_gallery.js';
+import { videoGalleryView } from './pages/digital_repository/media/video_gallery.js';
 import { graduationProjectsView } from './pages/digital_repository/graduation_projects.js';
-import { theLibraryView } from './pages/digital_repository/the_library.js';
+import { theLibraryView, initTheLibraryStats } from './pages/digital_repository/the_library.js';
 import { electronicLibraryView } from './pages/digital_repository/electronic_library.js';
 
 // Electronic Services
@@ -75,6 +75,19 @@ const routes = {
     return renderView(departmentView, deptId);
   },
 
+  // Digital Repository — المكتبة معرّفة هنا مرة واحدة فقط (النسخة الصحيحة مع initTheLibraryStats)
+  '/repository/library': () => {
+    const html = theLibraryView();
+    setTimeout(() => {
+      if (typeof initTheLibraryStats === 'function') initTheLibraryStats();
+    }, 0);
+    return html;
+  },
+  '/repository/photos': () => renderView(photoGalleryView),
+  '/repository/videos': () => renderView(videoGalleryView),
+  '/repository/projects': () => renderView(graduationProjectsView),
+  '/repository/e-library': () => renderView(electronicLibraryView),
+
   // About College
   '/about/college': () => renderView(aboutTheCollegeView),
   '/about/vision': () => renderView(visionView),
@@ -99,13 +112,6 @@ const routes = {
   '/students/calendar': () => renderView(academicCalendarView),
   '/students/graduates': () => renderView(graduatesView),
   '/students/top-rank': () => renderView(topRankingStudentsView),
-
-  // Digital Repository
-  '/repository/photos': () => renderView(photoGalleryView),
-  '/repository/videos': () => renderView(videoGalleryView),
-  '/repository/projects': () => renderView(graduationProjectsView),
-  '/repository/library': () => renderView(theLibraryView),
-  '/repository/e-library': () => renderView(electronicLibraryView),
 
   // Electronic Services
   '/services/google-classroom': () => renderView(googleClassroomView),

@@ -138,12 +138,12 @@ export function header() {
                     <ul class="dropdown_menu">
                         <li><a href="/repository/projects" data-i18n="nav.graduate_research">Graduate Research</a></li>
                         <li><a href="/repository/e-library" data-i18n="nav.e_library">E-Library</a></li>
-                        <li><a href="/repository/library" data-i18n="nav.library">Library</a></li>
+                        <li><a href="/repository/library" data-i18n="nav.college_library">College Library</a></li>
                         <li class="dropdown_item has-submenu">
                             <a href="#" data-i18n="nav.media">Media</a>
                             <ul class="submenu">
-                                <li><a href="/repository/photos" data-i18n="nav.video_gallery">Video Gallery</a></li>
-                                <li><a href="/repository/videos" data-i18n="nav.photo_gallery">Photo Gallery</a></li>
+                                <li><a href="/repository/videos" data-i18n="nav.video_gallery">Video Gallery</a></li>
+                                <li><a href="/repository/photos" data-i18n="nav.photo_gallery">Photo Gallery</a></li>
                             </ul>
                         </li>
                     </ul>

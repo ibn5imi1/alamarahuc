@@ -1,0 +1,214 @@
+@use "../../variables.scss" as *;
+@use "../../mixin.scss" as *;
+
+.the-library-page {
+  width: 100%;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+
+  .reveal {
+    @include fade-up-on-scroll(0.6s, 0s, 30px);
+  }
+
+  // Hero Section
+  .library-main-hero {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    min-height: 280px;
+    background: url("/src/assets/images/build.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba($hero-bg-1, 0.85), rgba($hero-bg-2, 0.8));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: $text-color;
+      padding: 0 20px;
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #ffffff;
+      }
+    }
+  }
+
+  // Shared section header style
+  .section-header {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h2 {
+      font-size: 1.8rem;
+      color: $primary-color;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .header-line {
+      width: 80px;
+      height: 4px;
+      background-color: $accent-color;
+      border-radius: 2px;
+      margin: 0 auto;
+    }
+  }
+
+  // ==========================
+  // Stats Section
+  // ==========================
+  .library-stats-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 20px;
+
+    .stats-grid {
+      @include flex-container(1100px, center, stretch, 30px);
+
+      .stat-card {
+        flex: 0 0 calc(33.333% - 30px);
+        max-width: calc(33.333% - 30px);
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 45px 20px;
+        text-align: center;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 12px 25px rgba($primary-color, 0.15);
+        }
+
+        .stat-number {
+          font-size: 3rem;
+          font-weight: 800;
+          color: $primary-color;
+          line-height: 1;
+          margin-bottom: 12px;
+        }
+
+        .stat-label {
+          font-size: 1rem;
+          color: #666;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  // ==========================
+  // Core Books Section
+  // ==========================
+  .library-core-books-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+
+    .core-books-grid {
+      display: flex;
+      flex-direction: column;   // ✅ عمودي بدل الأفقي، كل كتاب تحت الثاني
+      gap: 30px;
+      max-width: 700px;         // اختياري: يمنع الويدث يصير عريض جدًا بشاشات كبيرة
+      margin: 0 auto;
+
+      .core-book-card {
+        width: 100%;            // ✅ بدل flex: 0 0 calc(50% - 15px)
+        max-width: 100%;        // ✅ بدل max-width: calc(50% - 15px)
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 25px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+
+        h3 {
+          font-size: 1.2rem;
+          color: $primary-color;
+          font-weight: 700;
+          margin-bottom: 15px;
+          text-align: center;
+        }
+
+        .book-viewer {
+          width: 100%;
+          height: 500px;
+          border-radius: 10px;
+          overflow: hidden;
+          margin-bottom: 15px;
+
+          iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+          }
+        }
+
+        .download-link {
+          display: block;
+          width: fit-content;
+          margin: 0 auto;
+          padding: 8px 24px;
+          background-color: $primary-color;
+          color: #ffffff;
+          text-decoration: none;
+          border-radius: 6px;
+          font-size: 0.95rem;
+          font-weight: 600;
+          transition: background-color 0.25s ease, transform 0.2s ease;
+
+          &:hover {
+            background-color: $accent-color;
+            color: $primary-color;
+            transform: translateY(-2px);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .the-library-page {
+    .library-stats-container .stats-grid .stat-card {
+      flex: 0 0 calc(50% - 30px);
+      max-width: calc(50% - 30px);
+    }
+
+    .library-core-books-container .core-books-grid .core-book-card {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .the-library-page {
+    .library-stats-container .stats-grid .stat-card {
+      flex: 0 0 100%;
+      max-width: 100%;
+
+      .stat-number {
+        font-size: 2.4rem;
+      }
+    }
+
+    .library-core-books-container .core-book-card .book-viewer {
+      height: 380px;
+    }
+  }
+}
