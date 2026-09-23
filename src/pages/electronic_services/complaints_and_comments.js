@@ -1,11 +1,7 @@
-// ⚠️ استبدل هذي القيم بالقيم الفعلية من حسابك
+// ⚠️ استبدل بالقيم الفعلية من حسابك
 const EMAILJS_PUBLIC_KEY = '5Jrryby_IqRLoTWcy';
 const EMAILJS_SERVICE_ID = 'service_alamarahuc';
-const EMAILJS_TEMPLATE_ID = 'template_jpbnepg';
-const EMAILJS_OTP_TEMPLATE_ID = 'template_3no57yr';
-
-let currentOtp = null;
-let verifiedEmail = null;
+const EMAILJS_TEMPLATE_ID = 'template_yrxzns4'; // ← قالب الشكوى (Contact Us)
 
 export function complaintsAndCommentsView() {
   return `
@@ -30,38 +26,16 @@ export function complaintsAndCommentsView() {
         </p>
       </div>
 
-      <!-- ========== الخطوة 1: التحقق من الإيميل ========== -->
-      <div id="email-step" class="complaint-form reveal">
+      <form id="complaint-form" class="complaint-form reveal">
         <div class="form-group">
           <label for="sender-email" data-i18n="complaints.email_label">Your Email</label>
           <input
             type="email"
             id="sender-email"
+            name="sender_email"
             required
             placeholder="example@email.com"
           />
-        </div>
-        <button type="button" class="submit-btn" id="send-otp-btn" data-i18n="complaints.send_code_btn">
-          Send Verification Code
-        </button>
-        <p class="form-status error" id="otp-send-error" data-i18n="complaints.otp_send_error">
-          Failed to send code. Please check the email and try again.
-        </p>
-      </div>
-
-      <!-- ========== الخطوة 2: إدخال الرمز + باقي الفورم (مخفية حتى يرسل الرمز) ========== -->
-      <form id="complaint-form" class="complaint-form reveal" style="display: none;">
-        <div class="form-group otp-group">
-          <label for="otp-input" data-i18n="complaints.otp_label">Verification Code</label>
-          <div class="otp-row">
-            <input type="text" id="otp-input" maxlength="6" placeholder="000000" required />
-            <button type="button" class="resend-btn" id="resend-otp-btn" data-i18n="complaints.resend_code_btn">
-              Resend
-            </button>
-          </div>
-          <p class="form-status error" id="otp-wrong-error" data-i18n="complaints.otp_wrong_error">
-            Incorrect code. Please try again.
-          </p>
         </div>
 
         <div class="form-group">
@@ -96,8 +70,6 @@ export function complaintsAndCommentsView() {
           ></textarea>
         </div>
 
-        <input type="hidden" name="sender_email" id="hidden-sender-email" />
-
         <button type="submit" class="submit-btn" id="submit-btn" data-i18n="complaints.submit_btn">
           Submit
         </button>
@@ -114,101 +86,47 @@ export function complaintsAndCommentsView() {
   `;
 }
 
-function generateOtp() {
-  return String(Math.floor(100000 + Math.random() * 900000)); // رمز من 6 أرقام
-}
-
-async function sendOtpToEmail(email) {
-  currentOtp = generateOtp();
-  return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_OTP_TEMPLATE_ID, {
-    to_email: email,
-    otp_code: currentOtp,
-  });
-}
-
+// تُستدعى مرة واحدة فقط من main.js عند إقلاع الموقع (Event Delegation)
 export function initComplaintsForm() {
   if (typeof emailjs !== 'undefined' && !window.__emailjsInitialized) {
     emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
     window.__emailjsInitialized = true;
   }
 
-  document.body.addEventListener('click', async (e) => {
-    const pageContainer = document.querySelector('.complaints-page');
-    if (!pageContainer) return;
-
-    // زر "إرسال رمز التحقق"
-    if (e.target.id === 'send-otp-btn' || e.target.id === 'resend-otp-btn') {
-      const emailInput = document.getElementById('sender-email');
-      const email = emailInput.value.trim();
-      const sendErrorEl = document.getElementById('otp-send-error');
-
-      if (!email || !emailInput.checkValidity()) {
-        emailInput.reportValidity();
-        return;
-      }
-
-      const btn = e.target;
-      const originalText = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = '...';
-      sendErrorEl.classList.remove('active');
-
-      try {
-        await sendOtpToEmail(email);
-        verifiedEmail = email;
-        document.getElementById('hidden-sender-email').value = email;
-
-        // إظهار خطوة الرمز وباقي الفورم
-        document.getElementById('email-step').style.display = 'none';
-        document.getElementById('complaint-form').style.display = 'block';
-        document.getElementById('otp-input').focus();
-      } catch (err) {
-        console.error('فشل إرسال الرمز:', err);
-        sendErrorEl.classList.add('active');
-      } finally {
-        btn.disabled = false;
-        btn.textContent = originalText;
-      }
-      return;
-    }
-  });
-
-  document.body.addEventListener('submit', async (e) => {
+  document.body.addEventListener('submit', (e) => {
     const form = e.target.closest('#complaint-form');
     if (!form) return;
 
     e.preventDefault();
 
-    const otpInput = document.getElementById('otp-input');
-    const otpWrongError = document.getElementById('otp-wrong-error');
     const submitBtn = document.getElementById('submit-btn');
     const successMsg = document.getElementById('form-success');
     const errorMsg = document.getElementById('form-error');
 
-    otpWrongError.classList.remove('active');
     successMsg.classList.remove('active');
     errorMsg.classList.remove('active');
-
-    // ✅ التحقق من الرمز قبل أي إرسال فعلي
-    if (otpInput.value.trim() !== currentOtp) {
-      otpWrongError.classList.add('active');
-      return;
-    }
-
     submitBtn.disabled = true;
     submitBtn.textContent = '...';
 
-    try {
-      await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form);
-      successMsg.classList.add('active');
-      form.reset();
-      form.style.display = 'none'; // إخفاء الفورم بعد النجاح
-    } catch (err) {
-      console.error('فشل إرسال الشكوى:', err);
+    if (typeof emailjs === 'undefined') {
+      console.error('EmailJS غير محمّلة — تأكد من إضافة سطر <script> بملف index.html');
       errorMsg.classList.add('active');
-    } finally {
       submitBtn.disabled = false;
-      submitBtn.textContent = form.querySelector('[data-i18n="complaints.submit_btn"]')?.getAttribute('data-en-default') || 'Submit';
+      return;
     }
+
+    emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form)
+      .then(() => {
+        successMsg.classList.add('active');
+        form.reset();
+      })
+      .catch((err) => {
+        console.error('فشل إرسال النموذج:', err);
+        errorMsg.classList.add('active');
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = form.querySelector('[data-i18n="complaints.submit_btn"]')?.getAttribute('data-en-default') || 'Submit';
+      });
   });
 }
