@@ -35,11 +35,8 @@ import { theLibraryView, initTheLibraryStats } from './pages/digital_repository/
 import { electronicLibraryView } from './pages/digital_repository/electronic_library.js';
 
 // Electronic Services
-// import { googleClassroomView } from './pages/electronic_services/educational_platforms/google_classroom.js';
-// import { moodleView } from './pages/electronic_services/educational_platforms/moodle.js';
 import { complaintsAndCommentsView } from './pages/electronic_services/complaints_and_comments.js';
-// import { emailView } from './pages/electronic_services/email.js';
-// import { relatedWebsitesView } from './pages/electronic_services/related_websites.js';
+import { relatedWebsitesView } from './pages/electronic_services/related_websites.js';
 
 // Contact Us
 import { contactUsView } from './pages/contact_us.js';
@@ -49,6 +46,7 @@ import { applyMainLanguage } from './translate/main_translate.js';
 import { applyTeachersLanguage } from './translate/teachers_translate.js';
 import { applyStudentLanguage } from './translate/student_translate.js';
 import { applyRepositoryLanguage } from './translate/repository_translate.js';
+import { applyElectronicServicesLanguage } from './translate/electronic_services_translate.js';
 
 import { initScrollReveal } from './scrollReveal.js';
 
@@ -120,10 +118,7 @@ const routes = {
   '/students/top-rank': () => renderView(topRankingStudentsView),
 
   // Electronic Services
-  '/services/google-classroom': () => renderView(googleClassroomView),
-  '/services/moodle': () => renderView(moodleView),
   '/services/complaints': () => renderView(complaintsAndCommentsView),
-  '/services/email': () => renderView(emailView),
   '/services/websites': () => renderView(relatedWebsitesView),
 
   // Contact Us
@@ -137,7 +132,11 @@ const REPOSITORY_PATHS = [
   '/repository/photos',
   '/repository/videos',
   '/repository/e-library',
-  '/repository/library'
+  '/repository/library',
+];
+const ELECTRONIC_SERVICES_PATHS = [
+  '/services/websites',
+  '/services/complaints',
 ];
 
 function applyRouteLanguage(path) {
@@ -158,6 +157,8 @@ function applyRouteLanguage(path) {
     if (typeof applyStudentLanguage === 'function') applyStudentLanguage();
   } else if (REPOSITORY_PATHS.includes(path)) {
     if (typeof applyRepositoryLanguage === 'function') applyRepositoryLanguage();
+  } else if (ELECTRONIC_SERVICES_PATHS.includes(path)) {
+    if (typeof applyElectronicServicesLanguage === 'function') applyElectronicServicesLanguage();
   } else {
     if (typeof applyMainLanguage === 'function') applyMainLanguage();
   }

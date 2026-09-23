@@ -8,6 +8,7 @@ import { initTopRankingStudents } from './pages/students/top_ranking_students.js
 import { initElectronicLibrary } from './pages/digital_repository/electronic_library.js';
 import { initVideoGallery } from './pages/digital_repository/media/video_gallery.js';
 import { initPhotoGallery } from './pages/digital_repository/media/photo_gallery.js';
+import { initComplaintsForm } from './pages/electronic_services/complaints_and_comments.js';
 
 // ... داخل الكتلة الرئيسية:
 if (typeof initVideoGallery === 'function') initVideoGallery();
@@ -27,6 +28,7 @@ if (app) {
   if (typeof initElectronicLibrary === 'function') initElectronicLibrary();
   if (typeof initVideoGallery === 'function') initVideoGallery();
   if (typeof initPhotoGallery === 'function') initPhotoGallery();
+  if (typeof initComplaintsForm === 'function') initComplaintsForm();
 
   initRouter();
 }

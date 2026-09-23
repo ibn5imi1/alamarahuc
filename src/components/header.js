@@ -156,11 +156,11 @@ export function header() {
                         <li class="dropdown_item has-submenu">
                             <a href="" data-i18n="nav.educational_platforms">Educational Platforms</a>
                             <ul class="submenu">
-                                <li><a href="" data-i18n="nav.google_classroom">Google Classroom</a></li>
-                                <li><a href="#" data-i18n="nav.moodle">Moodle</a></li>
+                                <li><a href="https://classroom.google.com/" data-i18n="nav.google_classroom" target="_blank">Google Classroom</a></li>
+                                <li><a href="https://moodle.org/" data-i18n="nav.moodle" target="_blank">Moodle</a></li>
                             </ul>
                         </li>
-                        <li><a href="#" data-i18n="nav.email">Email</a></li>
+                        <li><a href="https://mail.google.com/" data-i18n="nav.email" target="_blank">Email</a></li>
                         <li><a href="/services/websites" data-i18n="nav.related_sites">Related Sites</a></li>
                         <li><a href="/services/complaints" data-i18n="nav.complaints_feedback">Complaints and Feedback</a></li>
                     </ul>

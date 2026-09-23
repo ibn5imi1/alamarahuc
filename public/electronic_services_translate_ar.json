@@ -1,0 +1,35 @@
+{
+  "related.hero_title": "مواقع ذات صلة",
+  "related.section_title": "روابط",
+
+  "related.site1.name": "وزارة التعليم العالي والبحث العلمي",
+  "related.site2.name": "دائرة التعليم الجامعي الاهلي",
+  "related.site3.name": "دائرة الدراسات والتخطيط والمتابعة",
+  "related.site4.name": "وزارة التربية و التعليم",
+  "related.site5.name": "جامعة بغداد",
+  "related.site6.name": "الجامعة التكنولوجية",
+  "related.site7.name": "جامعة البصرة",
+  "related.site8.name": "جامعة ميسان",
+
+   "complaints.hero_title": "الشكاوى والملاحظات",
+  "complaints.hero_subtitle": "رأيك يهمنا",
+  "complaints.section_title": "قدّم شكواك أو ملاحظتك",
+  "complaints.intro_text": "يرجى تعبئة النموذج أدناه. تتم مراجعة جميع الطلبات بسرية تامة من قبل إدارة الكلية.",
+  "complaints.email_label": "بريدك الإلكتروني",
+  "complaints.type_label": "نوع الشكوى",
+  "complaints.type_student": "شكوى على طالب",
+  "complaints.type_employee": "شكوى على موظف",
+  "complaints.type_teacher": "شكوى على تدريسي",
+  "complaints.type_other": "أخرى",
+  "complaints.message_label": "التفاصيل",
+  "complaints.submit_btn": "إرسال",
+  "complaints.success_msg": "تم إرسال طلبك بنجاح. شكرًا لك.",
+  "complaints.error_msg": "حدث خطأ ما. يرجى المحاولة لاحقًا.",
+
+  "complaints.send_code_btn": "إرسال رمز التحقق",
+  "complaints.otp_send_error": "فشل إرسال الرمز. تأكد من صحة الإيميل وحاول مجددًا.",
+  "complaints.otp_label": "رمز التحقق",
+  "complaints.resend_code_btn": "إعادة الإرسال",
+  "complaints.otp_wrong_error": "الرمز غير صحيح. حاول مجددًا."
+
+}

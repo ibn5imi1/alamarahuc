@@ -17,6 +17,7 @@ public
 -department_translate_ar.json
 -students_translate_ar.json
 -teachers_translate_ar.json
+-electronic_services_translate_ar.json
 src
 -assets
 --images
@@ -55,9 +56,6 @@ src
 ---graduation_projects.js
 ---the_library.js
 --electronic_services
----educational_platforms
-----google_classroom.js
-----moodle.js
 ---complaints_and_comments.js
 ---email.js
 ---related_websites.js
@@ -97,6 +95,9 @@ src
 ------_electronic_library.scss
 ------_graduation_projects.scss
 ------_the_library.scss
+-----electronic_services
+------_complaints_and_comments.scss
+------_related_websites.scss
 -----_home.scss
 ----mixin.scss
 ----style.scss
@@ -107,6 +108,7 @@ src
 --department_translate.js
 --student_translate.js
 --repository_translate.js
+--electronic_services_translate.js
 -main.js
 -router.js
 -style.css
