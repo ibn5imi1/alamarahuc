@@ -47,6 +47,7 @@ import { applyTeachersLanguage } from './translate/teachers_translate.js';
 import { applyStudentLanguage } from './translate/student_translate.js';
 import { applyRepositoryLanguage } from './translate/repository_translate.js';
 import { applyElectronicServicesLanguage } from './translate/electronic_services_translate.js';
+import { applyAboutCollegeLanguage } from './translate/about_college_translate.js';
 
 import { initScrollReveal } from './scrollReveal.js';
 
@@ -138,6 +139,20 @@ const ELECTRONIC_SERVICES_PATHS = [
   '/services/websites',
   '/services/complaints',
 ];
+const ABOUT_COLLEGE_PATHS = [
+  '/about/college',
+  '/about/vision',
+  '/about/dean-speech',
+  '/about/academic-program',
+  '/about/certifications',
+  '/about/strategic-plan',
+  '/about/activities',
+  '/about/location',
+  '/about/statistics',
+  '/about/transparency',
+  '/about/instructions',
+  '/about/jobs',
+];
 
 function applyRouteLanguage(path) {
   if (path === '/department') {
@@ -159,6 +174,8 @@ function applyRouteLanguage(path) {
     if (typeof applyRepositoryLanguage === 'function') applyRepositoryLanguage();
   } else if (ELECTRONIC_SERVICES_PATHS.includes(path)) {
     if (typeof applyElectronicServicesLanguage === 'function') applyElectronicServicesLanguage();
+  } else if (ABOUT_COLLEGE_PATHS.includes(path)) {
+    if (typeof applyAboutCollegeLanguage === 'function') applyAboutCollegeLanguage();
   } else {
     if (typeof applyMainLanguage === 'function') applyMainLanguage();
   }

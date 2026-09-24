@@ -135,7 +135,7 @@
 }
 .header .navbar .nav_list .nav_item .dropdown_menu li a:hover {
   color: #f4d35e;
-  background-color: rgb(0%, 21.9981325864%, 44.7058823529%);
+  background-color: rgb(0, 56.0952380952, 114);
 }
 .header .navbar .nav_list .nav_item .dropdown_menu .has-submenu {
   position: relative;
@@ -151,7 +151,7 @@
 }
 .header .navbar .nav_list .nav_item .dropdown_menu .has-submenu:hover > a {
   color: #f4d35e;
-  background-color: rgb(0%, 21.9981325864%, 44.7058823529%);
+  background-color: rgb(0, 56.0952380952, 114);
 }
 .header .navbar .nav_list .nav_item .dropdown_menu .has-submenu:hover > a::after {
   border-left-color: #f4d35e;
@@ -401,7 +401,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: rgb(0%, 21.9981325864%, 44.7058823529%);
+  background-color: rgb(0, 56.0952380952, 114);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -449,7 +449,7 @@
   color: #ffffff;
   text-decoration: none;
   padding: 10px 15px;
-  border: 1px solid rgb(0%, 31.8394024276%, 64.7058823529%);
+  border: 1px solid rgb(0, 81.1904761905, 165);
   border-radius: 8px;
   transition: all 0.3s ease;
 }
@@ -458,7 +458,7 @@
   font-size: 1.3rem;
 }
 .footer .location-footer .location-info .location-link:hover {
-  background-color: rgb(0%, 20.0298786181%, 40.7058823529%);
+  background-color: rgb(0, 51.0761904762, 103.8);
   border-color: #f4d35e;
   color: #f4d35e;
   transform: translateY(-2px);
@@ -586,89 +586,6 @@
 .home-main-content .container {
   max-width: 1200px;
   margin: 0 auto;
-}
-.home-main-content .dean_talk_section .section-title {
-  text-align: center;
-  font-size: 2.2rem;
-  color: #0d3b66;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  margin-bottom: 40px;
-  position: relative;
-}
-.home-main-content .dean_talk_section .section-title::after {
-  content: "";
-  display: block;
-  width: 50px;
-  height: 3px;
-  background-color: #f4d35e;
-  margin: 10px auto 0;
-  border-radius: 2px;
-}
-.home-main-content .dean_talk_section .dean_card {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-  background: #ffffff;
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  border-top: 4px solid #0d3b66;
-}
-@media (max-width: 992px) {
-  .home-main-content .dean_talk_section .dean_card {
-    flex-direction: column;
-    align-items: center;
-    padding: 25px;
-  }
-}
-.home-main-content .dean_talk_section .dean_card {
-  /* صورة العميد */
-}
-.home-main-content .dean_talk_section .dean_card .dean_img_wrapper {
-  flex: 0 0 280px;
-  width: 100%;
-  max-width: 280px;
-  text-align: center;
-}
-.home-main-content .dean_talk_section .dean_card .dean_img_wrapper .dean_img {
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 3px solid #f4d35e;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-  display: block;
-}
-.home-main-content .dean_talk_section .dean_card .dean_img_wrapper .dean_info {
-  margin-top: 15px;
-  white-space: pre-line;
-}
-.home-main-content .dean_talk_section .dean_card .dean_img_wrapper .dean_info h3 {
-  font-size: 1.1rem;
-  color: #0d3b66;
-  font-weight: 600;
-}
-.home-main-content .dean_talk_section .dean_card {
-  /* النص الإنجليزي والعربي */
-}
-.home-main-content .dean_talk_section .dean_card .dean_text_wrapper {
-  flex: 1;
-  width: 100%;
-}
-.home-main-content .dean_talk_section .dean_card .dean_text_wrapper .talk {
-  font-size: 1.25rem;
-  line-height: 1.25;
-  color: #4a5568;
-  white-space: pre-wrap; /* يضمن إظهار كل السطور وتفاف الكلمات لعدم الخروج عن إطار الحاوية */
-  word-break: break-word; /* يمنع اختفاء الكلمات الطويلة */
-  overflow-wrap: break-word;
-  text-align: justify;
-}
-@media (max-width: 768px) {
-  .home-main-content .dean_talk_section .dean_card .dean_text_wrapper .talk {
-    font-size: 0.95rem;
-    line-height: 1.7;
-  }
 }
 
 .slider-section {
@@ -3367,30 +3284,6 @@ html[dir=rtl] .contact-us-page .contact-info-wrapper .info-card {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
-.complaints-page .complaints-container .complaint-form .otp-group .otp-row {
-  display: flex;
-  gap: 10px;
-}
-.complaints-page .complaints-container .complaint-form .otp-group .otp-row input {
-  flex: 1;
-  text-align: center;
-  font-size: 1.2rem;
-  letter-spacing: 4px;
-}
-.complaints-page .complaints-container .complaint-form .otp-group .otp-row .resend-btn {
-  padding: 0 18px;
-  background: transparent;
-  border: 1px solid #0d3b66;
-  color: #0d3b66;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  font-weight: 600;
-  white-space: nowrap;
-}
-.complaints-page .complaints-container .complaint-form .otp-group .otp-row .resend-btn:hover {
-  background: rgba(13, 59, 102, 0.05);
-}
 .complaints-page .complaints-container .complaint-form .form-group {
   margin-bottom: 24px;
 }
@@ -3484,6 +3377,339 @@ html[dir=rtl] .contact-us-page .contact-info-wrapper .info-card {
 @media (max-width: 576px) {
   .complaints-page .complaints-container .complaint-form {
     padding: 25px 20px;
+  }
+}
+.about-the-college-page {
+  width: 100%;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+.about-the-college-page .reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out 0s, transform 0.6s ease-out 0s;
+  will-change: opacity, transform;
+}
+.about-the-college-page .reveal.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.about-the-college-page .about-hero {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  min-height: 280px;
+  background: url("/src/assets/images/build.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.about-the-college-page .about-hero .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.85), rgba(13, 59, 102, 0.8));
+  z-index: 1;
+}
+.about-the-college-page .about-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  padding: 0 20px;
+}
+.about-the-college-page .about-hero .hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+.about-the-college-page .about-container {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+.about-the-college-page .about-container .section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.about-the-college-page .about-container .section-header h2 {
+  font-size: 1.8rem;
+  color: #0d3b66;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.about-the-college-page .about-container .section-header .header-line {
+  width: 80px;
+  height: 4px;
+  background-color: #f4d35e;
+  border-radius: 2px;
+  margin: 0 auto;
+}
+.about-the-college-page .about-container .about-content {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px 35px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.about-the-college-page .about-container .about-content .about-paragraph {
+  font-size: 1.05rem;
+  line-height: 2;
+  color: #333;
+  text-align: justify;
+  margin-bottom: 24px;
+}
+.about-the-college-page .about-container .about-content .about-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 576px) {
+  .about-the-college-page .about-container {
+    padding: 40px 15px;
+  }
+  .about-the-college-page .about-container .about-content {
+    padding: 25px 20px;
+  }
+  .about-the-college-page .about-container .about-content .about-paragraph {
+    font-size: 0.95rem;
+    line-height: 1.9;
+  }
+}
+.dean_talk_section .section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #0d3b66;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: 40px;
+  position: relative;
+}
+.dean_talk_section .section-title::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #f4d35e;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+.dean_talk_section .dean_card {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border-top: 4px solid #0d3b66;
+}
+@media (max-width: 992px) {
+  .dean_talk_section .dean_card {
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+  }
+}
+.dean_talk_section .dean_card .dean_img_wrapper {
+  flex: 0 0 280px;
+  width: 100%;
+  max-width: 280px;
+  text-align: center;
+}
+.dean_talk_section .dean_card .dean_img_wrapper .dean_img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid #f4d35e;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  display: block;
+}
+.dean_talk_section .dean_card .dean_img_wrapper .dean_info {
+  margin-top: 15px;
+  white-space: pre-line;
+}
+.dean_talk_section .dean_card .dean_img_wrapper .dean_info h3 {
+  font-size: 1.1rem;
+  color: #0d3b66;
+  font-weight: 600;
+}
+.dean_talk_section .dean_card .dean_text_wrapper {
+  flex: 1;
+  width: 100%;
+}
+.dean_talk_section .dean_card .dean_text_wrapper .talk {
+  font-size: 1.25rem;
+  line-height: 1.25;
+  color: #4a5568;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  text-align: justify;
+}
+@media (max-width: 768px) {
+  .dean_talk_section .dean_card .dean_text_wrapper .talk {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+}
+
+.message-from-dean-page {
+  width: 100%;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+.message-from-dean-page .reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out 0s, transform 0.6s ease-out 0s;
+  will-change: opacity, transform;
+}
+.message-from-dean-page .reveal.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.message-from-dean-page .dean-page-hero {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  min-height: 280px;
+  background: url("/src/assets/images/build.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.message-from-dean-page .dean-page-hero .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.85), rgba(13, 59, 102, 0.8));
+  z-index: 1;
+}
+.message-from-dean-page .dean-page-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  padding: 0 20px;
+}
+.message-from-dean-page .dean-page-hero .hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+.message-from-dean-page .dean-page-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.vision-page {
+  width: 100%;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+.vision-page .reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out 0s, transform 0.6s ease-out 0s;
+  will-change: opacity, transform;
+}
+.vision-page .reveal.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.vision-page .vision-hero {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  min-height: 280px;
+  background: url("/src/assets/images/build.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.vision-page .vision-hero .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.85), rgba(13, 59, 102, 0.8));
+  z-index: 1;
+}
+.vision-page .vision-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  padding: 0 20px;
+}
+.vision-page .vision-hero .hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+.vision-page .vision-container {
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.vision-page .vision-container .vision-section {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 35px 35px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-right: 5px solid #f4d35e;
+}
+.vision-page .vision-container .vision-section h2 {
+  font-size: 1.6rem;
+  color: #0d3b66;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.vision-page .vision-container .vision-section .section-divider {
+  width: 60px;
+  height: 3px;
+  background-color: #f4d35e;
+  border-radius: 2px;
+  margin-bottom: 22px;
+}
+.vision-page .vision-container .vision-section .vision-paragraph {
+  font-size: 1.02rem;
+  line-height: 1.95;
+  color: #333;
+  text-align: justify;
+  margin-bottom: 18px;
+}
+.vision-page .vision-container .vision-section .vision-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 576px) {
+  .vision-page .vision-container {
+    padding: 40px 15px;
+    gap: 20px;
+  }
+  .vision-page .vision-container .vision-section {
+    padding: 25px 20px;
+  }
+  .vision-page .vision-container .vision-section h2 {
+    font-size: 1.35rem;
+  }
+  .vision-page .vision-container .vision-section .vision-paragraph {
+    font-size: 0.95rem;
+    line-height: 1.85;
   }
 }
 * {
