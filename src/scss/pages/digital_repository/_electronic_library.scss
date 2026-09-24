@@ -70,7 +70,6 @@
       }
     }
 
-    // أزرار فلترة الأقسام
     .dept-filters {
       display: flex;
       flex-wrap: wrap;
@@ -101,7 +100,6 @@
       }
     }
 
-    // الجدول
     .table-wrapper {
       width: 100%;
       overflow-x: auto;
@@ -111,7 +109,6 @@
       table {
         @include data-table();
 
-        // عنوان الكتاب يأخذ أكبر مساحة، وعمود العرض أضيق
         thead tr th:first-child,
         tbody tr td:first-child {
           width: 75%;
@@ -122,7 +119,6 @@
           width: 25%;
         }
 
-        // أول حرف كبير، والباقي صغير تلقائيًا لعناوين الكتب
         tbody tr td:first-child {
           text-transform: capitalize !important;
         }

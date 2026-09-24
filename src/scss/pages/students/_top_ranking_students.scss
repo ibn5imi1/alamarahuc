@@ -80,8 +80,6 @@
         @include data-table();
         min-width: 700px;
       }
-
-      // ترانزشن ناعم عند تبديل الصفحة
       .fade-transition {
         transition: opacity 0.2s ease;
         opacity: 1;
@@ -92,7 +90,6 @@
       }
     }
 
-    // مربعات ترقيم الصفحات (Pagination)
     .pagination {
       display: flex;
       justify-content: center;

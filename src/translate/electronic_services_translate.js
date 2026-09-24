@@ -20,7 +20,7 @@ async function loadElectronicServicesTranslations(lang) {
       data = await res.json();
     }
   } catch (err) {
-    console.warn(`تعذر تحميل ملف ترجمة الخدمات الإلكترونية: ${file}`, err);
+    console.warn(`Failed to load the e-services translation file: ${file}`, err);
   }
 
   electronicServicesTranslationCache[lang] = data;
@@ -32,7 +32,7 @@ export async function applyElectronicServicesLanguage(langOverride) {
     const currentLang = langOverride || localStorage.getItem('lang') || 'ar';
     const translations = await loadElectronicServicesTranslations(currentLang);
 
-    // مقصور فقط على #main-content — ما يلمس الهيدر أو الفوتر أبدًا
+    // Restricted to #main-content only — never touches the header or footer.
     document.querySelectorAll('#main-content [data-i18n]').forEach((element) => {
       const key = element.getAttribute('data-i18n');
 
@@ -52,6 +52,6 @@ export async function applyElectronicServicesLanguage(langOverride) {
     document.documentElement.lang = currentLang;
     document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
   } catch (err) {
-    console.error("حدث خطأ أثناء تطبيق ترجمة الخدمات الإلكترونية:", err);
+    console.error("An error occurred while applying the electronic services translation:", err);
   }
 }

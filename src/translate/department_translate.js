@@ -28,7 +28,7 @@ export async function applyDeptLanguage() {
     if (translations && key in translations) {
       const val = translations[key];
 
-      // معالجة حالة اسم رئيس القسم إذا كان فارغاً
+      // Handle the case where the department head's name is empty
       if (key.endsWith('.head_name')) {
         if (!val || val.trim() === "") {
           element.style.display = 'none';

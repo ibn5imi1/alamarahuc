@@ -56,14 +56,14 @@ export async function toggleLanguage() {
   const currentLang = localStorage.getItem('lang') || 'ar';
   const newLang = currentLang === 'ar' ? 'en' : 'ar';
 
-  // ✅ نستخدم الدوال الموجودة فعليًا بدل applyLanguage الوهمية
+  // ✅ We use the actual existing functions instead of the dummy applyLanguage.
   if (newLang === 'ar') {
     await toArabic();
   } else {
     toEnglish();
   }
 
-  // 🔔 نبلّغ باقي النظام (الراوتر) إن اللغة تغيّرت
+  // 🔔 Notify the rest of the system (the router) that the language has changed.
   window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang: newLang } }));
 }
 

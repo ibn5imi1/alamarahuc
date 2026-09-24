@@ -20,7 +20,7 @@ async function loadTeachersTranslations(lang) {
             data = await res.json();
         }
     } catch (err) {
-        console.warn(`تعذر تحميل ملف ترجمة التدريسيين: ${file}`, err);
+        console.warn(`Unable to load the instructors' translation file: ${file}`, err);
     }
 
     teachersTranslationCache[lang] = data;
@@ -32,8 +32,6 @@ export async function applyTeachersLanguage(langOverride) {
         const currentLang = langOverride || localStorage.getItem('lang') || 'ar';
         const translations = await loadTeachersTranslations(currentLang);
 
-        // ⚠️ النطاق مقصور فقط على #main-content
-        // حتى لا يمس عناصر data-i18n الخاصة بالهيدر أو الفوتر أبدًا
         document.querySelectorAll('#main-content [data-i18n]').forEach((element) => {
             const key = element.getAttribute('data-i18n');
 
@@ -53,6 +51,6 @@ export async function applyTeachersLanguage(langOverride) {
         document.documentElement.lang = currentLang;
         document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
     } catch (err) {
-        console.error("حدث خطأ أثناء تطبيق ترجمة التدريسيين:", err);
+        console.error("An error occurred while applying the faculty members' translation.", err);
     }
 }

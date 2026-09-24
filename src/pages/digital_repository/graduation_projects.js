@@ -1,7 +1,4 @@
-// ============================================
-// بيانات بحوث التخرج — النص الإنجليزي هو الأساسي، ويُترجم عبر المفاتيح
-// url: رابط بحث التخرج الفعلي (يفتح بتبويب جديد)
-// ============================================
+
 const PROJECTS_DATA = [
   {
     title: 'Reduction of Heavy Crude Oil Viscosity in Pipeline Transportation', titleKey: 'project.1.title',

@@ -44,17 +44,17 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: $hero-bg-1; // خلفية المسار داكنة ومتناسقة مع الـ Hero
+    background: $hero-bg-1; 
 }
 
 ::-webkit-scrollbar-thumb {
     background: linear-gradient(180deg, $primary-color, $hero-bg-3); // تدرج أنيق ومريح للعين
     border-radius: 5px;
-    border: 2px solid $hero-bg-1; // مسافة فاصلة تجعل الشريط يبدو أنيقاً ومجوفاً
+    border: 2px solid $hero-bg-1; 
     transition: background 0.3s ease;
 
     &:hover {
-        background: $accent-color; // إضاءة باللون الذهبي/الأصفر عند تحريك الماوس فوقه
+        background: $accent-color; 
     }
 }
 

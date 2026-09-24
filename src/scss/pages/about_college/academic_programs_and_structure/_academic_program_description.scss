@@ -211,7 +211,6 @@
           border-color: rgba($primary-color, 0.3);
         }
 
-        /* عند إضافة كلاس active يتم فتح السلايد وإطالة الـ maxHeight */
         &.active {
           border-color: $primary-color;
           box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
@@ -226,7 +225,7 @@
           }
 
           .program-slide-content {
-            max-height: 800px; /* يعطي مساحة كافية لعرض ملف الـ PDF */
+            max-height: 800px; 
             opacity: 1;
           }
         }

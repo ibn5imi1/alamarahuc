@@ -8,12 +8,12 @@ const CORE_BOOKS = [
   {
     titleKey: 'library.core_book1_title',
     title: 'Authorized Master Book Register',
-    fileId: '10v2co6UOIkDInqP_F4hSjulFG34D0i3P' // ✅ معرف مجرد بس
+    fileId: '10v2co6UOIkDInqP_F4hSjulFG34D0i3P'    
   },
   {
     titleKey: 'library.core_book2_title',
     title: 'Book Titles',
-    fileId: '1vRLRfTWsn-Afak-3TRopicYlnmXKVsUL' // ✅ معرف مجرد بس
+    fileId: '1vRLRfTWsn-Afak-3TRopicYlnmXKVsUL' 
   },
 ];
 

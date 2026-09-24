@@ -122,14 +122,14 @@
 
     .core-books-grid {
       display: flex;
-      flex-direction: column;   // ✅ عمودي بدل الأفقي، كل كتاب تحت الثاني
+      flex-direction: column;      
       gap: 30px;
-      max-width: 700px;         // اختياري: يمنع الويدث يصير عريض جدًا بشاشات كبيرة
+      max-width: 700px;         
       margin: 0 auto;
 
       .core-book-card {
-        width: 100%;            // ✅ بدل flex: 0 0 calc(50% - 15px)
-        max-width: 100%;        // ✅ بدل max-width: calc(50% - 15px)
+        width: 100%;          
+        max-width: 100%;        
         background: #ffffff;
         border-radius: 16px;
         padding: 25px;

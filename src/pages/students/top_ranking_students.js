@@ -1,9 +1,6 @@
 import { applyStudentLanguage } from '../../translate/student_translate.js';
 
-// ============================================
-// بيانات الطلبة — النص الإنجليزي هنا هو الأساسي (يظهر افتراضيًا)
-// وكل حقل نصي له مفتاح ترجمة مقابل بملف students_translate_ar.json فقط
-// ============================================
+
 const STUDENTS_DATA = [
   {
     name: 'Eisa Maad Naji Abbas', nameKey: 'student.1.name',

@@ -1,5 +1,5 @@
 export function header() {
-  return `
+    return `
     <header class="header">
         <nav class="navbar">
             <button class="hamburger_btn" id="menu-toggle" aria-label="Toggle Navigation">
@@ -58,43 +58,43 @@ export function header() {
 
                 <!-- Departments -->
                 <li class="nav_item has-dropdown">
-    <a href="#" data-i18n="nav.departments">Departments</a>
-    <ul class="dropdown_menu">
-        <li class="dropdown_item has-submenu">
-            <a href="#" data-i18n="nav.medical_departments">Medical Departments</a>
-            <ul class="submenu">
-                <li><a href="/department?id=dentistry" data-i18n="nav.dentistry">Department of Dentistry</a></li>
-                <li><a href="/department?id=pharmacy" data-i18n="nav.pharmacy">Pharmacy Department</a></li>
-                <li><a href="/department?id=radiology" data-i18n="nav.radiology">Radiology and Sonography Technologies Department</a></li>
-                <li><a href="/department?id=dental_industry" data-i18n="nav.dental_industry">Dental Industry Technical Department</a></li>
-                <li><a href="/department?id=cosmetic_laser" data-i18n="nav.cosmetic_laser">Cosmetic and Laser Technology Department</a></li>
-                <li><a href="/department?id=medical_lab" data-i18n="nav.medical_lab">Medical Laboratory Sciences Department</a></li>
-            </ul>
-        </li>
-        <li class="dropdown_item has-submenu">
-            <a href="#" data-i18n="nav.engineering_departments">Engineering Departments</a>
-            <ul class="submenu">
-                <li><a href="/department?id=petroleum_eng" data-i18n="nav.petroleum_eng">Petroleum Engineering Department</a></li>
-                <li><a href="/department?id=mechanical_eng" data-i18n="nav.mechanical_eng">Mechanical Power Technical Engineering Department</a></li>
-                <li><a href="/department?id=medical_devices_eng" data-i18n="nav.medical_devices_eng">Medical Devices Technical Engineering Department</a></li>
-                <li><a href="/department?id=electrical_eng" data-i18n="nav.electrical_eng">Electrical Power Technology Engineering</a></li>
-                <li><a href="/department?id=chemical_eng" data-i18n="nav.chemical_eng">Chemical Engineering and Petroleum Industries Department</a></li>
-                <li><a href="/department?id=cybersecurity_eng" data-i18n="nav.cybersecurity_eng">Cybersecurity Technical Engineering Department</a></li>
-                <li><a href="/department?id=ai_eng" data-i18n="nav.ai_eng">Artificial Intelligence Engineering Department</a></li>
-                <li><a href="/department?id=civil_eng" data-i18n="nav.civil_eng">Civil Engineering Department</a></li>
-            </ul>
-        </li>
-        <li class="dropdown_item has-submenu">
-            <a href="#" data-i18n="nav.humanities_departments">Humanities Departments</a>
-            <ul class="submenu">
-                <li><a href="/department?id=law" data-i18n="nav.law">Law Department</a></li>
-                <li><a href="/department?id=accounting" data-i18n="nav.accounting">Accounting Department</a></li>
-                <li><a href="/department?id=english_edu" data-i18n="nav.english_edu">English Education Department</a></li>
-                <li><a href="/department?id=oil_gas_mgmt" data-i18n="nav.oil_gas_mgmt">Oil and Gas Management and Marketing Department</a></li>
-            </ul>
-        </li>
-    </ul>
-</li>
+                    <a href="#" data-i18n="nav.departments">Departments</a>
+                    <ul class="dropdown_menu">
+                        <li class="dropdown_item has-submenu">
+                            <a href="#" data-i18n="nav.medical_departments">Medical Departments</a>
+                            <ul class="submenu">
+                                <li><a href="/department?id=dentistry" data-i18n="nav.dentistry">Department of Dentistry</a></li>
+                                <li><a href="/department?id=pharmacy" data-i18n="nav.pharmacy">Pharmacy Department</a></li>
+                                <li><a href="/department?id=radiology" data-i18n="nav.radiology">Radiology and Sonography Technologies Department</a></li>
+                                <li><a href="/department?id=dental_industry" data-i18n="nav.dental_industry">Dental Industry Technical Department</a></li>
+                                <li><a href="/department?id=cosmetic_laser" data-i18n="nav.cosmetic_laser">Cosmetic and Laser Technology Department</a></li>
+                                <li><a href="/department?id=medical_lab" data-i18n="nav.medical_lab">Medical Laboratory Sciences Department</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown_item has-submenu">
+                            <a href="#" data-i18n="nav.engineering_departments">Engineering Departments</a>
+                            <ul class="submenu">
+                                <li><a href="/department?id=petroleum_eng" data-i18n="nav.petroleum_eng">Petroleum Engineering Department</a></li>
+                                <li><a href="/department?id=mechanical_eng" data-i18n="nav.mechanical_eng">Mechanical Power Technical Engineering Department</a></li>
+                                <li><a href="/department?id=medical_devices_eng" data-i18n="nav.medical_devices_eng">Medical Devices Technical Engineering Department</a></li>
+                                <li><a href="/department?id=electrical_eng" data-i18n="nav.electrical_eng">Electrical Power Technology Engineering</a></li>
+                                <li><a href="/department?id=chemical_eng" data-i18n="nav.chemical_eng">Chemical Engineering and Petroleum Industries Department</a></li>
+                                <li><a href="/department?id=cybersecurity_eng" data-i18n="nav.cybersecurity_eng">Cybersecurity Technical Engineering Department</a></li>
+                                <li><a href="/department?id=ai_eng" data-i18n="nav.ai_eng">Artificial Intelligence Engineering Department</a></li>
+                                <li><a href="/department?id=civil_eng" data-i18n="nav.civil_eng">Civil Engineering Department</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown_item has-submenu">
+                            <a href="#" data-i18n="nav.humanities_departments">Humanities Departments</a>
+                            <ul class="submenu">
+                                <li><a href="/department?id=law" data-i18n="nav.law">Law Department</a></li>
+                                <li><a href="/department?id=accounting" data-i18n="nav.accounting">Accounting Department</a></li>
+                                <li><a href="/department?id=english_edu" data-i18n="nav.english_edu">English Education Department</a></li>
+                                <li><a href="/department?id=oil_gas_mgmt" data-i18n="nav.oil_gas_mgmt">Oil and Gas Management and Marketing Department</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
 
                 <!-- Teachers -->
                 <li class="nav_item has-dropdown">
@@ -151,10 +151,10 @@ export function header() {
 
                 <!-- Electronic Services -->
                 <li class="nav_item has-dropdown">
-                    <a href="" data-i18n="nav.services">Electronic Services</a>
+                    <a href="#" data-i18n="nav.services">Electronic Services</a>
                     <ul class="dropdown_menu">
                         <li class="dropdown_item has-submenu">
-                            <a href="" data-i18n="nav.educational_platforms">Educational Platforms</a>
+                            <a href="#" data-i18n="nav.educational_platforms">Educational Platforms</a>
                             <ul class="submenu">
                                 <li><a href="https://classroom.google.com/" data-i18n="nav.google_classroom" target="_blank">Google Classroom</a></li>
                                 <li><a href="https://moodle.org/" data-i18n="nav.moodle" target="_blank">Moodle</a></li>
@@ -167,39 +167,92 @@ export function header() {
                 </li>
 
                 <li class="nav_item"><a href="/contact_us" data-i18n="contact_us">Contact Us</a></li>
-                <li class="nav_item"><a href="" data-i18n="nav.en">عربي</a></li>
+                <li class="nav_item"><a href="#" data-i18n="nav.en">عربي</a></li>
             </ul>
         </nav>
         <div class="nav_overlay" id="nav-overlay"></div>
     </header>`;
 }
 
+export function setActiveNavLink() {
+    const currentPath = window.location.pathname + window.location.search;
+    const links = document.querySelectorAll('.nav_list a');
+
+    // 1. Remove the 'active' class from all previous links and elements
+    links.forEach(link => link.classList.remove('active'));
+
+    // 2. Set 'active' for the matching link and its parent link
+    links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href || href === '#' || link.getAttribute('target') === '_blank') return;
+
+        if (href === currentPath || (currentPath === '/' && href === '/')) {
+            link.classList.add('active');
+
+            // Activate parent links to highlight the main and sub-menus
+            let parentLi = link.closest('li');
+            while (parentLi) {
+                const parentLink = parentLi.querySelector(':scope > a');
+                if (parentLink) {
+                    parentLink.classList.add('active');
+                }
+                parentLi = parentLi.parentElement ? parentLi.parentElement.closest('li') : null;
+            }
+        }
+    });
+}
+
 export function initMobileMenu() {
-  const toggleBtn = document.getElementById('menu-toggle');
-  const navList = document.getElementById('nav-list');
-  const overlay = document.getElementById('nav-overlay');
+    const toggleBtn = document.getElementById('menu-toggle');
+    const navList = document.getElementById('nav-list');
+    const overlay = document.getElementById('nav-overlay');
 
-  if (!toggleBtn) return;
+    // Update classes immediately when the function runs
+    setActiveNavLink();
 
-  function toggleMenu() {
-    navList.classList.toggle('active');
-    overlay.classList.toggle('active');
-    toggleBtn.classList.toggle('active');
-  }
+    // 1. Listen for browser Back/Forward button events
+    window.addEventListener('popstate', setActiveNavLink);
 
-  toggleBtn.addEventListener('click', toggleMenu);
-  overlay.addEventListener('click', toggleMenu);
+    // 2. Monitor direct clicks on any link within the Nav and immediately update the 'active' state without needing a page refresh.
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('.nav_list a');
+        if (link && link.getAttribute('href') !== '#' && link.getAttribute('target') !== '_blank') {
 
-  // Using Event Delegation to control menu opening on small screens
-  document.body.addEventListener('click', (e) => {
-    if (window.innerWidth <= 1024) {
-      const link = e.target.closest('.has-dropdown > a, .has-submenu > a');
-      if (link) {
-        e.preventDefault();
-        e.stopPropagation();
-        const parentLi = link.parentElement;
-        parentLi.classList.toggle('open');
-      }
+            // We set a very short delay to wait for the URL to change in the router.
+            setTimeout(() => {
+                setActiveNavLink();
+            }, 10);
+
+            // Close the menu on small screens when a link is clicked
+            if (window.innerWidth <= 1024 && navList && navList.classList.contains('active')) {
+                navList.classList.remove('active');
+                if (overlay) overlay.classList.remove('active');
+                if (toggleBtn) toggleBtn.classList.remove('active');
+            }
+        }
+    });
+
+    if (!toggleBtn) return;
+
+    function toggleMenu() {
+        navList.classList.toggle('active');
+        overlay.classList.toggle('active');
+        toggleBtn.classList.toggle('active');
     }
-  });
+
+    toggleBtn.addEventListener('click', toggleMenu);
+    if (overlay) overlay.addEventListener('click', toggleMenu);
+
+    // Mobile dropdown control
+    document.body.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1024) {
+            const link = e.target.closest('.has-dropdown > a, .has-submenu > a');
+            if (link) {
+                e.preventDefault();
+                e.stopPropagation();
+                const parentLi = link.parentElement;
+                parentLi.classList.toggle('open');
+            }
+        }
+    });
 }

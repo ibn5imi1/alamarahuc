@@ -74,12 +74,11 @@
       }
     }
 
-    // شبكة الفيديوهات — فيديوهان بكل صف
     .videos-grid {
       @include flex-container(1200px, center, stretch, 25px);
 
       .video-card {
-        flex: 0 0 calc(50% - 25px); // ✅ فيديوهان بالصف بدل ثلاثة
+        flex: 0 0 calc(50% - 25px); 
         max-width: calc(50% - 25px);
         border-radius: 12px;
         overflow: hidden;
@@ -112,7 +111,7 @@
           align-items: center;
           gap: 10px;
           z-index: 2;
-          pointer-events: none; // لمنع اعتراض الكليكات
+          pointer-events: none; 
 
           .video-info {
             display: flex;
@@ -155,7 +154,6 @@
             display: block;
           }
 
-          // شريط العنوان فوق الصورة
           .video-title-bar {
             position: absolute;
             top: 0;
@@ -183,7 +181,7 @@
             z-index: 2;
           }
 
-          // شارة "Watch on YouTube"
+        
           .watch-on-youtube-badge {
             position: absolute;
             bottom: 12px;
@@ -221,7 +219,6 @@
     }
   }
 
-  // قسم رابط القناة أسفل الصفحة
   .channel-footer {
     max-width: 1200px;
     margin: 0 auto;

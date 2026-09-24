@@ -89,6 +89,11 @@
   color: #f4d35e;
   background-color: rgba(255, 255, 255, 0.05);
 }
+.header .navbar .nav_list .nav_item a.active {
+  color: #f4d35e;
+  background-color: rgba(244, 211, 94, 0.15);
+  font-weight: 600;
+}
 .header .navbar .nav_list .nav_item.has-dropdown > a::after {
   content: "";
   display: inline-block;
@@ -99,6 +104,9 @@
   border-right: 4px solid transparent;
   border-top: 5px solid #ffffff;
   transition: transform 0.3s ease, border-top-color 0.3s ease;
+}
+.header .navbar .nav_list .nav_item.has-dropdown > a.active::after {
+  border-top-color: #f4d35e;
 }
 .header .navbar .nav_list .nav_item.has-dropdown:hover > a {
   color: #f4d35e;
@@ -137,6 +145,11 @@
   color: #f4d35e;
   background-color: rgb(0, 56.0952380952, 114);
 }
+.header .navbar .nav_list .nav_item .dropdown_menu li a.active {
+  color: #f4d35e;
+  background-color: rgb(0, 61.1142857143, 124.2);
+  font-weight: 600;
+}
 .header .navbar .nav_list .nav_item .dropdown_menu .has-submenu {
   position: relative;
 }
@@ -148,6 +161,9 @@
   border-bottom: 4px solid transparent;
   border-left: 5px solid #ffffff;
   transition: transform 0.3s ease, border-left-color 0.3s ease;
+}
+.header .navbar .nav_list .nav_item .dropdown_menu .has-submenu > a.active::after {
+  border-left-color: #f4d35e;
 }
 .header .navbar .nav_list .nav_item .dropdown_menu .has-submenu:hover > a {
   color: #f4d35e;
@@ -214,6 +230,9 @@
     border-right: 5px solid #ffffff;
     transition: transform 0.3s ease, border-right-color 0.3s ease;
   }
+  html[dir=rtl] .header .navbar .nav_list .nav_item .dropdown_menu .has-submenu > a.active::after {
+    border-right-color: #f4d35e;
+  }
   html[dir=rtl] .header .navbar .nav_list .nav_item .dropdown_menu .has-submenu:hover > a::after {
     border-right-color: #f4d35e;
   }
@@ -272,6 +291,10 @@
     font-size: 0.95rem;
     padding: 0.8rem 0.5rem;
   }
+  .header .navbar .nav_list .nav_item a.active {
+    color: #f4d35e;
+    background-color: rgba(244, 211, 94, 0.15);
+  }
   .header .navbar .nav_list .nav_item.has-dropdown > a::after {
     border-left: 4px solid transparent !important;
     border-right: 4px solid transparent !important;
@@ -280,6 +303,9 @@
     content: "" !important;
     transform: rotate(0deg);
     transition: transform 0.3s ease, border-top-color 0.3s ease;
+  }
+  .header .navbar .nav_list .nav_item.has-dropdown > a.active::after {
+    border-top-color: #f4d35e !important;
   }
   .header .navbar .nav_list .nav_item.has-dropdown.open > a::after {
     transform: rotate(180deg) !important;
@@ -308,6 +334,11 @@
     background-color: rgba(244, 211, 94, 0.15);
     color: #f4d35e;
   }
+  .header .navbar .nav_list .nav_item .dropdown_menu a.active,
+  .header .navbar .nav_list .nav_item .dropdown_menu .has-submenu .submenu a.active {
+    background-color: rgba(244, 211, 94, 0.2);
+    color: #f4d35e;
+  }
   .header .navbar .nav_list .nav_item.open > .dropdown_menu {
     display: block !important;
   }
@@ -319,6 +350,9 @@
     content: "" !important;
     transform: rotate(0deg);
     transition: transform 0.3s ease, border-top-color 0.3s ease;
+  }
+  .header .navbar .nav_list .nav_item .has-submenu > a.active::after {
+    border-top-color: #f4d35e !important;
   }
   .header .navbar .nav_list .nav_item .has-submenu.open > .submenu {
     display: block !important;
@@ -464,7 +498,6 @@
   transform: translateY(-2px);
 }
 
-/* خلفية تدرج ألوان ناعمة ومتحركة هادئة */
 @keyframes ambientGradient {
   0% {
     background-position: 0% 50%;
@@ -488,9 +521,9 @@
 .hero-section .container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* توسيط أفقي لجميع العناصر */
+  align-items: center;
   justify-content: center;
-  text-align: center; /* توسيط كافة النصوص */
+  text-align: center;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -509,7 +542,7 @@
   width: 60px;
   height: 4px;
   background-color: #f4d35e;
-  margin: 12px auto 0 auto; /* ضمان توسيط الخط السفلي */
+  margin: 12px auto 0 auto;
   border-radius: 2px;
 }
 @media (max-width: 768px) {
@@ -522,7 +555,7 @@
   font-size: 1.05rem;
   line-height: 1.8;
   color: white;
-  margin: 0 auto 30px auto; /* توسيط المكون وحفظ المسافة التحتية */
+  margin: 0 auto 30px;
   text-align: center;
 }
 @media (max-width: 768px) {
@@ -571,7 +604,6 @@
   margin: 0;
 }
 
-/* باقي الصفحة تكون بخلفية منفصلة تماماً */
 .home-main-content {
   background-color: #f8f9fa;
   padding: 60px 20px;
@@ -692,7 +724,7 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .slider-section {
-  /* أزرار التحكم باللغة الإنجليزية (LTR) */
+  /* Control buttons in English (LTR) */
 }
 .slider-section .slider-btn {
   position: absolute;
@@ -747,9 +779,9 @@
   border-radius: 8px;
 }
 
-/* إصلاح الاتجاهات للغة العربية (RTL) مع ضبط وظيفة الأسهم */
+/* Fix Arabic (RTL) directionality and adjust arrow functionality */
 html[dir=rtl] .slider-section .slider-btn {
-  /* نقل زر السابق لليمين والتالي لليسار بما يناسب اتجاه القراءة العربي */
+  /* Move the 'Previous' button to the right and the 'Next' button to the left to suit the Arabic reading direction */
 }
 html[dir=rtl] .slider-section .slider-btn.prev-btn {
   left: auto;
@@ -3903,9 +3935,6 @@ html[dir=rtl] .contact-us-page .contact-info-wrapper .info-card {
   .academic-program-page .program-container .program-card:hover {
     border-color: rgba(13, 59, 102, 0.3);
   }
-  .academic-program-page .program-container .program-card {
-    /* عند إضافة كلاس active يتم فتح السلايد وإطالة الـ maxHeight */
-  }
   .academic-program-page .program-container .program-card.active {
     border-color: #0d3b66;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
@@ -3918,7 +3947,7 @@ html[dir=rtl] .contact-us-page .contact-info-wrapper .info-card {
     color: #d9534f;
   }
   .academic-program-page .program-container .program-card.active .program-slide-content {
-    max-height: 800px; /* يعطي مساحة كافية لعرض ملف الـ PDF */
+    max-height: 800px;
     opacity: 1;
   }
   .academic-program-page .program-container .program-card .program-header {
@@ -4039,9 +4068,6 @@ html[dir=rtl] .contact-us-page .contact-info-wrapper .info-card {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   margin-top: 20px;
-}
-.certifications-classifications-page .certifications-container {
-  /* تطبيق الميكسن الخاص بالجدول */
 }
 .certifications-classifications-page .certifications-container .certifications-table {
   width: 100%;

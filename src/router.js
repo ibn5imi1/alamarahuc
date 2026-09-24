@@ -1,3 +1,6 @@
+// router.js
+
+// Page View and Component Imports
 import { home, initSlider, initCounters } from './pages/home.js';
 import { departmentView } from './pages/college_departments/departmentView.js';
 
@@ -42,6 +45,7 @@ import { relatedWebsitesView } from './pages/electronic_services/related_website
 // Contact Us
 import { contactUsView } from './pages/contact_us.js';
 
+// Translation Module Imports
 import { applyDeptLanguage } from './translate/department_translate.js';
 import { applyMainLanguage } from './translate/main_translate.js';
 import { applyTeachersLanguage } from './translate/teachers_translate.js';
@@ -52,7 +56,12 @@ import { applyAboutCollegeLanguage } from './translate/about_college_translate.j
 
 import { initScrollReveal } from './scrollReveal.js';
 
-// دالة مساعدة لاستدعاء الدوال بأمان سواء كانت تعيد String HTML أو تُرجع مخرجات مباشرة
+/**
+ * Safely executes a view rendering function.
+ * @param {Function} viewFunc - Function returning HTML string for a route.
+ * @param {Object|string|null} params - Parameters to pass to the view function.
+ * @returns {string} The rendered HTML content or a fallback template if undefined.
+ */
 function renderView(viewFunc, params = null) {
   if (typeof viewFunc === 'function') {
     return viewFunc(params);
@@ -60,6 +69,11 @@ function renderView(viewFunc, params = null) {
   return '<div class="container" style="padding: 50px 0; text-align: center;"><h2>الصفحة قيد التطوير</h2></div>';
 }
 
+/**
+ * Route Mapping Table.
+ * Associates URL pathnames with their corresponding view rendering functions 
+ * and post-render initialization scripts (via setTimeout to run after DOM injection).
+ */
 const routes = {
   '/': () => {
     const html = home();
@@ -75,7 +89,7 @@ const routes = {
     return renderView(departmentView, deptId);
   },
 
-  // Digital Repository — كل روت فيه منطق بعد الرندر (setTimeout) مجمّع هنا
+  // Digital Repository Routes
   '/repository/library': () => {
     const html = theLibraryView();
     setTimeout(() => {
@@ -94,12 +108,10 @@ const routes = {
   '/repository/projects': () => renderView(graduationProjectsView),
   '/repository/e-library': () => renderView(electronicLibraryView),
 
-  // About College
+  // About College Routes
   '/about/college': () => renderView(aboutTheCollegeView),
   '/about/vision': () => renderView(visionView),
   '/about/dean-speech': () => renderView(messageFromTheDeanView),
-
-  // --- التعديل هنا لصفحة وصف البرنامج الأكاديمي ---
   '/about/academic-program': () => {
     const html = academicProgramDescriptionView();
     setTimeout(() => {
@@ -109,7 +121,6 @@ const routes = {
     }, 0);
     return html;
   },
-
   '/about/certifications': () => renderView(certificationsAndClassificationsView),
   '/about/strategic-plan': () => renderView(strategicPlanView),
   '/about/organization-stricture': () => renderView(organizationalStructureView),
@@ -120,18 +131,18 @@ const routes = {
   '/about/instructions': () => renderView(collegeInstructionsAndPolicyView),
   '/about/jobs': () => renderView(jobsView),
 
-  // Faculty Members
+  // Faculty Members Routes
   '/faculty/books': () => renderView(booksView),
   '/faculty/patents': () => renderView(patentView),
   '/faculty/research': () => renderView(researchView),
   '/faculty/teaching': () => renderView(teachingView),
 
-  // Students
+  // Students Routes
   '/students/calendar': () => renderView(academicCalendarView),
   '/students/graduates': () => renderView(graduatesView),
   '/students/top-rank': () => renderView(topRankingStudentsView),
 
-  // Electronic Services
+  // Electronic Services Routes
   '/services/complaints': () => renderView(complaintsAndCommentsView),
   '/services/websites': () => renderView(relatedWebsitesView),
 
@@ -139,7 +150,7 @@ const routes = {
   '/contact_us': () => renderView(contactUsView)
 };
 
-// مسارات المستودع الرقمي — قائمة واحدة يعاد استخدامها بمكانين (handleRouting و languageChanged)
+// Route Groups for Translation Scoping
 const REPOSITORY_PATHS = [
   '/repository/projects',
   '/repository/photos',
@@ -167,6 +178,10 @@ const ABOUT_COLLEGE_PATHS = [
   '/about/jobs',
 ];
 
+/**
+ * Applies the matching translation dictionary based on the target URL path.
+ * @param {string} path - Current window pathname.
+ */
 function applyRouteLanguage(path) {
   if (path === '/department') {
     if (typeof applyDeptLanguage === 'function') applyDeptLanguage();
@@ -194,6 +209,11 @@ function applyRouteLanguage(path) {
   }
 }
 
+/**
+ * Main routing handler. 
+ * Renders page views into the main content container, applies active translations,
+ * initializes scroll animations, and resets window scroll position to top.
+ */
 export function handleRouting() {
   const mainContent = document.getElementById('main-content');
   if (!mainContent) return;
@@ -207,18 +227,25 @@ export function handleRouting() {
   }
 
   applyRouteLanguage(path);
-
   initScrollReveal();
-
   window.scrollTo(0, 0);
 }
 
+/**
+ * Updates browser history state using HTML5 History API and triggers view rendering.
+ * @param {string} url - Target URL path to navigate to.
+ */
 export function navigateTo(url) {
   window.history.pushState(null, null, url);
   handleRouting();
 }
 
+/**
+ * Initializes single-page application (SPA) router settings and event listeners.
+ * Intercepts anchor tag click events for internal client-side navigation.
+ */
 export function initRouter() {
+  // Event Delegation: Intercept link clicks for SPA routing
   document.body.addEventListener('click', (e) => {
     const link = e.target.closest('a');
 
@@ -228,9 +255,9 @@ export function initRouter() {
       if (!href || href === '#' || href.startsWith('javascript:')) return;
 
       e.preventDefault();
-
       navigateTo(href);
 
+      // Close mobile navigation menu upon clicking a link
       const navList = document.getElementById('nav-list');
       const overlay = document.getElementById('nav-overlay');
       const toggleBtn = document.getElementById('menu-toggle');
@@ -242,11 +269,17 @@ export function initRouter() {
     }
   });
 
+  // Handle browser navigation actions (Back/Forward buttons)
   window.addEventListener('popstate', handleRouting);
+
+  // Perform initial route rendering
   handleRouting();
 }
 
-// إعادة تطبيق ترجمة الصفحة الحالية فقط عند تبديل اللغة، بدون Reload أو تغيير المسار
+/**
+ * Global Event Listener for language updates.
+ * Re-applies translations without triggering a full page reload or route transition.
+ */
 window.addEventListener('languageChanged', () => {
   const path = window.location.pathname;
   applyRouteLanguage(path);

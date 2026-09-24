@@ -32,7 +32,6 @@ export async function applyRepositoryLanguage(langOverride) {
     const currentLang = langOverride || localStorage.getItem('lang') || 'ar';
     const translations = await loadRepositoryTranslations(currentLang);
 
-    // مقصور فقط على #main-content — ما يلمس الهيدر أو الفوتر أبدًا
     document.querySelectorAll('#main-content [data-i18n]').forEach((element) => {
       const key = element.getAttribute('data-i18n');
 
@@ -52,6 +51,6 @@ export async function applyRepositoryLanguage(langOverride) {
     document.documentElement.lang = currentLang;
     document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
   } catch (err) {
-    console.error("حدث خطأ أثناء تطبيق ترجمة المستودع الرقمي:", err);
+    console.error("An error occurred while applying the digital repository translation:", err);
   }
 }

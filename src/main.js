@@ -10,7 +10,7 @@ import { initVideoGallery } from './pages/digital_repository/media/video_gallery
 import { initPhotoGallery } from './pages/digital_repository/media/photo_gallery.js';
 import { initComplaintsForm } from './pages/electronic_services/complaints_and_comments.js';
 
-// ... داخل الكتلة الرئيسية:
+// ... inside the main block:
 if (typeof initVideoGallery === 'function') initVideoGallery();
 const app = document.getElementById("app");
 
@@ -32,3 +32,4 @@ if (app) {
 
   initRouter();
 }
+

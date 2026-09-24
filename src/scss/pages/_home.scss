@@ -1,7 +1,6 @@
 @use "../variables.scss" as *;
 @use "../mixin.scss" as *;
 
-/* خلفية تدرج ألوان ناعمة ومتحركة هادئة */
 @use "../variables.scss" as *;
 @use "../mixin.scss" as *;
 
@@ -30,9 +29,9 @@
     .container {
         display: flex;
         flex-direction: column;
-        align-items: center; /* توسيط أفقي لجميع العناصر */
+        align-items: center;
         justify-content: center;
-        text-align: center; /* توسيط كافة النصوص */
+        text-align: center;
         width: 100%;
         max-width: 1200px;
         margin: 0 auto;
@@ -52,7 +51,7 @@
             width: 60px;
             height: 4px;
             background-color: $accent-color;
-            margin: 12px auto 0 auto; /* ضمان توسيط الخط السفلي */
+            margin: 12px auto 0 auto; 
             border-radius: 2px;
         }
 
@@ -66,7 +65,7 @@
         font-size: 1.05rem;
         line-height: 1.8;
         color: lighten($text-color, 10%);
-        margin: 0 auto 30px auto; /* توسيط المكون وحفظ المسافة التحتية */
+        margin: 0 auto 30px;
         text-align: center;
 
         @media (max-width: 768px) {
@@ -120,9 +119,8 @@
     }
 }
 
-/* باقي الصفحة تكون بخلفية منفصلة تماماً */
 .home-main-content {
-    background-color: #f8f9fa; // خلفية فاتحة ومختلفة لبقية أقسام الصفحة
+    background-color: #f8f9fa;  
     padding: 60px 20px;
     color: #333;
 }
@@ -257,7 +255,7 @@
         }
     }
 
-    /* أزرار التحكم باللغة الإنجليزية (LTR) */
+    /* Control buttons in English (LTR) */
     .slider-btn {
         position: absolute;
         top: 50%;
@@ -318,11 +316,11 @@
     }
 }
 
-/* إصلاح الاتجاهات للغة العربية (RTL) مع ضبط وظيفة الأسهم */
+/* Fix Arabic (RTL) directionality and adjust arrow functionality */
 html[dir="rtl"] {
     .slider-section {
         .slider-btn {
-            /* نقل زر السابق لليمين والتالي لليسار بما يناسب اتجاه القراءة العربي */
+            /* Move the 'Previous' button to the right and the 'Next' button to the left to suit the Arabic reading direction */
             &.prev-btn {
                 left: auto;
                 right: 30px;

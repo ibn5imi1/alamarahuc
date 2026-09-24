@@ -1,6 +1,5 @@
 @use '../variables.scss' as *;
 
-// تعريف الـ Mixin المستلم
 @mixin flex-container(
   $max-width: 1200px,
   $justify: space-between,
@@ -16,7 +15,6 @@
   gap: $gap;
 }
 
-// Keyframes للأنيميشن الشفاف الهادئ على غلاف البناية
 @keyframes subtleHeroGradient {
   0% {
     background-position: 0% 50%;
@@ -40,7 +38,6 @@
     width: 100%;
     height: 45vh;
     min-height: 320px;
-    // ضع مسار صورة البناية الخاصة بالجامعة هنا
     background: url('/src/assets/images/build.jpg') center/cover no-repeat; 
     display: flex;
     align-items: center;
@@ -48,7 +45,6 @@
     text-align: center;
     overflow: hidden;
 
-    // الطبقة الشفافة المتحركة (Animated Overlay)
     .hero-overlay {
       position: absolute;
       top: 0;
@@ -216,7 +212,6 @@
   }
 }
 
-// دعم الاتجاهات (RTL Support)
 html[dir="rtl"] {
   .contact-us-page {
     .contact-info-wrapper .info-card {

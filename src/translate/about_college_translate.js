@@ -14,7 +14,7 @@ async function loadAboutCollegeTranslations() {
             data = await res.json();
         }
     } catch (err) {
-        console.warn(`تعذر تحميل ملف ترجمة نبذة الكلية: ${ABOUT_COLLEGE_TRANSLATION_FILE}`, err);
+        console.warn(`Unable to load the translation file for the college overview: ${ABOUT_COLLEGE_TRANSLATION_FILE}`, err);
     }
 
     aboutCollegeTranslationCache = data;
@@ -51,6 +51,6 @@ export async function applyAboutCollegeLanguage(langOverride) {
         document.documentElement.lang = currentLang;
         document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
     } catch (err) {
-        console.error("حدث خطأ أثناء تطبيق ترجمة نبذة الكلية:", err);
+        console.error("An error occurred while applying the translation of the college overview:", err);
     }
 }

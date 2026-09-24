@@ -71,7 +71,6 @@
       }
     }
 
-    // قائمة السنوات (عمودية)
     .years-list {
       display: flex;
       flex-direction: column;
@@ -121,9 +120,6 @@
     }
   }
 
-  // ==========================
-  // Modal لعرض ملف الـ PDF
-  // ==========================
   .pdf-modal {
     display: none;
     position: fixed;
@@ -207,9 +203,6 @@
   }
 }
 
-// ==========================
-// التجاوب مع الشاشات الصغيرة
-// ==========================
 @media (max-width: 576px) {
   .academic-calendar-page {
     .calendar-container .years-list .year-card {
@@ -222,12 +215,12 @@
     }
 
     .pdf-modal {
-      padding: 0; // يلغي الهامش الخارجي بالجوال حتى تستغل المساحة كاملة
+      padding: 0; 
 
       .pdf-modal-content {
-        height: 100dvh;       // ارتفاع دقيق يراعي شريط عنوان المتصفح المتحرك بالجوال
+        height: 100dvh;       
         max-height: 100dvh;
-        border-radius: 0;     // يغطي الشاشة كاملة بدون حواف مقطوعة
+        border-radius: 0;    
       }
 
       .pdf-modal-header {

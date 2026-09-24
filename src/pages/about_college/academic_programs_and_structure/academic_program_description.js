@@ -120,7 +120,7 @@ export function initAcademicProgramDescription() {
         const iframe = card.querySelector('iframe');
         const isOpen = card.classList.contains('active');
 
-        // إغلاق باقي الكروت
+        // Close the remaining cards
         document.querySelectorAll('.program-card.active').forEach(otherCard => {
             if (otherCard !== card) {
                 otherCard.classList.remove('active');
@@ -131,7 +131,7 @@ export function initAcademicProgramDescription() {
             card.classList.remove('active');
         } else {
             card.classList.add('active');
-            // تحميل ملف الـ PDF عبر الـ iframe فقط عند أول فتح
+            // Load the PDF file via the iframe only upon the initial opening
             if (iframe && !iframe.src && iframe.dataset.src) {
                 iframe.src = iframe.dataset.src;
             }

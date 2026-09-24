@@ -1,10 +1,5 @@
 import { applyRepositoryLanguage } from '../../translate/repository_translate.js';
 
-// ============================================
-// الأقسام المتاحة بالمكتبة الإلكترونية
-// slug: معرف فريد يُستخدم بالكود وربط الأزرار بالجداول
-// labelKey: مفتاح الترجمة، label: النص الإنجليزي الافتراضي
-// ============================================
 const DEPARTMENTS = [
   { slug: 'petroleum_eng', labelKey: 'dept.petroleum_eng.name', label: 'Petroleum Engineering' },
   { slug: 'mechanical_eng', labelKey: 'dept.mechanical_eng.name', label: 'Mechanical Power Engineering Technologies' },
@@ -15,9 +10,7 @@ const DEPARTMENTS = [
   { slug: 'law', labelKey: 'dept.law.name', label: 'Law' },
 ];
 
-// ============================================
-// كتب كل قسم — أضف كتب كل قسم بمصفوفته الخاصة
-// ============================================
+
 const BOOKS_DATA = {
   petroleum_eng: [
     { title: 'Fluid Mechanics', titleKey: 'book.petroleum_eng.1.title', url: 'https://drive.google.com/file/d/1Tx0HRzgnSf4nXUBi55xof_dLMgJyMlxm/view' },
@@ -163,12 +156,10 @@ export function electronicLibraryView() {
         <div class="header-line"></div>
       </div>
 
-      <!-- أزرار الأقسام -->
       <div class="dept-filters reveal" id="dept-filters">
         ${buildDeptButtons()}
       </div>
 
-      <!-- الجدول -->
       <div class="table-wrapper reveal">
         <table>
           <thead>
@@ -187,14 +178,13 @@ export function electronicLibraryView() {
   `;
 }
 
-// تُستدعى مرة واحدة فقط من main.js عند إقلاع الموقع (Event Delegation)
 export function initElectronicLibrary() {
   document.body.addEventListener('click', (e) => {
     const btn = e.target.closest('.dept-btn');
     if (!btn) return;
 
     const pageContainer = document.querySelector('.electronic-library-page');
-    if (!pageContainer) return; // نتأكد إننا فعلاً بصفحة المكتبة الإلكترونية
+    if (!pageContainer) return;  
 
     const newDept = btn.getAttribute('data-dept');
     if (newDept === activeDept) return;
@@ -202,11 +192,11 @@ export function initElectronicLibrary() {
     const tbody = document.getElementById('library-table-body');
     if (!tbody) return;
 
-    // تحديث الزر النشط فورًا (بدون انتظار الترانزيشن)
+    // Immediately update the active button (without waiting for the transition)
     document.querySelectorAll('.dept-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
-    // ترانزيشن ناعم لمحتوى الجدول فقط
+    // Smooth transition for table content only
     tbody.classList.add('fade-out');
 
     setTimeout(async () => {
@@ -214,7 +204,7 @@ export function initElectronicLibrary() {
       tbody.innerHTML = buildBookRows(activeDept);
       tbody.classList.remove('fade-out');
 
-      await applyRepositoryLanguage(); // نطبق الترجمة على الصفوف الجديدة
+      await applyRepositoryLanguage();  
     }, 200);
   });
 }

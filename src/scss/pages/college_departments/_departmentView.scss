@@ -103,7 +103,6 @@
     }
   }
 
-  // الرؤية والرسالة والأهداف رأسياً
   .vmg-section {
     .vmg-vertical-list {
       display: flex;
@@ -115,7 +114,7 @@
         padding: 30px;
         border-radius: 12px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-        border-right: 6px solid $primary-color; // للشاشات التي تستخدم الاتجاه العربي
+        border-right: 6px solid $primary-color; 
 
         [dir="ltr"] & {
           border-right: none;

@@ -1,9 +1,6 @@
 import deanImg from '../../../assets/images/teachers/dean.jpeg';
 
-// ============================================
-// دالة قابلة لإعادة الاستخدام — تُستدعى من هنا (الصفحة المستقلة) ومن home.js أيضًا
-// حتى ما نكرر نفس الـ HTML بمكانين
-// ============================================
+
 export function buildDeanTalkSection() {
     return `
     <section class="dean_talk_section">
@@ -41,9 +38,7 @@ Success comes from God alone.
   `;
 }
 
-// ============================================
-// الصفحة المستقلة "كلمة السيد العميد" — هيرو سكشن + نفس القسم أعلاه
-// ============================================
+
 export function messageFromTheDeanView() {
     return `
   <div class="message-from-dean-page">

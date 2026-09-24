@@ -1,7 +1,6 @@
-// ⚠️ استبدل بالقيم الفعلية من حسابك
 const EMAILJS_PUBLIC_KEY = '5Jrryby_IqRLoTWcy';
 const EMAILJS_SERVICE_ID = 'service_alamarahuc';
-const EMAILJS_TEMPLATE_ID = 'template_yrxzns4'; // ← قالب الشكوى (Contact Us)
+const EMAILJS_TEMPLATE_ID = 'template_yrxzns4'; 
 
 export function complaintsAndCommentsView() {
   return `
@@ -86,7 +85,6 @@ export function complaintsAndCommentsView() {
   `;
 }
 
-// تُستدعى مرة واحدة فقط من main.js عند إقلاع الموقع (Event Delegation)
 export function initComplaintsForm() {
   if (typeof emailjs !== 'undefined' && !window.__emailjsInitialized) {
     emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });

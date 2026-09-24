@@ -1,6 +1,4 @@
-// ============================================
-// المواقع ذات الصلة — عدّل الاسم والرابط لكل موقع
-// ============================================
+
 const RELATED_SITES = [
   { nameKey: 'related.site1.name', name: 'Ministry of Higher Education', url: 'https://mohesr.gov.iq/ar/' },
   { nameKey: 'related.site2.name', name: 'Department of Private University Education', url: 'https://mohesr.gov.iq/ar/ministrySection/62' },
@@ -12,7 +10,6 @@ const RELATED_SITES = [
   { nameKey: 'related.site8.name', name: 'University of Maysan', url: 'https://uomisan.edu.iq/ar/' },
 ];
 
-// أيقونة ثابتة تتكرر لكل المواقع
 const WEBSITE_ICON = `
   <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
     <circle cx="12" cy="12" r="10"/>
@@ -63,7 +60,3 @@ export function relatedWebsitesView() {
   </div>
   `;
 }
-// const EMAILJS_PUBLIC_KEY = '5Jrryby_IqRLoTWcy';
-// const EMAILJS_SERVICE_ID = 'service_alamarahuc';
-// const EMAILJS_TEMPLATE_ID = 'template_jpbnepg';
-// 

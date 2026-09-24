@@ -79,7 +79,7 @@ export function initAcademicCalendar() {
       titleEl.textContent = year;
 
       modal.classList.add('active');
-      lockBodyScroll(); // ← بدل السطر القديم
+      lockBodyScroll();  
       return;
     }
 
@@ -94,7 +94,7 @@ export function initAcademicCalendar() {
   });
 
   function lockBodyScroll() {
-    savedScrollY = window.scrollY; // نحفظ مكان المستخدم بالصفحة قبل الفتح
+    savedScrollY = window.scrollY;  
     document.body.style.position = 'fixed';
     document.body.style.top = `-${savedScrollY}px`;
     document.body.style.width = '100%';
@@ -104,7 +104,7 @@ export function initAcademicCalendar() {
     document.body.style.position = '';
     document.body.style.top = '';
     document.body.style.width = '';
-    window.scrollTo(0, savedScrollY); // نرجعه لنفس مكانه بالضبط بعد الإغلاق
+    window.scrollTo(0, savedScrollY); 
   }
 
   function closeModal() {
@@ -114,6 +114,6 @@ export function initAcademicCalendar() {
 
     modal.classList.remove('active');
     if (iframe) iframe.src = '';
-    unlockBodyScroll(); // ← بدل السطر القديم
+    unlockBodyScroll(); 
   }
 }
