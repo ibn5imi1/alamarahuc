@@ -23,6 +23,7 @@ src
 -assets
 --images
 ---logos
+---others
 ---teachers
 -components
 --footer.js
@@ -108,7 +109,7 @@ src
 -------_academic_program_description.scss
 -------_certifications_and_classifications.scss
 -------_strategic_plan.scss
--------_the_college's_organizational_structure.scss
+-------_the_colleges_organizational_structure.scss
 ------employment_and_policies
 -------_college_instructions_and_policy.scss
 -------_jobs.scss

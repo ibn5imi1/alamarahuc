@@ -3712,6 +3712,585 @@ html[dir=rtl] .contact-us-page .contact-info-wrapper .info-card {
     line-height: 1.85;
   }
 }
+.academic-program-page {
+  width: 100%;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+.academic-program-page .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out 0s, transform 0.5s ease-out 0s;
+  will-change: opacity, transform;
+}
+.academic-program-page .reveal.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.academic-program-page {
+  /* ---------------- Hero Section ---------------- */
+}
+.academic-program-page .program-hero {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  min-height: 280px;
+  background: url("/src/assets/images/build.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.academic-program-page .program-hero .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.85), rgba(13, 59, 102, 0.8));
+  z-index: 1;
+}
+.academic-program-page .program-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  padding: 0 20px;
+}
+.academic-program-page .program-hero .hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+.academic-program-page {
+  /* ---------------- Container & Accordion ---------------- */
+}
+.academic-program-page .program-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+.academic-program-page .program-container .section-header {
+  margin-bottom: 35px;
+}
+.academic-program-page .program-container .section-header h2 {
+  font-size: 1.8rem;
+  color: #0d3b66;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.academic-program-page .program-container .section-header .header-line {
+  width: 80px;
+  height: 4px;
+  background-color: #f4d35e;
+  border-radius: 2px;
+}
+.academic-program-page .program-container .programs-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.academic-program-page .program-container {
+  /* ---------------- Program Cards (Accordion Item) ---------------- */
+}
+.academic-program-page .program-container .program-card {
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  overflow: hidden; /* ضروري جداً لنجاح تأثير السلايد */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.academic-program-page .program-container .program-card:hover {
+  border-color: rgba(13, 59, 102, 0.3);
+}
+.academic-program-page .program-container .program-card {
+  /* عند تفعيل الكارد الضغط عليه */
+}
+.academic-program-page .program-container .program-card.active {
+  border-color: #0d3b66;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+.academic-program-page .program-container .program-card.active .program-header {
+  background-color: rgba(13, 59, 102, 0.04);
+}
+.academic-program-page .program-container .program-card.active .program-header .toggle-icon {
+  transform: rotate(45deg);
+  color: #d9534f;
+}
+.academic-program-page .program-container .program-card.active {
+  /* التعديل الجوهري هنا: إعطاء ارتفاع كافٍ ليتمدد الـ Slide بحرية */
+}
+.academic-program-page .program-container .program-card.active .program-slide-content {
+  max-height: 1000px; /* زيادة الارتفاع ليتسع للـ iframe (700px) + الـ Padding */
+  opacity: 1;
+  visibility: visible;
+}
+.academic-program-page .program-container .program-card .program-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: inherit;
+  transition: background-color 0.25s ease;
+}
+.academic-program-page .program-container .program-card .program-header .program-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #0d3b66;
+}
+.academic-program-page .program-container .program-card .program-header .toggle-icon {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0d3b66;
+  line-height: 1;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.academic-program-page .program-container .program-card {
+  /* ---------------- Slide Content ---------------- */
+}
+.academic-program-page .program-container .program-card .program-slide-content {
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden; /* يمنع ظهور محتوى الـ PDF أثناء انغلاق السلايد */
+  transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease, visibility 0.3s ease;
+}
+.academic-program-page .program-container .program-card .program-slide-content .iframe-container {
+  padding: 15px 20px 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background: #fafafa;
+}
+.academic-program-page .program-container .program-card .program-slide-content .iframe-container iframe {
+  width: 100%;
+  height: 750px; /* الارتفاع الفعلي للـ PDF */
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  background: #ffffff;
+  display: block;
+}
+
+/* ---------------- Responsive Screen Adjustments ---------------- */
+@media (max-width: 768px) {
+  .academic-program-page .program-hero {
+    height: 30vh;
+    min-height: 220px;
+  }
+  .academic-program-page .program-hero .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  .academic-program-page .program-container {
+    padding: 40px 15px;
+  }
+  .academic-program-page .program-container .section-header h2 {
+    font-size: 1.5rem;
+  }
+  .academic-program-page .program-container {
+    /* ---------------- Program Cards (Accordion Item) ---------------- */
+  }
+  .academic-program-page .program-container .program-card {
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .academic-program-page .program-container .program-card:hover {
+    border-color: rgba(13, 59, 102, 0.3);
+  }
+  .academic-program-page .program-container .program-card {
+    /* عند إضافة كلاس active يتم فتح السلايد وإطالة الـ maxHeight */
+  }
+  .academic-program-page .program-container .program-card.active {
+    border-color: #0d3b66;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  }
+  .academic-program-page .program-container .program-card.active .program-header {
+    background-color: rgba(13, 59, 102, 0.04);
+  }
+  .academic-program-page .program-container .program-card.active .program-header .toggle-icon {
+    transform: rotate(45deg);
+    color: #d9534f;
+  }
+  .academic-program-page .program-container .program-card.active .program-slide-content {
+    max-height: 800px; /* يعطي مساحة كافية لعرض ملف الـ PDF */
+    opacity: 1;
+  }
+  .academic-program-page .program-container .program-card .program-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: inherit;
+    transition: background-color 0.25s ease;
+  }
+  .academic-program-page .program-container .program-card .program-header .program-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #0d3b66;
+  }
+  .academic-program-page .program-container .program-card .program-header .toggle-icon {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0d3b66;
+    line-height: 1;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  .academic-program-page .program-container .program-card {
+    /* ---------------- Slide Content ---------------- */
+  }
+  .academic-program-page .program-container .program-card .program-slide-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  .academic-program-page .program-container .program-card .program-slide-content .iframe-container {
+    padding: 15px 20px 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    background: #fafafa;
+  }
+  .academic-program-page .program-container .program-card .program-slide-content .iframe-container iframe {
+    width: 100%;
+    height: 700px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    background: #ffffff;
+  }
+}
+.certifications-classifications-page {
+  width: 100%;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+.certifications-classifications-page .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out 0s, transform 0.5s ease-out 0s;
+  will-change: opacity, transform;
+}
+.certifications-classifications-page .reveal.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.certifications-classifications-page .certifications-hero {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  min-height: 280px;
+  background: url("/src/assets/images/build.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.certifications-classifications-page .certifications-hero .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.85), rgba(13, 59, 102, 0.8));
+  z-index: 1;
+}
+.certifications-classifications-page .certifications-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  padding: 0 20px;
+}
+.certifications-classifications-page .certifications-hero .hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+.certifications-classifications-page .certifications-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+.certifications-classifications-page .certifications-container .section-header {
+  margin-bottom: 35px;
+}
+.certifications-classifications-page .certifications-container .section-header h2 {
+  font-size: 1.8rem;
+  color: #0d3b66;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.certifications-classifications-page .certifications-container .section-header .header-line {
+  width: 80px;
+  height: 4px;
+  background-color: #f4d35e;
+  border-radius: 2px;
+}
+.certifications-classifications-page .certifications-container .table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 20px;
+}
+.certifications-classifications-page .certifications-container {
+  /* تطبيق الميكسن الخاص بالجدول */
+}
+.certifications-classifications-page .certifications-container .certifications-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+.certifications-classifications-page .certifications-container .certifications-table thead {
+  background: #0d3b66;
+}
+.certifications-classifications-page .certifications-container .certifications-table thead tr th {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.05rem;
+  text-align: center;
+  padding: 16px 20px;
+  white-space: nowrap;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+.certifications-classifications-page .certifications-container .certifications-table tbody tr {
+  transition: background-color 0.25s ease;
+}
+.certifications-classifications-page .certifications-container .certifications-table tbody tr:hover {
+  background-color: rgba(13, 59, 102, 0.05);
+}
+.certifications-classifications-page .certifications-container .certifications-table tbody tr td {
+  padding: 14px 20px;
+  font-size: 1.1rem;
+  color: #333;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 768px) {
+  .certifications-classifications-page .certifications-hero {
+    height: 30vh;
+    min-height: 220px;
+  }
+  .certifications-classifications-page .certifications-hero .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  .certifications-classifications-page .certifications-container {
+    padding: 40px 15px;
+  }
+  .certifications-classifications-page .certifications-container .section-header h2 {
+    font-size: 1.5rem;
+  }
+}
+.strategic-plan-page {
+  width: 100%;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+.strategic-plan-page .reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out 0s, transform 0.6s ease-out 0s;
+  will-change: opacity, transform;
+}
+.strategic-plan-page .reveal.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.strategic-plan-page .strategic-plan-hero {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  min-height: 280px;
+  background: url("/src/assets/images/build.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.strategic-plan-page .strategic-plan-hero .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.85), rgba(13, 59, 102, 0.8));
+  z-index: 1;
+}
+.strategic-plan-page .strategic-plan-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  padding: 0 20px;
+}
+.strategic-plan-page .strategic-plan-hero .hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+.strategic-plan-page .strategic-plan-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+.strategic-plan-page .strategic-plan-container .pdf-viewer-wrapper {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+.strategic-plan-page .strategic-plan-container .pdf-viewer-wrapper iframe {
+  width: 100%;
+  height: 85vh;
+  min-height: 600px;
+  border: none;
+  display: block;
+}
+
+@media (max-width: 576px) {
+  .strategic-plan-page .strategic-plan-container {
+    padding: 30px 12px;
+  }
+  .strategic-plan-page .strategic-plan-container .pdf-viewer-wrapper {
+    padding: 5px;
+  }
+  .strategic-plan-page .strategic-plan-container .pdf-viewer-wrapper iframe {
+    height: 75vh;
+    min-height: 500px;
+  }
+}
+.organizational-structure-page {
+  width: 100%;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+.organizational-structure-page .reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out 0s, transform 0.5s ease-out 0s;
+  will-change: opacity, transform;
+}
+.organizational-structure-page .reveal.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+.organizational-structure-page {
+  /* ---------------- Hero Section ---------------- */
+}
+.organizational-structure-page .structure-hero {
+  position: relative;
+  width: 100%;
+  height: 40vh;
+  min-height: 280px;
+  background: url("/src/assets/images/build.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.organizational-structure-page .structure-hero .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(10, 25, 47, 0.85), rgba(13, 59, 102, 0.8));
+  z-index: 1;
+}
+.organizational-structure-page .structure-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  padding: 0 20px;
+}
+.organizational-structure-page .structure-hero .hero-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+.organizational-structure-page {
+  /* ---------------- Container & Content ---------------- */
+}
+.organizational-structure-page .structure-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+.organizational-structure-page .structure-container .section-header {
+  margin-bottom: 35px;
+}
+.organizational-structure-page .structure-container .section-header h2 {
+  font-size: 1.8rem;
+  color: #0d3b66;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.organizational-structure-page .structure-container .section-header .header-line {
+  width: 80px;
+  height: 4px;
+  background-color: #f4d35e;
+  border-radius: 2px;
+}
+.organizational-structure-page .structure-container {
+  /* ---------------- Image Wrapper ---------------- */
+}
+.organizational-structure-page .structure-container .structure-image-wrapper {
+  width: 100%;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.organizational-structure-page .structure-container .structure-image-wrapper .structure-image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 8px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ---------------- Responsive Styles ---------------- */
+@media (max-width: 768px) {
+  .organizational-structure-page .structure-hero {
+    height: 30vh;
+    min-height: 220px;
+  }
+  .organizational-structure-page .structure-hero .hero-content h1 {
+    font-size: 1.8rem;
+  }
+  .organizational-structure-page .structure-container {
+    padding: 40px 15px;
+  }
+  .organizational-structure-page .structure-container .section-header h2 {
+    font-size: 1.5rem;
+  }
+  .organizational-structure-page .structure-container .structure-image-wrapper {
+    padding: 10px;
+  }
+}
 * {
   padding: 0;
   margin: 0;

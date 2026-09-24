@@ -32,7 +32,7 @@ export function header() {
                             <a href="#" data-i18n="nav.programs_structure">Programs and Academic Structure</a>
                             <ul class="submenu">
                                 <li><a href="/about/academic-program" data-i18n="nav.academic_program">Academic Program</a></li>
-                                <li><a href="#" data-i18n="nav.college_structure">College Structure</a></li>
+                                <li><a href="/about/organization-stricture" data-i18n="nav.college_structure">College Structure</a></li>
                                 <li><a href="/about/certifications" data-i18n="nav.certifications">Certifications and Ratings</a></li>
                                 <li><a href="/about/strategic-plan" data-i18n="nav.strategic_plan">Strategic Plan</a></li>
                             </ul>

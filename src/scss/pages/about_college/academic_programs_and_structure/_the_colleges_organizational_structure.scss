@@ -1,7 +1,7 @@
 @use "../../../variables.scss" as *;
 @use "../../../mixin.scss" as *;
 
-.certifications-classifications-page {
+.organizational-structure-page {
   width: 100%;
   background-color: #f8f9fa;
   min-height: 100vh;
@@ -10,7 +10,8 @@
     @include fade-up-on-scroll(0.5s, 0s, 20px);
   }
 
-  .certifications-hero {
+  /* ---------------- Hero Section ---------------- */
+  .structure-hero {
     position: relative;
     width: 100%;
     height: 40vh;
@@ -46,7 +47,8 @@
     }
   }
 
-  .certifications-container {
+  /* ---------------- Container & Content ---------------- */
+  .structure-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 60px 20px;
@@ -69,29 +71,35 @@
       }
     }
 
-    .table-responsive {
+    /* ---------------- Image Wrapper ---------------- */
+    .structure-image-wrapper {
       width: 100%;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      margin-top: 20px;
-    }
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
 
-    /* تطبيق الميكسن الخاص بالجدول */
-    .certifications-table {
-      @include data-table(
-        $header-bg: $primary-color,
-        $header-color: #ffffff,
-        $row-hover: rgba($primary-color, 0.05),
-        $border-color: rgba(0, 0, 0, 0.12),
-        $radius: 12px
-      );
+      .structure-image {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        border-radius: 8px;
+        object-fit: contain;
+        display: block;
+      }
     }
   }
 }
 
+/* ---------------- Responsive Styles ---------------- */
 @media (max-width: 768px) {
-  .certifications-classifications-page {
-    .certifications-hero {
+  .organizational-structure-page {
+    .structure-hero {
       height: 30vh;
       min-height: 220px;
 
@@ -100,11 +108,15 @@
       }
     }
 
-    .certifications-container {
+    .structure-container {
       padding: 40px 15px;
 
       .section-header h2 {
         font-size: 1.5rem;
+      }
+
+      .structure-image-wrapper {
+        padding: 10px;
       }
     }
   }

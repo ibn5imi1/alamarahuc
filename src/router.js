@@ -1,4 +1,3 @@
-// router.js
 import { home, initSlider, initCounters } from './pages/home.js';
 import { departmentView } from './pages/college_departments/departmentView.js';
 
@@ -6,9 +5,11 @@ import { departmentView } from './pages/college_departments/departmentView.js';
 import { aboutTheCollegeView } from './pages/about_college/about/about_the_college.js';
 import { visionView } from './pages/about_college/about/vision.js';
 import { messageFromTheDeanView } from './pages/about_college/about/message_from_the_dean.js';
-import { academicProgramDescriptionView } from './pages/about_college/academic_programs_and_structure/academic_program_description.js';
+import { academicProgramDescriptionView, initAcademicProgramDescription } from './pages/about_college/academic_programs_and_structure/academic_program_description.js';
 import { certificationsAndClassificationsView } from './pages/about_college/academic_programs_and_structure/certifications_and_classifications.js';
 import { strategicPlanView } from './pages/about_college/academic_programs_and_structure/strategic_plan.js';
+import { organizationalStructureView } from './pages/about_college/academic_programs_and_structure/the_college\'s_organizational_structure.js';
+
 import { collegeActivitiesView } from './pages/about_college/facilities_and_information/college_activities.js';
 import { locationView } from './pages/about_college/facilities_and_information/location.js';
 import { statisticsView } from './pages/about_college/facilities_and_information/statistics.js';
@@ -97,9 +98,21 @@ const routes = {
   '/about/college': () => renderView(aboutTheCollegeView),
   '/about/vision': () => renderView(visionView),
   '/about/dean-speech': () => renderView(messageFromTheDeanView),
-  '/about/academic-program': () => renderView(academicProgramDescriptionView),
+
+  // --- التعديل هنا لصفحة وصف البرنامج الأكاديمي ---
+  '/about/academic-program': () => {
+    const html = academicProgramDescriptionView();
+    setTimeout(() => {
+      if (typeof initAcademicProgramDescription === 'function') {
+        initAcademicProgramDescription();
+      }
+    }, 0);
+    return html;
+  },
+
   '/about/certifications': () => renderView(certificationsAndClassificationsView),
   '/about/strategic-plan': () => renderView(strategicPlanView),
+  '/about/organization-stricture': () => renderView(organizationalStructureView),
   '/about/activities': () => renderView(collegeActivitiesView),
   '/about/location': () => renderView(locationView),
   '/about/statistics': () => renderView(statisticsView),
@@ -127,7 +140,6 @@ const routes = {
 };
 
 // مسارات المستودع الرقمي — قائمة واحدة يعاد استخدامها بمكانين (handleRouting و languageChanged)
-// حتى ما نكرر نفس الأسطر مرتين ونخاطر ننسى نحدث أحدهما بالمستقبل
 const REPOSITORY_PATHS = [
   '/repository/projects',
   '/repository/photos',
@@ -144,6 +156,7 @@ const ABOUT_COLLEGE_PATHS = [
   '/about/vision',
   '/about/dean-speech',
   '/about/academic-program',
+  '/about/organization-stricture',
   '/about/certifications',
   '/about/strategic-plan',
   '/about/activities',
