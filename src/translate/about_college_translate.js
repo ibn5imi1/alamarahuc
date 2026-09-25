@@ -27,13 +27,13 @@ export async function applyAboutCollegeLanguage(langOverride) {
 
         document.querySelectorAll('#main-content [data-i18n]').forEach((element) => {
             if (!element.hasAttribute('data-en-default')) {
-                element.setAttribute('data-en-default', element.textContent.trim());
+                element.setAttribute('data-en-default', element.innerHTML.trim()); // ✅ innerHTML بدل textContent هنا
             }
         });
 
         if (currentLang === 'en') {
             document.querySelectorAll('#main-content [data-i18n]').forEach((element) => {
-                element.textContent = element.getAttribute('data-en-default');
+                element.innerHTML = element.getAttribute('data-en-default'); // ✅ innerHTML
             });
         } else {
             const translations = await loadAboutCollegeTranslations();
@@ -43,7 +43,7 @@ export async function applyAboutCollegeLanguage(langOverride) {
                 const val = translations ? translations[key] : null;
 
                 if (val && val.trim() !== '') {
-                    element.textContent = val;
+                    element.innerHTML = val; // ✅ innerHTML بدل textContent
                 }
             });
         }
@@ -51,6 +51,6 @@ export async function applyAboutCollegeLanguage(langOverride) {
         document.documentElement.lang = currentLang;
         document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
     } catch (err) {
-        console.error("An error occurred while applying the translation of the college overview:", err);
+        console.error("حدث خطأ أثناء تطبيق ترجمة نبذة الكلية:", err);
     }
 }

@@ -9,6 +9,7 @@ import { initElectronicLibrary } from './pages/digital_repository/electronic_lib
 import { initVideoGallery } from './pages/digital_repository/media/video_gallery.js';
 import { initPhotoGallery } from './pages/digital_repository/media/photo_gallery.js';
 import { initComplaintsForm } from './pages/electronic_services/complaints_and_comments.js';
+import { initCollegeInstructionsAndPolicy } from './pages/about_college/employment_and_policies/college_instructions_and_policy.js';
 
 // ... inside the main block:
 if (typeof initVideoGallery === 'function') initVideoGallery();
@@ -29,6 +30,7 @@ if (app) {
   if (typeof initVideoGallery === 'function') initVideoGallery();
   if (typeof initPhotoGallery === 'function') initPhotoGallery();
   if (typeof initComplaintsForm === 'function') initComplaintsForm();
+  if (typeof initCollegeInstructionsAndPolicy === 'function') initCollegeInstructionsAndPolicy();
 
   initRouter();
 }

@@ -15,7 +15,7 @@ import { organizationalStructureView } from './pages/about_college/academic_prog
 
 import { locationView } from './pages/about_college/facilities_and_information/location.js';
 import { statisticsView } from './pages/about_college/facilities_and_information/statistics.js';
-import { thePrincipleOfTransparencyView } from './pages/about_college/facilities_and_information/the_principle_of_transparency.js';
+import { thePrincipleOfTransparencyView, initTransparencyCharts } from './pages/about_college/facilities_and_information/the_principle_of_transparency.js';
 import { collegeInstructionsAndPolicyView } from './pages/about_college/employment_and_policies/college_instructions_and_policy.js';
 import { jobsView } from './pages/about_college/employment_and_policies/jobs.js';
 
@@ -125,7 +125,13 @@ const routes = {
   '/about/organization-stricture': () => renderView(organizationalStructureView),
   '/about/location': () => renderView(locationView),
   '/about/statistics': () => renderView(statisticsView),
-  '/about/transparency': () => renderView(thePrincipleOfTransparencyView),
+  '/about/transparency': () => {
+    const html = thePrincipleOfTransparencyView();
+    setTimeout(() => {
+      if (typeof initTransparencyCharts === 'function') initTransparencyCharts();
+    }, 0);
+    return html;
+  },
   '/about/instructions': () => renderView(collegeInstructionsAndPolicyView),
   '/about/jobs': () => renderView(jobsView),
 
