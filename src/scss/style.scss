@@ -25,12 +25,11 @@
 @use 'pages/about_college/academic_programs_and_structure/certifications_and_classifications';
 @use 'pages/about_college/academic_programs_and_structure/strategic_plan';
 @use 'pages/about_college/academic_programs_and_structure/the_colleges_organizational_structure';
-// @use 'pages/about_college/employment_and_policies/college_instructions_and_policy';
-// @use 'pages/about_college/employment_and_policies/jobs';
-// @use 'pages/about_college/facilities_and_information/college_activities';
-// @use 'pages/about_college/facilities_and_information/location';
-// @use 'pages/about_college/facilities_and_information/statistics';
-// @use 'pages/about_college/facilities_and_information/the_principle_of_transparency';
+@use 'pages/about_college/employment_and_policies/college_instructions_and_policy';
+@use 'pages/about_college/employment_and_policies/jobs';
+@use 'pages/about_college/facilities_and_information/location';
+@use 'pages/about_college/facilities_and_information/statistics';
+@use 'pages/about_college/facilities_and_information/the_principle_of_transparency';
 * {
     padding: 0;
     margin: 0;

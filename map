@@ -43,7 +43,6 @@ src
 ----college_instructions_and_policy.js
 ----jobs.js
 ---facilities_and_information
-----college_activities.js
 ----location.js
 ----statistics.js
 ----the_principle_of_transparency.js
@@ -114,7 +113,6 @@ src
 -------_college_instructions_and_policy.scss
 -------_jobs.scss
 ------facilities_and_information
--------_college_activities.scss
 -------_location.scss
 -------_statistics.scss
 -------_the_principle_of_transparency.scss

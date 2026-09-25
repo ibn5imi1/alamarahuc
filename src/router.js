@@ -13,7 +13,6 @@ import { certificationsAndClassificationsView } from './pages/about_college/acad
 import { strategicPlanView } from './pages/about_college/academic_programs_and_structure/strategic_plan.js';
 import { organizationalStructureView } from './pages/about_college/academic_programs_and_structure/the_college\'s_organizational_structure.js';
 
-import { collegeActivitiesView } from './pages/about_college/facilities_and_information/college_activities.js';
 import { locationView } from './pages/about_college/facilities_and_information/location.js';
 import { statisticsView } from './pages/about_college/facilities_and_information/statistics.js';
 import { thePrincipleOfTransparencyView } from './pages/about_college/facilities_and_information/the_principle_of_transparency.js';
@@ -124,7 +123,6 @@ const routes = {
   '/about/certifications': () => renderView(certificationsAndClassificationsView),
   '/about/strategic-plan': () => renderView(strategicPlanView),
   '/about/organization-stricture': () => renderView(organizationalStructureView),
-  '/about/activities': () => renderView(collegeActivitiesView),
   '/about/location': () => renderView(locationView),
   '/about/statistics': () => renderView(statisticsView),
   '/about/transparency': () => renderView(thePrincipleOfTransparencyView),
@@ -170,7 +168,6 @@ const ABOUT_COLLEGE_PATHS = [
   '/about/organization-stricture',
   '/about/certifications',
   '/about/strategic-plan',
-  '/about/activities',
   '/about/location',
   '/about/statistics',
   '/about/transparency',

@@ -41,7 +41,6 @@ export function header() {
                             <a href="#" data-i18n="nav.facilities">Facilities and Information</a>
                             <ul class="submenu">
                                 <li><a href="/about/location" data-i18n="location">Location</a></li>
-                                <li><a href="/about/activities" data-i18n="nav.activities">Activities</a></li>
                                 <li><a href="/about/statistics" data-i18n="nav.statistics">Statistics</a></li>
                                 <li><a href="/about/transparency" data-i18n="nav.transparency">Transparency</a></li>
                             </ul>

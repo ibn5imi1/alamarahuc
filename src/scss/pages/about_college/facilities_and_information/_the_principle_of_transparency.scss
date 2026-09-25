@@ -1,0 +1,83 @@
+@use '../../../variables.scss' as *;
+@use '../../../mixin.scss' as *;
+
+.transparency-page {
+  width: 100%;
+  padding-bottom: 60px;
+
+  .transparency-container {
+    @include flex-container($max-width: 1200px, $justify: center, $align: stretch, $gap: 50px);
+    flex-direction: column;
+    padding: 40px 20px 0;
+
+    .stats-group {
+      width: 100%;
+      @include fade-up-on-scroll($duration: 0.5s);
+
+      .group-title {
+        text-align: center;
+        font-size: 1.8rem;
+        color: $accent-color;
+        font-family: $font-family;
+        margin-bottom: 25px;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+
+        &::after {
+          content: '~~~~~';
+          display: block;
+          font-size: 1.2rem;
+          letter-spacing: 2px;
+          color: $accent-color;
+          margin-top: -5px;
+        }
+      }
+
+      .charts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        gap: 25px;
+        width: 100%;
+
+        &.single {
+          grid-template-columns: 1fr;
+        }
+
+        .chart-card {
+          background: #ffffff;
+          border-radius: 12px;
+          padding: 20px;
+          box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          text-align: center;
+
+          h3 {
+            font-size: 1.2rem;
+            color: $primary-color;
+            margin-bottom: 15px;
+            font-family: $font-family;
+          }
+
+          .chart-wrapper {
+            position: relative;
+            height: 320px;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .transparency-page {
+    .transparency-container {
+      .stats-group {
+        .charts-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+  }
+}
