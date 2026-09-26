@@ -1,17 +1,17 @@
+import { heroSection } from '../../../components/hero_section.js';
+
 const LOCATION_LAT = '31.8856201';
 const LOCATION_LNG = '47.1099395';
 const GOOGLE_MAPS_LINK = 'https://www.google.com/maps/place/Al-Amarah+University+College/@31.8856201,47.1099395,17z';
 
 export function locationView() {
-    return `
+  return `
   <div class="location-page">
-    <!-- Hero Banner -->
-    <section class="location-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="location.hero_title">Location</h1>
-      </div>
-    </section>
+  <!-- Hero Section -->
+    ${heroSection({
+    titleKey: 'location.hero_title',
+    titleDefault: 'Location'
+  })}
 
     <!-- Content Container -->
     <section class="location-container">

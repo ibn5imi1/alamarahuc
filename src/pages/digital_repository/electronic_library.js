@@ -1,4 +1,5 @@
 import { applyRepositoryLanguage } from '../../translate/repository_translate.js';
+import { heroSection } from '../../components/hero_section.js';
 
 const DEPARTMENTS = [
   { slug: 'petroleum_eng', labelKey: 'dept.petroleum_eng.name', label: 'Petroleum Engineering' },
@@ -56,7 +57,7 @@ const BOOKS_DATA = {
     { title: 'ADVANCED ENGINEERING MATHEMATICS ', titleKey: 'book.petroleum_eng.10.title', url: 'https://drive.google.com/file/d/1fFJ6_iUItXoRUoRw4N8wheIe98eNBnUN/view' },
   ],
   electrical_eng: [
-     { title: 'Fundamentals of Electric Circuits', titleKey: 'book.electrical_eng.1.title', url: 'https://drive.google.com/file/d/1CK9ACpBlC6P4uWWlTTQkW0hpbRyBLGq5/view' },
+    { title: 'Fundamentals of Electric Circuits', titleKey: 'book.electrical_eng.1.title', url: 'https://drive.google.com/file/d/1CK9ACpBlC6P4uWWlTTQkW0hpbRyBLGq5/view' },
   ],
   medical_devices_eng: [
     { title: 'The Skeletal System', titleKey: 'book.medical_devices_eng.1.title', url: 'https://drive.google.com/file/d/1aFKnv60B1gDn706GWTPGG1wzucKoNQ5h/view' },
@@ -141,13 +142,12 @@ export function electronicLibraryView() {
 
   return `
   <div class="electronic-library-page">
-    <!-- Hero Banner -->
-    <section class="library-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="repository.library_hero_title">Electronic Library</h1>
-      </div>
-    </section>
+
+  <!-- Hero Section -->
+    ${heroSection({
+    titleKey: 'repository.library_hero_title',
+    titleDefault: 'Electronic Library'
+  })}
 
     <!-- Content Container -->
     <section class="library-container">
@@ -184,7 +184,7 @@ export function initElectronicLibrary() {
     if (!btn) return;
 
     const pageContainer = document.querySelector('.electronic-library-page');
-    if (!pageContainer) return;  
+    if (!pageContainer) return;
 
     const newDept = btn.getAttribute('data-dept');
     if (newDept === activeDept) return;
@@ -204,7 +204,7 @@ export function initElectronicLibrary() {
       tbody.innerHTML = buildBookRows(activeDept);
       tbody.classList.remove('fade-out');
 
-      await applyRepositoryLanguage();  
+      await applyRepositoryLanguage();
     }, 200);
   });
 }

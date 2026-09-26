@@ -1,24 +1,26 @@
+import { heroSection } from '../../../components/hero_section.js';
+
 // ============================================
 // بيانات الفيديوهات
 // ============================================
 const VIDEOS_DATA = [
-  { url: 'https://www.youtube.com/watch?v=8J67KGvHu2A'},
-  { url: 'https://www.youtube.com/watch?v=6Rf-srxrgQw&t=2s'},
-  { url: 'https://youtu.be/DGbP4LMNZPQ?si=13uR2awQszEXTHFB'},
-  { url: 'https://youtu.be/-6Woh2FtxH0?si=CEngOQ6x5MO-S2va'},
-  { url: 'https://youtu.be/S-LrSg5Thck?si=ab3GdjSyXEBcwRlS'},
-  { url: 'https://youtu.be/CzzJ6XMgXBw?si=WvMcocxUu4g4Orli'},
-  { url: 'https://youtu.be/tIyCKiDjTDE?si=xLgzVdHpF1NhVBD4'},
-  { url: 'https://youtu.be/JecW3zYQFmk?si=YxRvaIHxJohWpL5b'},
-  { url: 'https://youtu.be/5S0qNv3-DTc?si=W0Ix0tjZJqtopRj6'},
-  { url: 'https://youtu.be/oUmCTnWY6s8?si=f5xfFxKuAxR-4QSa'},
-  { url: 'https://youtu.be/Bfdr6K5V35s?si=Zk35gmdX07Cm--Q9'},
-  { url: 'https://youtu.be/XrKbeFKC100?si=KavubTgGN0tGQq8K'},
-  { url: 'https://youtu.be/EpSsTH25Wmo?si=NU6tgbKLPG6EeLcc'},
-  { url: 'https://youtu.be/aPPoGhm-_OM?si=8oBvRIxwL06s7SPr'},
-  { url: 'https://youtu.be/TB2LITf6nks?si=gY1yrpz0GSzCb01T'},
-  { url: 'https://youtu.be/a4iJo_ABluk?si=oNN9HcNdGug9jSQX'},
-  { url: 'https://youtu.be/v75kvXsdEWs?si=zxhiClykIsIh-Qwo'},
+  { url: 'https://www.youtube.com/watch?v=8J67KGvHu2A' },
+  { url: 'https://www.youtube.com/watch?v=6Rf-srxrgQw&t=2s' },
+  { url: 'https://youtu.be/DGbP4LMNZPQ?si=13uR2awQszEXTHFB' },
+  { url: 'https://youtu.be/-6Woh2FtxH0?si=CEngOQ6x5MO-S2va' },
+  { url: 'https://youtu.be/S-LrSg5Thck?si=ab3GdjSyXEBcwRlS' },
+  { url: 'https://youtu.be/CzzJ6XMgXBw?si=WvMcocxUu4g4Orli' },
+  { url: 'https://youtu.be/tIyCKiDjTDE?si=xLgzVdHpF1NhVBD4' },
+  { url: 'https://youtu.be/JecW3zYQFmk?si=YxRvaIHxJohWpL5b' },
+  { url: 'https://youtu.be/5S0qNv3-DTc?si=W0Ix0tjZJqtopRj6' },
+  { url: 'https://youtu.be/oUmCTnWY6s8?si=f5xfFxKuAxR-4QSa' },
+  { url: 'https://youtu.be/Bfdr6K5V35s?si=Zk35gmdX07Cm--Q9' },
+  { url: 'https://youtu.be/XrKbeFKC100?si=KavubTgGN0tGQq8K' },
+  { url: 'https://youtu.be/EpSsTH25Wmo?si=NU6tgbKLPG6EeLcc' },
+  { url: 'https://youtu.be/aPPoGhm-_OM?si=8oBvRIxwL06s7SPr' },
+  { url: 'https://youtu.be/TB2LITf6nks?si=gY1yrpz0GSzCb01T' },
+  { url: 'https://youtu.be/a4iJo_ABluk?si=oNN9HcNdGug9jSQX' },
+  { url: 'https://youtu.be/v75kvXsdEWs?si=zxhiClykIsIh-Qwo' },
 ];
 
 const CHANNEL_NAME = 'كلية العمارة الجامعة';
@@ -92,12 +94,13 @@ function buildVideoCards() {
 export function videoGalleryView() {
   return `
   <div class="video-gallery-page">
-    <section class="video-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="video.hero_title">Video Gallery</h1>
-      </div>
-    </section>
+
+  <!-- Hero Section -->
+    ${heroSection({
+    titleKey: 'video.hero_title',
+    titleDefault: 'Video Gallery'
+  })}
+    
 
     <section class="video-container">
       <div class="section-header reveal">

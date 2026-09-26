@@ -1,15 +1,16 @@
 const STRATEGIC_PLAN_FILE_ID = '1x6uLwmjePg3s4HPBGrzP6FpGjZOZ3auK';
+import { heroSection } from '../../../components/hero_section.js';
 
 export function strategicPlanView() {
-    return `
+  return `
   <div class="strategic-plan-page">
-    <!-- Hero Banner -->
-    <section class="strategic-plan-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="strategic_plan.hero_title">Strategic Plan</h1>
-      </div>
-    </section>
+
+  <!-- Hero Section -->
+    ${heroSection({
+    titleKey: 'strategic_plan.hero_title',
+    titleDefault: 'Strategic Plan'
+  })}
+
 
     <!-- PDF Viewer Container -->
     <section class="strategic-plan-container reveal">

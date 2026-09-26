@@ -1,63 +1,66 @@
+import { heroSection } from '../../../components/hero_section.js';
+
+
 // Policy and Instruction Files
 const POLICY_FILES = [
-    {
-        id: 'authority_guide',
-        titleKey: 'policy.authority_guide.title',
-        defaultTitle: 'Authority Delegation Guide',
-        fileId: '1oZuRD_1C7XWi4UajkdbnaXbNUmA5NNf2'
-    },
-    {
-        id: 'complaints_suggestions',
-        titleKey: 'policy.complaints_suggestions.title',
-        defaultTitle: 'Complaints and Suggestions',
-        fileId: '1f45g0pjcuiAC0EmQeAJzNDahU0cucVKL'
-    },
-    {
-        id: 'international_awards',
-        titleKey: 'policy.international_awards.title',
-        defaultTitle: 'International Awards',
-        fileId: '1Rz5cNNOcsqs21JgGIATivcmSnJqdadB8'
-    },
-    {
-        id: 'foreign_students',
-        titleKey: 'policy.foreign_students.title',
-        defaultTitle: 'Foreign Students Policy',
-        fileId: '1pXYVJqN7v5wa-pwjnIbMO_JDan6gAz3F'
-    },
-    {
-        id: 'ethical_conduct',
-        titleKey: 'policy.ethical_conduct.title',
-        defaultTitle: 'Code of Ethical Conduct',
-        fileId: '1JDCM0aD1pfFW542rVT7DaUdP2iv3IISR'
-    },
-    {
-        id: 'scientific_research',
-        titleKey: 'policy.scientific_research.title',
-        defaultTitle: 'Scientific Research Policy',
-        fileId: '1jZDVuvBvR0vZNLggMCMcEOsI4Y1g8m9X'
-    },
-    {
-        id: 'smoking_ban',
-        titleKey: 'policy.smoking_ban.title',
-        defaultTitle: 'College Smoking Ban Policy',
-        fileId: '1T4GvnPa9wAV9L7UKrzRJAF8a3ah7e2VT'
-    },
-    {
-        id: 'summer_training',
-        titleKey: 'policy.summer_training.title',
-        defaultTitle: 'Summer Training Standards',
-        fileId: '1HydOWUIPx92WkkFmuLWtTyWQTZ6ElJC-'
-    },
-    {
-        id: 'special_needs_support',
-        titleKey: 'policy.special_needs_support.title',
-        defaultTitle: 'Special Needs Students Support Policy',
-        fileId: '1GWkh8M9L9DnZpZXMmY_HsYOThMxlEKmi'
-    },
+  {
+    id: 'authority_guide',
+    titleKey: 'policy.authority_guide.title',
+    defaultTitle: 'Authority Delegation Guide',
+    fileId: '1oZuRD_1C7XWi4UajkdbnaXbNUmA5NNf2'
+  },
+  {
+    id: 'complaints_suggestions',
+    titleKey: 'policy.complaints_suggestions.title',
+    defaultTitle: 'Complaints and Suggestions',
+    fileId: '1f45g0pjcuiAC0EmQeAJzNDahU0cucVKL'
+  },
+  {
+    id: 'international_awards',
+    titleKey: 'policy.international_awards.title',
+    defaultTitle: 'International Awards',
+    fileId: '1Rz5cNNOcsqs21JgGIATivcmSnJqdadB8'
+  },
+  {
+    id: 'foreign_students',
+    titleKey: 'policy.foreign_students.title',
+    defaultTitle: 'Foreign Students Policy',
+    fileId: '1pXYVJqN7v5wa-pwjnIbMO_JDan6gAz3F'
+  },
+  {
+    id: 'ethical_conduct',
+    titleKey: 'policy.ethical_conduct.title',
+    defaultTitle: 'Code of Ethical Conduct',
+    fileId: '1JDCM0aD1pfFW542rVT7DaUdP2iv3IISR'
+  },
+  {
+    id: 'scientific_research',
+    titleKey: 'policy.scientific_research.title',
+    defaultTitle: 'Scientific Research Policy',
+    fileId: '1jZDVuvBvR0vZNLggMCMcEOsI4Y1g8m9X'
+  },
+  {
+    id: 'smoking_ban',
+    titleKey: 'policy.smoking_ban.title',
+    defaultTitle: 'College Smoking Ban Policy',
+    fileId: '1T4GvnPa9wAV9L7UKrzRJAF8a3ah7e2VT'
+  },
+  {
+    id: 'summer_training',
+    titleKey: 'policy.summer_training.title',
+    defaultTitle: 'Summer Training Standards',
+    fileId: '1HydOWUIPx92WkkFmuLWtTyWQTZ6ElJC-'
+  },
+  {
+    id: 'special_needs_support',
+    titleKey: 'policy.special_needs_support.title',
+    defaultTitle: 'Special Needs Students Support Policy',
+    fileId: '1GWkh8M9L9DnZpZXMmY_HsYOThMxlEKmi'
+  },
 ];
 
 function buildPolicyItems() {
-    return POLICY_FILES.map(policy => `
+  return POLICY_FILES.map(policy => `
     <div class="policy-card reveal" data-id="${policy.id}">
       <button class="policy-header" type="button">
         <span class="policy-title" data-i18n="${policy.titleKey}">${policy.defaultTitle}</span>
@@ -77,15 +80,13 @@ function buildPolicyItems() {
 }
 
 export function collegeInstructionsAndPolicyView() {
-    return `
+  return `
   <div class="college-policy-page">
-    <!-- Hero Section -->
-    <section class="policy-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="policy.hero_title">College Instructions and Policy</h1>
-      </div>
-    </section>
+  <!-- Hero Section -->
+    ${heroSection({
+    titleKey: 'policy.hero_title',
+    titleDefault: 'College Instructions And Policy'
+  })}
 
     <!-- Main Content Container -->
     <section class="policy-container">
@@ -144,32 +145,32 @@ export function collegeInstructionsAndPolicyView() {
 }
 
 export function initCollegeInstructionsAndPolicy() {
-    document.body.addEventListener('click', (e) => {
-        const headerBtn = e.target.closest('.policy-header');
-        if (!headerBtn) return;
+  document.body.addEventListener('click', (e) => {
+    const headerBtn = e.target.closest('.policy-header');
+    if (!headerBtn) return;
 
-        const pageContainer = document.querySelector('.college-policy-page');
-        if (!pageContainer) return; // We verify that we are indeed on the policies page.
+    const pageContainer = document.querySelector('.college-policy-page');
+    if (!pageContainer) return; // We verify that we are indeed on the policies page.
 
-        const card = headerBtn.closest('.policy-card');
-        const iframe = card.querySelector('iframe');
-        const isOpen = card.classList.contains('active');
+    const card = headerBtn.closest('.policy-card');
+    const iframe = card.querySelector('iframe');
+    const isOpen = card.classList.contains('active');
 
-        // Close remaining open tabs
-        document.querySelectorAll('.college-policy-page .policy-card.active').forEach(otherCard => {
-            if (otherCard !== card) {
-                otherCard.classList.remove('active');
-            }
-        });
-
-        if (isOpen) {
-            card.classList.remove('active');
-        } else {
-            card.classList.add('active');
-            // Load the PDF file via iframe only upon first opening (performance optimization)
-            if (iframe && !iframe.src && iframe.dataset.src) {
-                iframe.src = iframe.dataset.src;
-            }
-        }
+    // Close remaining open tabs
+    document.querySelectorAll('.college-policy-page .policy-card.active').forEach(otherCard => {
+      if (otherCard !== card) {
+        otherCard.classList.remove('active');
+      }
     });
+
+    if (isOpen) {
+      card.classList.remove('active');
+    } else {
+      card.classList.add('active');
+      // Load the PDF file via iframe only upon first opening (performance optimization)
+      if (iframe && !iframe.src && iframe.dataset.src) {
+        iframe.src = iframe.dataset.src;
+      }
+    }
+  });
 }

@@ -1,13 +1,14 @@
+import { heroSection } from "../../components/hero_section";
+
 export function graduatesView() {
   return `
   <div class="graduates-page">
-    <!-- Hero Banner -->
-    <section class="graduates-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="graduates.hero_title">Graduates</h1>
-      </div>
-    </section>
+
+  <!-- Hero Section -->
+    ${heroSection({
+    titleKey: 'graduates.hero_title',
+    titleDefault: 'Graduates'
+  })}
 
     <!-- Under Development Section -->
     <section class="graduates-container">

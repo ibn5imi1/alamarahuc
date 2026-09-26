@@ -1,3 +1,5 @@
+import { heroSection } from '../../components/hero_section.js';
+
 const LIBRARY_STATS = [
   { key: 'total', value: 348, labelKey: 'library.stat_total', label: 'Total Books' },
   { key: 'english', value: 173, labelKey: 'library.stat_english', label: 'English Books' },
@@ -8,12 +10,12 @@ const CORE_BOOKS = [
   {
     titleKey: 'library.core_book1_title',
     title: 'Authorized Master Book Register',
-    fileId: '10v2co6UOIkDInqP_F4hSjulFG34D0i3P'    
+    fileId: '10v2co6UOIkDInqP_F4hSjulFG34D0i3P'
   },
   {
     titleKey: 'library.core_book2_title',
     title: 'Book Titles',
-    fileId: '1vRLRfTWsn-Afak-3TRopicYlnmXKVsUL' 
+    fileId: '1vRLRfTWsn-Afak-3TRopicYlnmXKVsUL'
   },
 ];
 
@@ -51,12 +53,12 @@ function buildCoreBooks() {
 export function theLibraryView() {
   return `
   <div class="the-library-page">
-    <section class="library-main-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="library.hero_title">College Library</h1>
-      </div>
-    </section>
+
+  <!-- Hero Section -->
+    ${heroSection({
+    titleKey: 'library.hero_title',
+    titleDefault: 'College Library'
+  })}
 
     <section class="library-stats-container">
       <div class="section-header reveal">

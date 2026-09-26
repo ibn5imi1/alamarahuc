@@ -1,3 +1,4 @@
+import { heroSection } from '../../components/hero_section.js';
 
 const PROJECTS_DATA = [
   {
@@ -144,13 +145,12 @@ function buildRows() {
 export function graduationProjectsView() {
   return `
   <div class="graduation-projects-page">
-    <!-- Hero Banner -->
-    <section class="projects-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="repository.projects_hero_title">Graduation Projects</h1>
-      </div>
-    </section>
+
+  <!-- Hero Section -->
+    ${heroSection({
+    titleKey: 'repository.projects_hero_title',
+    titleDefault: 'Graduation Projects'
+  })}
 
     <!-- Content Container -->
     <section class="projects-container">

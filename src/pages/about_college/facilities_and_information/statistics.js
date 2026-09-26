@@ -1,13 +1,13 @@
+import { heroSection } from '../../../components/hero_section.js';
 export function statisticsView() {
-    return `
+  return `
   <div class="statistics-page">
-    <!-- Hero Banner -->
-    <section class="location-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="hero_title">Statistics</h1>
-      </div>
-    </section>
+  <!-- Hero Section -->
+    ${heroSection({
+    titleKey: 'statistics.hero_title',
+    titleDefault: 'Statistics'
+  })}
+    
 
     <!-- Main Content Container -->
     <section class="statistics-container">

@@ -1,13 +1,13 @@
+import { heroSection } from '../../../components/hero_section.js';
+
 export function jobsView() {
-    return `
+  return `
   <div class="jobs-page">
-    <!-- Hero Banner -->
-    <section class="page-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="jobs_hero_title">Career Opportunities</h1>
-      </div>
-    </section>
+  <!-- Hero Section -->
+    ${heroSection({
+    titleKey: 'jobs_hero_title',
+    titleDefault: 'Jobs'
+  })}
 
     <!-- Main Content Container -->
     <section class="jobs-container">

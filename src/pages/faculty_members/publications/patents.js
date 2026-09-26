@@ -1,13 +1,16 @@
+import { heroSection } from "../../../components/hero_section";
+
 export function patentView() {
-    return `
+  return `
   <div class="patent-page">
-    <!-- Hero Banner -->
-    <section class="patent-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="patent.hero_title">Patents</h1>
-      </div>
-    </section>
+
+    <!-- Hero Section -->
+    ${heroSection({
+    titleKey: 'patent.hero_title',
+    titleDefault: 'Patents'
+  })}
+
+    
 
     <!-- Content Container -->
     <section class="patent-container">

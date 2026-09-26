@@ -1,8 +1,9 @@
 import deanImg from '../../../assets/images/teachers/dean.jpeg';
+import { heroSection } from '../../../components/hero_section.js';
 
 
 export function buildDeanTalkSection() {
-    return `
+  return `
     <section class="dean_talk_section">
       <h2 class="section-title" data-i18n="dean_talk_title">Dean's Speech</h2>
 
@@ -40,15 +41,15 @@ Success comes from God alone.
 
 
 export function messageFromTheDeanView() {
-    return `
+  return `
   <div class="message-from-dean-page">
-    <!-- Hero Banner -->
-    <section class="dean-page-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="dean_page.hero_title">Message from the Dean</h1>
-      </div>
-    </section>
+
+  <!-- Hero Section -->
+    ${heroSection({
+    titleKey: 'dean_page.hero_title',
+    titleDefault: 'Message From The Dean'
+  })}
+    
 
     <!-- Content Container -->
     <section class="dean-page-container">

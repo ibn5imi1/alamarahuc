@@ -1,3 +1,5 @@
+import { heroSection } from "../../components/hero_section";
+
 const CALENDAR_DATA = [
   { id: 'y1', year: '2025-2026', fileId: '1IgAHCXFw7695gRV2quBWgw9fD3TBjb_S' },
   { id: 'y2', year: '2024-2025', fileId: '1K2JYON0r_fosHlKLpXTJ80bibFMJi1dY' },
@@ -22,12 +24,12 @@ function buildCards() {
 export function academicCalendarView() {
   return `
   <div class="academic-calendar-page">
-    <section class="calendar-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="calendar.hero_title">Academic Calendar</h1>
-      </div>
-    </section>
+
+  <!-- Hero Section -->
+    ${heroSection({
+    titleKey: 'calendar.hero_title',
+    titleDefault: 'Academic Calendar'
+  })}
 
     <section class="calendar-container">
       <div class="section-header reveal">
@@ -79,7 +81,7 @@ export function initAcademicCalendar() {
       titleEl.textContent = year;
 
       modal.classList.add('active');
-      lockBodyScroll();  
+      lockBodyScroll();
       return;
     }
 
@@ -94,7 +96,7 @@ export function initAcademicCalendar() {
   });
 
   function lockBodyScroll() {
-    savedScrollY = window.scrollY;  
+    savedScrollY = window.scrollY;
     document.body.style.position = 'fixed';
     document.body.style.top = `-${savedScrollY}px`;
     document.body.style.width = '100%';
@@ -104,7 +106,7 @@ export function initAcademicCalendar() {
     document.body.style.position = '';
     document.body.style.top = '';
     document.body.style.width = '';
-    window.scrollTo(0, savedScrollY); 
+    window.scrollTo(0, savedScrollY);
   }
 
   function closeModal() {
@@ -114,6 +116,6 @@ export function initAcademicCalendar() {
 
     modal.classList.remove('active');
     if (iframe) iframe.src = '';
-    unlockBodyScroll(); 
+    unlockBodyScroll();
   }
 }

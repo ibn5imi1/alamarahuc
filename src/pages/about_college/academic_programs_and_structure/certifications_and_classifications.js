@@ -1,13 +1,14 @@
+import { heroSection } from '../../../components/hero_section.js';
+
 export function certificationsAndClassificationsView() {
-    return `
+  return `
   <div class="certifications-classifications-page">
-    <!-- Hero Section -->
-    <section class="certifications-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="hero_title">Certifications & Classifications</h1>
-      </div>
-    </section>
+
+  <!-- Hero Section -->
+    ${heroSection({
+    titleKey: 'certifications.hero_title',
+    titleDefault: 'Certifications & Classifications'
+  })}
 
     <!-- Main Container -->
     <section class="certifications-container">

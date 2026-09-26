@@ -1,4 +1,5 @@
 import Chart from 'chart.js/auto';
+import { heroSection } from '../../../components/hero_section.js';
 
 // An object to store chart instances, preventing redundant creation and Canvas conflicts when navigating away from and returning to the page.
 const chartInstances = {};
@@ -56,13 +57,11 @@ const CHARTS_DATA = {
 export function thePrincipleOfTransparencyView() {
     return `
   <div class="transparency-page">
-    <!-- Hero Banner -->
-    <section class="page-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="transparency.hero_title">Principle of Transparency</h1>
-      </div>
-    </section>
+    <!-- Hero Section -->
+        ${heroSection({
+        titleKey: 'transparency.hero_title',
+        titleDefault: 'The Principle of Transparency'
+    })}
 
     <!-- Main Content Container -->
     <section class="transparency-container">

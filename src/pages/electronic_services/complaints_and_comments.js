@@ -1,17 +1,18 @@
+import { heroSection } from '../../components/hero_section';
+
 const EMAILJS_PUBLIC_KEY = '5Jrryby_IqRLoTWcy';
 const EMAILJS_SERVICE_ID = 'service_alamarahuc';
-const EMAILJS_TEMPLATE_ID = 'template_yrxzns4'; 
+const EMAILJS_TEMPLATE_ID = 'template_yrxzns4';
 
 export function complaintsAndCommentsView() {
   return `
   <div class="complaints-page">
-    <section class="complaints-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="complaints.hero_title">Complaints & Feedback</h1>
-        <p data-i18n="complaints.hero_subtitle">Your voice matters</p>
-      </div>
-    </section>
+
+  <!-- Hero Section -->
+    ${heroSection({
+    titleKey: 'complaints.hero_subtitle',
+    titleDefault: 'Complaints & Feedback'
+  })}
 
     <section class="complaints-container">
       <div class="section-header reveal">

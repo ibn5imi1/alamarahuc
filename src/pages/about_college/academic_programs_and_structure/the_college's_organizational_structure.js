@@ -1,13 +1,16 @@
+import { heroSection } from '../../../components/hero_section.js';
+
 export function organizationalStructureView() {
-    return `
+  return `
   <div class="organizational-structure-page">
-    <!-- Hero Section -->
-    <section class="structure-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="org_structure_hero_title">Organizational Structure</h1>
-      </div>
-    </section>
+
+  <!-- Hero Section -->
+    ${heroSection({
+    titleKey: 'org_structure_hero_title',
+    titleDefault: 'Organizational Structure</h1>'
+  })}
+
+    
 
     <!-- Main Content Container -->
     <section class="structure-container">

@@ -1,3 +1,4 @@
+import { heroSection } from '../../components/hero_section';
 
 const RELATED_SITES = [
   { nameKey: 'related.site1.name', name: 'Ministry of Higher Education', url: 'https://mohesr.gov.iq/ar/' },
@@ -33,13 +34,14 @@ export function relatedWebsitesView() {
 
   return `
   <div class="related-websites-page">
-    <!-- Hero Banner -->
-    <section class="related-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="related.hero_title">Related Websites</h1>
-      </div>
-    </section>
+
+  <!-- Hero Section -->
+    ${heroSection({
+    titleKey: 'related.hero_title',
+    titleDefault: 'Related Websites'
+  })}
+
+    
 
     <!-- Content Container -->
     <section class="related-container">

@@ -1,14 +1,13 @@
+import { heroSection } from "../components/hero_section";
 export function contactUsView() {
     return `
     <div class="contact-us-page">
-        <!-- Hero Banner Section -->
-        <section class="contact-hero">
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1 data-i18n="contact_page.hero_title">Contact Us</h1>
-                <p data-i18n="contact_page.hero_subtitle">We are here to answer your questions and assist you</p>
-            </div>
-        </section>
+
+    <!-- Hero Section -->
+        ${heroSection({
+        titleKey: 'contact_page.hero_subtitle',
+        titleDefault: 'Contact Us'
+    })}
 
         <!-- Main Content Section -->
         <section class="contact-container">

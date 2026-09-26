@@ -1,13 +1,14 @@
+import { heroSection } from "../../../components/hero_section";
+
 export function researchView() {
-    return `
+  return `
   <div class="research-page">
-    <!-- Hero Banner -->
-    <section class="research-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="research.hero_title">Scientific Research</h1>
-      </div>
-    </section>
+
+    <!-- Hero Section -->
+    ${heroSection({
+    titleKey: 'research.hero_title',
+    titleDefault: 'Scientific Research'
+  })}
 
     <!-- Content Container -->
     <section class="research-container">

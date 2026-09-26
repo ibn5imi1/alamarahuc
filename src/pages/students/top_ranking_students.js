@@ -1,5 +1,5 @@
 import { applyStudentLanguage } from '../../translate/student_translate.js';
-
+import { heroSection } from '../../components/hero_section.js';
 
 const STUDENTS_DATA = [
   {
@@ -209,12 +209,12 @@ export function topRankingStudentsView() {
 
   return `
   <div class="top-ranking-page">
-    <section class="ranking-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="ranking.hero_title">Top Ranking Students</h1>
-      </div>
-    </section>
+
+    <!-- Hero Section -->
+    ${heroSection({
+      titleKey: 'ranking.hero_title',
+      titleDefault: 'Top Ranking Students'
+    })}
 
     <section class="ranking-container">
       <div class="section-header reveal">

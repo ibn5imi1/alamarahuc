@@ -1,15 +1,14 @@
-// teaching_staff.js
+import { heroSection } from "../../components/hero_section";
+
 export function teachingView() {
-    return `
+  return `
   <div class="teaching-staff-page">
-    <!-- Hero Banner -->
-    <section class="teaching-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="teaching.hero_title">Teaching Staff</h1>
-        <p data-i18n="teaching.hero_subtitle">Faculty Members of Al-Amarah University College</p>
-      </div>
-    </section>
+
+    <!-- Hero Section -->
+    ${heroSection({
+    titleKey: 'teaching.hero_subtitle',
+    titleDefault: 'Faculty Members of Al-Amarah University College'
+  })}
 
     <!-- Content Container -->
     <section class="teaching-container">

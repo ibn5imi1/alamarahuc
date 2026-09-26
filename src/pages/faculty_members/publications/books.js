@@ -1,13 +1,13 @@
+import { heroSection } from "../../../components/hero_section";
 export function booksView() {
-    return `
+  return `
   <div class="books-page">
-    <!-- Hero Banner -->
-    <section class="books-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="books.hero_title">Books And Publications</h1>
-      </div>
-    </section>
+
+    <!-- Hero Section -->
+    ${heroSection({
+    titleKey: 'books.hero_title',
+    titleDefault: 'Books And Publications'
+  })}
 
     <!-- Content Container -->
     <section class="books-container">

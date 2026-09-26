@@ -1,4 +1,5 @@
 import { initScrollReveal } from '../../../scrollReveal.js';
+import { heroSection } from '../../../components/hero_section.js';
 
 const CATEGORIES = [
   { slug: 'all', labelKey: 'gallery.filter_all', label: 'All Photos' },
@@ -145,12 +146,13 @@ export function photoGalleryView() {
 
   return `
   <div class="photo-gallery-page">
-    <section class="gallery-hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content reveal">
-        <h1 data-i18n="gallery.hero_title">Photo Gallery</h1>
-      </div>
-    </section>
+
+  <!-- Hero Section -->
+    ${heroSection({
+    titleKey: 'gallery.hero_title',
+    titleDefault: 'Photo Gallery'
+  })}
+    
 
     <section class="gallery-container">
       <div class="section-header reveal">
