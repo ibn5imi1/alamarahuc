@@ -8,9 +8,10 @@ export function header() {
                 <span></span>
             </button>
 
-            <!-- College name for small and medium screens -->
-            <a href="/" class="brand_logo" data-i18n="college_name">
-                AL-Amarah University College
+            <!-- Brand Logo and Name -->
+            <a href="/" class="brand_logo">
+                <img src="./src/assets/images/logos/logo.png" alt="Logo" class="logo_img" />
+                <span class="brand_name" data-i18n="college_name">AL-Amarah University College</span>
             </a>
 
             <ul class="nav_list" id="nav-list">
@@ -177,10 +178,8 @@ export function setActiveNavLink() {
     const currentPath = window.location.pathname + window.location.search;
     const links = document.querySelectorAll('.nav_list a');
 
-    // 1. Remove the 'active' class from all previous links and elements
     links.forEach(link => link.classList.remove('active'));
 
-    // 2. Set 'active' for the matching link and its parent link
     links.forEach(link => {
         const href = link.getAttribute('href');
         if (!href || href === '#' || link.getAttribute('target') === '_blank') return;
@@ -188,7 +187,6 @@ export function setActiveNavLink() {
         if (href === currentPath || (currentPath === '/' && href === '/')) {
             link.classList.add('active');
 
-            // Activate parent links to highlight the main and sub-menus
             let parentLi = link.closest('li');
             while (parentLi) {
                 const parentLink = parentLi.querySelector(':scope > a');
@@ -206,23 +204,17 @@ export function initMobileMenu() {
     const navList = document.getElementById('nav-list');
     const overlay = document.getElementById('nav-overlay');
 
-    // Update classes immediately when the function runs
     setActiveNavLink();
 
-    // 1. Listen for browser Back/Forward button events
     window.addEventListener('popstate', setActiveNavLink);
 
-    // 2. Monitor direct clicks on any link within the Nav and immediately update the 'active' state without needing a page refresh.
     document.addEventListener('click', (e) => {
         const link = e.target.closest('.nav_list a');
         if (link && link.getAttribute('href') !== '#' && link.getAttribute('target') !== '_blank') {
-
-            // We set a very short delay to wait for the URL to change in the router.
             setTimeout(() => {
                 setActiveNavLink();
             }, 10);
 
-            // Close the menu on small screens when a link is clicked
             if (window.innerWidth <= 1024 && navList && navList.classList.contains('active')) {
                 navList.classList.remove('active');
                 if (overlay) overlay.classList.remove('active');
@@ -242,7 +234,6 @@ export function initMobileMenu() {
     toggleBtn.addEventListener('click', toggleMenu);
     if (overlay) overlay.addEventListener('click', toggleMenu);
 
-    // Mobile dropdown control
     document.body.addEventListener('click', (e) => {
         if (window.innerWidth <= 1024) {
             const link = e.target.closest('.has-dropdown > a, .has-submenu > a');

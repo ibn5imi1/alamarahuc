@@ -11,24 +11,44 @@
 
   .navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 0 1.5rem;
     position: relative;
     min-height: 70px;
 
+    /* تنسيق اللوغو */
     .brand_logo {
-      display: none;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
       color: $text-color;
       text-decoration: none;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-family: $font-family;
       white-space: nowrap;
       transition: color 0.3s ease;
+      z-index: 1002;
+
+      /* إخفاء الاسم افتراضياً للشاشات الكبيرة */
+      .brand_name {
+        display: none;
+      }
+
+      .logo_img {
+        height: 50px;
+        width: auto;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+      }
 
       &:hover {
         color: $accent-color;
+
+        .logo_img {
+          transform: scale(1.05);
+        }
       }
     }
 
@@ -101,7 +121,7 @@
 
           &.active {
             color: $accent-color;
-            background-color: rgba($accent-color, 0.15); // لون خلفية مخصص للرابط النشط
+            background-color: rgba($accent-color, 0.15);
             font-weight: 600;
           }
         }
@@ -137,7 +157,7 @@
           }
         }
 
-        // ================= Desktop Dropdown Menu =================
+        // Desktop Dropdown Menu
         .dropdown_menu {
           position: absolute;
           top: 100%;
@@ -172,7 +192,6 @@
             }
           }
 
-          // Submenu Level 2 (Desktop LTR)
           .has-submenu {
             position: relative;
 
@@ -251,7 +270,7 @@
   }
 }
 
-// ================= 1. Desktop Arabic direction adjustments (RTL) =================
+// ================= 1. Desktop Arabic Direction Adjustments (RTL) =================
 @media (min-width: 1025px) {
   html[dir="rtl"] {
     .header .navbar .nav_list .nav_item {
@@ -301,23 +320,26 @@
   .header {
     .navbar {
       justify-content: space-between;
-      padding: 0.8rem 1.5rem;
-      flex-direction: row-reverse;
+      padding: 0.6rem 1.2rem;
 
       .brand_logo {
-        display: block;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-size: 0.95rem;
+
+        /* إظهار اسم الكلية بالشاشات الصغيرة بجانب اللوغو */
+        .brand_name {
+          display: inline;
+        }
+
+        .logo_img {
+          height: 38px;
+        }
       }
 
       .hamburger_btn {
         display: flex;
-      }
-
-      html[dir="ltr"] & {
-        flex-direction: row;
-      }
-
-      html[dir="rtl"] & {
-        flex-direction: row-reverse;
       }
 
       .nav_list {

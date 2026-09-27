@@ -1,0 +1,134 @@
+@use "../variables.scss" as *;
+@use "../mixin.scss" as *;
+
+.photo-marquee-section {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  padding: 60px 0;
+  background: linear-gradient(135deg, $hero-bg-1, $hero-bg-2);
+  overflow: hidden;
+
+  .marquee-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .header-line {
+      width: 70px;
+      height: 3px;
+      background-color: $accent-color;
+      border-radius: 2px;
+      margin: 0 auto 18px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.7;
+    }
+  }
+
+  // ✅ ارتفاع ثابت صريح يمنع أي انهيار أو اختفاء للصف
+  .marquee-row {
+    width: 100%;
+    height: 170px;          // ✅ نفس ارتفاع .marquee-item بالضبط
+    overflow: hidden;
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .marquee-track {
+    display: flex;
+    flex-wrap: nowrap !important;  // ✅ يمنع الالتفاف لسطر ثاني مهما كان العرض
+    gap: 16px;
+    width: max-content;
+    height: 100%;
+    will-change: transform;
+
+    .marquee-item {
+      flex-shrink: 0;
+      width: 260px;
+      height: 170px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+  }
+}
+
+// بما إن الصور صارت مكررة 3 مرات (تريو)، النقطة النهائية للحركة تصير -33.333% بدل -50%
+@keyframes marquee-scroll-rtl {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.3333%); }
+}
+
+@keyframes marquee-scroll-ltr {
+  0% { transform: translateX(-33.3333%); }
+  100% { transform: translateX(0); }
+}
+
+.marquee-track.scroll-rtl {
+  animation: marquee-scroll-rtl 35s linear infinite !important;
+}
+
+.marquee-track.scroll-ltr {
+  animation: marquee-scroll-ltr 35s linear infinite !important;
+}
+
+.marquee-row:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+  .photo-marquee-section {
+    padding: 40px 0;
+
+    .marquee-header {
+      padding: 0 15px;
+
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .marquee-row {
+      height: 120px;
+    }
+
+    .marquee-track .marquee-item {
+      width: 180px;
+      height: 120px;
+    }
+  }
+}
+
+// ✅ استثناء صريح للشريط من أي قاعدة عامة تقلل الحركة بالمشروع
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation-duration: 35s !important;
+    animation-iteration-count: infinite !important;
+  }
+}
