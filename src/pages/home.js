@@ -6,7 +6,6 @@ import iso_50001_2018 from '../assets/images/logos/ISO-50001-2018.png';
 import iso_45001_2018 from '../assets/images/logos/ISO-45001-2018.png';
 import wm_ranking from '../assets/images/logos/wm-ranking.jpg';
 import { buildDeanTalkSection } from './about_college/about/message_from_the_dean.js';
-import { buildPhotoMarqueeSection } from '../components/photo_marquee.js';
 
 export function home() {
     return (
@@ -148,7 +147,7 @@ export function home() {
              ${buildDeanTalkSection()}
              </div>
 
-             ${buildPhotoMarqueeSection()}
+             
         </div>
         `
     )

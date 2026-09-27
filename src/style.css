@@ -160,11 +160,11 @@
 }
 .header .navbar .nav_list .nav_item .dropdown_menu li a:hover {
   color: #f4d35e;
-  background-color: rgb(0%, 21.9981325864%, 44.7058823529%);
+  background-color: rgb(0, 56.0952380952, 114);
 }
 .header .navbar .nav_list .nav_item .dropdown_menu li a.active {
   color: #f4d35e;
-  background-color: rgb(0%, 23.9663865546%, 48.7058823529%);
+  background-color: rgb(0, 61.1142857143, 124.2);
   font-weight: 600;
 }
 .header .navbar .nav_list .nav_item .dropdown_menu .has-submenu {
@@ -184,7 +184,7 @@
 }
 .header .navbar .nav_list .nav_item .dropdown_menu .has-submenu:hover > a {
   color: #f4d35e;
-  background-color: rgb(0%, 21.9981325864%, 44.7058823529%);
+  background-color: rgb(0, 56.0952380952, 114);
 }
 .header .navbar .nav_list .nav_item .dropdown_menu .has-submenu:hover > a::after {
   border-left-color: #f4d35e;
@@ -455,7 +455,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: rgb(0%, 21.9981325864%, 44.7058823529%);
+  background-color: rgb(0, 56.0952380952, 114);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -503,7 +503,7 @@
   color: #ffffff;
   text-decoration: none;
   padding: 10px 15px;
-  border: 1px solid rgb(0%, 31.8394024276%, 64.7058823529%);
+  border: 1px solid rgb(0, 81.1904761905, 165);
   border-radius: 8px;
   transition: all 0.3s ease;
 }
@@ -512,7 +512,7 @@
   font-size: 1.3rem;
 }
 .footer .location-footer .location-info .location-link:hover {
-  background-color: rgb(0%, 20.0298786181%, 40.7058823529%);
+  background-color: rgb(0, 51.0761904762, 103.8);
   border-color: #f4d35e;
   color: #f4d35e;
   transform: translateY(-2px);
@@ -4226,7 +4226,7 @@ html[dir=rtl] .contact-us-page .contact-info-wrapper .info-card {
   transition: color 0.2s ease;
 }
 .jobs-page .jobs-container .jobs-table-wrapper .jobs-table .contact-link:hover {
-  color: rgb(8.4893435635%, 38.5285592498%, 66.6086956522%);
+  color: rgb(21.647826087, 98.247826087, 169.852173913);
   text-decoration: underline;
 }
 .jobs-page .jobs-container .jobs-table-wrapper .jobs-table .status-badge {
@@ -4567,123 +4567,63 @@ html[dir=rtl] .contact-us-page .contact-info-wrapper .info-card {
     grid-template-columns: 1fr;
   }
 }
-.photo-marquee-section {
-  width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  padding: 60px 0;
-  background: linear-gradient(135deg, #0a192f, #0d3b66);
-  overflow: hidden;
-}
-.photo-marquee-section .marquee-header {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 40px;
-  padding: 0 20px;
-}
-.photo-marquee-section .marquee-header h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 10px;
-}
-.photo-marquee-section .marquee-header .header-line {
-  width: 70px;
-  height: 3px;
-  background-color: #f4d35e;
-  border-radius: 2px;
-  margin: 0 auto 18px;
-}
-.photo-marquee-section .marquee-header p {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.7;
-}
-.photo-marquee-section .marquee-row {
+.news-ticker {
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  height: 170px;
-  overflow: hidden;
-  margin-bottom: 16px;
-}
-.photo-marquee-section .marquee-row:last-child {
-  margin-bottom: 0;
-}
-.photo-marquee-section .marquee-track {
+  height: 60px;
+  background-color: #001f3f;
+  border-top: 2px solid #f4d35e;
   display: flex;
-  flex-wrap: nowrap !important;
-  gap: 16px;
-  width: max-content;
+  align-items: center;
+  z-index: 999;
+  overflow: hidden;
+}
+.news-ticker .ticker-label {
+  flex-shrink: 0;
   height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  background-color: #f4d35e;
+  color: #0d3b66;
+  font-weight: 700;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+.news-ticker .ticker-track-wrapper {
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.news-ticker .ticker-track {
+  direction: ltr;
+  display: flex;
+  white-space: nowrap;
   will-change: transform;
 }
-.photo-marquee-section .marquee-track .marquee-item {
-  flex-shrink: 0;
-  width: 260px;
-  height: 170px;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-}
-.photo-marquee-section .marquee-track .marquee-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.news-ticker .ticker-track .ticker-item {
+  padding-inline-end: 60px;
+  font-size: 1.25rem;
+  color: #ffffff;
+  font-weight: 500;
 }
 
-@keyframes marquee-scroll-rtl {
-  0% {
-    transform: translateX(0);
+@media (max-width: 576px) {
+  .news-ticker {
+    height: 36px;
   }
-  100% {
-    transform: translateX(-33.3333%);
+  .news-ticker .ticker-label {
+    padding: 0 12px;
+    font-size: 0.8rem;
   }
-}
-@keyframes marquee-scroll-ltr {
-  0% {
-    transform: translateX(-33.3333%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-.marquee-track.scroll-rtl {
-  animation: marquee-scroll-rtl 35s linear infinite !important;
-}
-
-.marquee-track.scroll-ltr {
-  animation: marquee-scroll-ltr 35s linear infinite !important;
-}
-
-.marquee-row:hover .marquee-track {
-  animation-play-state: paused;
-}
-
-@media (max-width: 768px) {
-  .photo-marquee-section {
-    padding: 40px 0;
-  }
-  .photo-marquee-section .marquee-header {
-    padding: 0 15px;
-  }
-  .photo-marquee-section .marquee-header h2 {
-    font-size: 1.5rem;
-  }
-  .photo-marquee-section .marquee-row {
-    height: 120px;
-  }
-  .photo-marquee-section .marquee-track .marquee-item {
-    width: 180px;
-    height: 120px;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation-duration: 35s !important;
-    animation-iteration-count: infinite !important;
+  .news-ticker .ticker-track .ticker-item {
+    font-size: 0.82rem;
+    padding-inline-end: 40px;
   }
 }
 * {

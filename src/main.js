@@ -10,6 +10,7 @@ import { initVideoGallery } from './pages/digital_repository/media/video_gallery
 import { initPhotoGallery } from './pages/digital_repository/media/photo_gallery.js';
 import { initComplaintsForm } from './pages/electronic_services/complaints_and_comments.js';
 import { initCollegeInstructionsAndPolicy } from './pages/about_college/employment_and_policies/college_instructions_and_policy.js';
+import { buildNewsTickerSection, initNewsTicker } from "./components/news_ticker.js";
 
 // ... inside the main block:
 if (typeof initVideoGallery === 'function') initVideoGallery();
@@ -19,6 +20,7 @@ if (app) {
   app.innerHTML = `
     ${header()}
     <main id="main-content"></main>
+     ${buildNewsTickerSection()}
     ${footer()}
   `;
 
@@ -31,6 +33,7 @@ if (app) {
   if (typeof initPhotoGallery === 'function') initPhotoGallery();
   if (typeof initComplaintsForm === 'function') initComplaintsForm();
   if (typeof initCollegeInstructionsAndPolicy === 'function') initCollegeInstructionsAndPolicy();
+  if (typeof initNewsTicker === 'function') initNewsTicker();
 
   initRouter();
 }
