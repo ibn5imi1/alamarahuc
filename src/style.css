@@ -857,6 +857,83 @@ html[dir=rtl] .slider-section .slider-btn.next-btn {
   left: 30px;
 }
 
+.media-gallery-section {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+.media-gallery-section .media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+.media-gallery-section .media-card {
+  display: block;
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.media-gallery-section .media-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+.media-gallery-section .media-card:hover .card-image-wrapper img {
+  transform: scale(1.08);
+}
+.media-gallery-section .media-card:hover .card-image-wrapper .card-overlay {
+  opacity: 1;
+}
+.media-gallery-section .media-card:hover .card-image-wrapper .card-overlay i {
+  transform: scale(1.1);
+}
+.media-gallery-section .media-card .card-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: #0a192f;
+}
+.media-gallery-section .media-card .card-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.media-gallery-section .media-card .card-image-wrapper .card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 59, 102, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.media-gallery-section .media-card .card-image-wrapper .card-overlay i {
+  font-size: 3rem;
+  color: #f4d35e;
+  transition: transform 0.3s ease;
+}
+.media-gallery-section .media-card .card-content {
+  padding: 20px 25px;
+}
+.media-gallery-section .media-card .card-content h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #0d3b66;
+  margin-bottom: 8px;
+}
+.media-gallery-section .media-card .card-content p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+}
+
 .department-page {
   padding: 50px 20px;
   background-color: #f8f9fa;

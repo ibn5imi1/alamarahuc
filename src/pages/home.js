@@ -147,6 +147,41 @@ export function home() {
     </section>
              <div class="container">
              ${buildDeanTalkSection()}
+
+             <!-- Photo and Video Gallery Section -->
+                <section class="media-gallery-section">
+                    <div class="media-grid">
+                        
+                        <!-- Photo Gallery Card -->
+                        <a href="/repository/photos" class="media-card">
+                            <div class="card-image-wrapper">
+                                <img src="/images/gallery/thumbs/college/photo-008.webp" alt="Photo Gallery" loading="lazy" />
+                                <div class="card-overlay">
+                                    <i class="fa-solid fa-images"></i>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h3 data-i18n="nav.photo_gallery">Photo Gallery</h3>
+                                <p data-i18n="photo_gallery_desc">Browse the college's photo album and view various events and activities.</p>
+                            </div>
+                        </a>
+
+                        <!-- Video Gallery Card -->
+                        <a href="/repository/videos" class="media-card">
+                            <div class="card-image-wrapper">
+                                <img src="/images/gallery/thumbs/college/photo-009.webp" alt="Video Gallery" loading="lazy" />
+                                <div class="card-overlay">
+                                    <i class="fa-solid fa-circle-play"></i>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h3 data-i18n="nav.video_gallery">Video Gallery</h3>
+                                <p data-i18n="video_gallery_desc">Watch video coverage and academic and student activities.</p>
+                            </div>
+                        </a>
+
+                    </div>
+                </section>
              </div>
 
              

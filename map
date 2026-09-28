@@ -30,6 +30,7 @@ src
 --header.js
 --hero_section.js
 --news_ticker.js
+--news_slider.js
 -pages
 --about_college
 ---about
@@ -80,6 +81,7 @@ src
 ---_header.scss
 ---_hero_section.scss
 ---_news_ticker.scss
+---_news_slider.scss
 ----pages
 -----college_departments
 ------_departmentView.scss
