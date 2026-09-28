@@ -1,0 +1,260 @@
+@use "../variables.scss" as *;
+@use "../mixin.scss" as *;
+
+.news-slider-section {
+  --news-gap: 24px;
+  --news-per-view: 4; 
+
+  background-color: #f4f6f9;
+  padding: 70px 20px 60px;
+
+  .reveal {
+    @include fade-up-on-scroll(0.6s, 0s, 30px);
+  }
+
+  .news-slider-header {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: $primary-color;
+      margin-bottom: 10px;
+    }
+
+    .header-line {
+      width: 70px;
+      height: 4px;
+      background-color: $accent-color;
+      border-radius: 2px;
+      margin: 0 auto;
+    }
+  }
+
+  .news-slider-wrap {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 64px; 
+  }
+
+  // ---------- Scrollable/Draggable Track ----------
+  .news-scroller {
+    display: flex;
+    gap: var(--news-gap);
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 14px 0 22px; 
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+
+    // Hide the scrollbar (overrides the site-wide ::-webkit-scrollbar styling)
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+
+    &.snap-off {
+      scroll-snap-type: none;
+    }
+
+    &.is-dragging {
+      cursor: grabbing;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+  }
+
+  // ---------- The Card (Outer shell = entrance animation; inner = hover effect) ----------
+  .news-card {
+    flex: 0 0 calc((100% - (var(--news-per-view) - 1) * var(--news-gap)) / var(--news-per-view));
+    scroll-snap-align: start;
+
+    // Initial state: Hidden and shifted downwards 
+    opacity: 0;
+    transform: translateY(46px);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+    &.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .news-card-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 28px rgba($primary-color, 0.18);
+
+      .news-card-image img {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .news-card-image {
+    aspect-ratio: 16 / 10;
+    background: linear-gradient(135deg, #dfe6ee, #c9d5e3);
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      pointer-events: none;       
+      -webkit-user-select: none;
+      user-select: none;
+      transition: transform 0.5s ease;
+    }
+  }
+
+  .news-card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 18px 18px 16px;
+  }
+
+  .news-card-title {
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.7;
+    color: $primary-color;
+    margin-bottom: 14px;
+  }
+
+  .news-card-date {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    font-size: 0.85rem;
+    color: #7a8594;
+
+    svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+  }
+
+  .news-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 46px;
+    border: none;
+    border-radius: 50%;
+    background: $primary-color;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 3;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+    transition: background-color 0.25s ease, color 0.25s ease, opacity 0.25s ease, transform 0.2s ease;
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    &:hover:not(:disabled) {
+      background: $accent-color;
+      color: $primary-color;
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
+  }
+
+  .news-arrow-prev {
+    inset-inline-start: 6px; 
+  }
+
+  .news-arrow-next {
+    inset-inline-end: 6px;
+  }
+}
+
+html[dir="ltr"] .news-slider-section {
+  .news-arrow-next svg {
+    transform: rotate(0deg); // Rotate the icon to point to the left
+  }
+  .news-arrow-prev svg {
+    transform: rotate(180deg); // Points to the right by default
+  }
+}
+
+html[dir="rtl"] .news-slider-section {
+  .news-arrow-next svg {
+    transform: rotate(180deg);  
+  }
+  .news-arrow-prev svg {
+    transform: rotate(0deg); 
+  }
+}
+
+@media (max-width: 1200px) {
+  .news-slider-section {
+    --news-per-view: 2;
+  }
+}
+
+@media (max-width: 700px) {
+  .news-slider-section {
+    --news-per-view: 1;
+    padding: 50px 16px 40px;
+
+    .news-slider-header h2 {
+      font-size: 1.6rem;
+    }
+
+    .news-slider-wrap {
+      padding: 0;
+    }
+
+    .news-arrow {
+      top: 32%;
+      width: 40px;
+      height: 40px;
+      background: rgba($primary-color, 0.85);
+
+      &:hover:not(:disabled) {
+        transform: translateY(-50%);
+      }
+    }
+
+    .news-arrow-prev {
+      inset-inline-start: 8px;
+    }
+
+    .news-arrow-next {
+      inset-inline-end: 8px;
+    }
+  }
+}

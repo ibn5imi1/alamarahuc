@@ -54,6 +54,7 @@ import { applyElectronicServicesLanguage } from './translate/electronic_services
 import { applyAboutCollegeLanguage } from './translate/about_college_translate.js';
 
 import { initScrollReveal } from './scrollReveal.js';
+import { initNewsSlider } from './components/news_slider.js';
 
 /**
  * Safely executes a view rendering function.
@@ -79,6 +80,7 @@ const routes = {
     setTimeout(() => {
       if (typeof initSlider === 'function') initSlider();
       if (typeof initCounters === 'function') initCounters();
+      if (typeof initNewsSlider === 'function') initNewsSlider();
     }, 0);
     return html;
   },

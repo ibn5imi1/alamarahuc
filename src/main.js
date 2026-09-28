@@ -24,6 +24,7 @@ if (app) {
     ${footer()}
   `;
 
+  // these codes for animation
   if (typeof initMobileMenu === 'function') initMobileMenu();
   if (typeof initLanguage === 'function') initLanguage();
   if (typeof initAcademicCalendar === 'function') initAcademicCalendar();

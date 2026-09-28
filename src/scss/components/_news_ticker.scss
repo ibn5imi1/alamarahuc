@@ -10,7 +10,7 @@
   border-top: 2px solid $accent-color;
   display: flex;
   align-items: center;
-  z-index: 999; // أقل من الهيدر (1000+) حتى ما يتعارض معه، أعلى من محتوى الصفحة العادي
+  z-index: 999;   
   overflow: hidden;
 
   .ticker-label {
@@ -22,7 +22,7 @@
     background-color: $accent-color;
     color: $primary-color;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 1.25rem;
     white-space: nowrap;
   }
 
@@ -36,13 +36,13 @@
   }
 
   .ticker-track {
-    direction: ltr; // يضمن اتساق اتجاه الحركة بغض النظر عن لغة الموقع
+    direction: ltr;   
     display: flex;
     white-space: nowrap;
     will-change: transform;
 
     .ticker-item {
-      padding-inline-end: 60px; // مسافة فاصلة واضحة قبل تكرار النص من جديد
+      padding-inline-end: 60px; 
       font-size: 1.25rem;
       color: $text-color;
       font-weight: 500;
