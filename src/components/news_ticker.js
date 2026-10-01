@@ -4,16 +4,17 @@
 
 let tickerAnimationId = null;
 let dockScrollHandler = null;
+let sourceObserver = null;
 
 const NEWS_ITEMS = [
     'The Private College of Architecture congratulates the sixth-year preparatory students taking the second-round exams, wishing them successful admission',
     'To coincide with the start of the new academic year, Al-Amarah Private College is accepting inquiries from students and parents between 8:00 AM and 2:30 PM',
     'The Iraqi Council of Ministers has decided to suspend official working hours at all state institutions from Wednesday, September 30, through Saturday, October 3, 2026, in celebration of the Republic of Iraq\'s Sovereignty Days.'
-
 ];
 
 const NEWS_SEPARATOR = '     •     ';
 const NEWS_TEXT_DEFAULT = NEWS_ITEMS.join(NEWS_SEPARATOR);
+
 export function buildNewsTickerSection() {
     return `
     <div class="news-ticker" id="global-news-ticker">
@@ -36,7 +37,6 @@ function buildTickerTrack() {
     track.innerHTML = repeatedHtml;
 }
 
-// ✅ Determines the movement direction based on the currently saved language.
 function getCurrentDirection() {
     const currentLang = localStorage.getItem('lang') || 'ar';
     return currentLang === 'ar' ? 'rtl' : 'ltr';
@@ -52,7 +52,6 @@ function startTickerAnimation() {
 
     const CYCLE_DURATION_MS = 30000;
     const isRtl = getCurrentDirection() === 'rtl';
-    // ✅ In Arabic: Positive value (moves to the right). In English: Negative value (moves to the left).
     const direction = isRtl ? 1 : -1;
 
     function measureAndStart() {
@@ -111,36 +110,66 @@ function setupFooterDocking() {
     window.addEventListener('scroll', dockScrollHandler);
     window.addEventListener('resize', dockScrollHandler);
 
-    // ✅ Solution for the "requires scrolling to appear" issue: Recalculate the position multiple times after loading
-    // (once immediately + twice with a short delay) to account for any changes in page height occurring after images/fonts load.
     updateTickerPosition();
     setTimeout(updateTickerPosition, 200);
     setTimeout(updateTickerPosition, 600);
 }
 
-export function initNewsTicker() {
-    // ✅ Solution to the synchronization issue: We wait until `applyMainLanguage` (called by `initLanguage`) actually completes
-    // before reading the banner text or determining its movement direction.
+// ✅ The actual solution: We wait for the actual change in the source text instead of guessing a fixed time.
+function waitForTranslationThenBuild() {
+    const source = document.getElementById('news-ticker-source');
+    if (!source) return;
+
     const currentLang = localStorage.getItem('lang') || 'ar';
 
-    if (currentLang === 'ar') {
-        // Arabic requires time to fetch the translation from the external file, so we wait a brief moment before building.
-        setTimeout(() => {
-            buildTickerTrack();
-            startTickerAnimation();
-            setupFooterDocking();
-        }, 100);
-    } else {
-        // English is the default text written directly in HTML, so there is no need to wait.
+    // If it were English, we wouldn't be waiting for a translation anyway—we’d build immediately.
+    if (currentLang !== 'ar') {
         buildTickerTrack();
         startTickerAnimation();
-        setupFooterDocking();
+        return;
     }
+
+    // If the text differs from the English default before we start monitoring—meaning the translation has already arrived quickly—we build immediately.
+    if (source.textContent.trim() !== NEWS_TEXT_DEFAULT) {
+        buildTickerTrack();
+        startTickerAnimation();
+        return;
+    }
+
+    // Otherwise, we observe the element and wait for the actual moment its text changes (the actual arrival of the translation).
+    if (sourceObserver) {
+        sourceObserver.disconnect();
+    }
+
+    let built = false;
+    const build = () => {
+        if (built) return;
+        built = true;
+        sourceObserver.disconnect();
+        buildTickerTrack();
+        startTickerAnimation();
+    };
+
+    sourceObserver = new MutationObserver(() => {
+        if (source.textContent.trim() !== NEWS_TEXT_DEFAULT) {
+            build();
+        }
+    });
+    sourceObserver.observe(source, { childList: true, characterData: true, subtree: true });
+
+    // ✅ Backup mechanism: If, for any reason, the translation doesn't arrive at all (e.g., an incomplete file), we build the view after 3 seconds using the available text
+    // so the bar doesn't remain empty forever.
+    setTimeout(build, 3000);
+}
+
+export function initNewsTicker() {
+    waitForTranslationThenBuild();
+    setupFooterDocking();
 
     window.addEventListener('languageChanged', () => {
         setTimeout(() => {
             buildTickerTrack();
-            startTickerAnimation(); // / Automatically recalculates the direction based on the new language.
+            startTickerAnimation();
         }, 150);
     });
 }

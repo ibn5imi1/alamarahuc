@@ -6,16 +6,18 @@
 // Images are automatically sourced from: /images/news/news-01.webp ... news-10.webp
 // Translation keys are automatically generated: news.<id>.title and news.<id>.date
 const NEWS_DATA = [
-    { id: 1, title: 'The head of the ministerial committee overseeing assessment exams inspects the conduct of exams at Al-Amarah University College.', date: 'May 22, 2026' },
-    { id: 2, title: 'Al-Emara University College Supports the Iraq International Art Biennale (2025–2030) and Enhances Its Cultural and International Presence', date: 'May 11, 2026' },
-    { id: 3, title: 'The modern scientific laboratories at Al-Amarah University College facilitate practical training for first-year dentistry students.', date: 'April 27, 2026' },
-    { id: 4, title: 'A new academic partnership—a scientific twinning arrangement—uniting two academic departments to keep pace with research advancements.', date: 'April 28, 2026' },
-    { id: 5, title: 'Chemical Engineering and Petroleum Industries students from Al-Amarah University College conduct a scientific field trip to the laboratories of the Missan Oil Company.', date: 'May 7, 2026' },
-    { id: 6, title: 'Workshop on the Dangers of Drugs, organized by the Accounting Department at Al-Amarah University College.', date: 'April 15, 2026' },
-    { id: 7, title: 'Hawizeh Marsh: Between Life and Oblivion Due to Severe Drought Waves', date: 'April 14, 2026' },
-    { id: 8, title: 'A delegation from the Ministry of Higher Education and Scientific Research visits Al-Amarah University College and commends the level of organization and institutional commitment.', date: 'April 4, 2026' },
-    { id: 9, title: '"Makers of Leaders" is the title of the workshop organized by Al-Amarah Private University under the auspices of the National Youth Council.', date: 'February 19, 2026' },
-    { id: 10, title: 'Al-Amarah University College hosts a delegation from the Kuwait Institute for Scientific Research.', date: 'February 9, 2026' },
+    { id: 1, title: 'Al-Amarah Private University participates in a meeting held by the Ministry of Higher Education and Scientific Research regarding admission mechanisms for private universities and colleges.', date: 'September 29, 2026' },
+    { id: 2, title: 'Al-Amarah Private University holds a training workshop on disseminating concepts of security and peace, and Resolution 2250.', date: 'September 29, 2026' },
+    { id: 3, title: 'The head of the ministerial committee overseeing assessment exams inspects the conduct of exams at Al-Amarah University College.', date: 'May 22, 2026' },
+    { id: 4, title: 'Al-Emara University College Supports the Iraq International Art Biennale (2025–2030) and Enhances Its Cultural and International Presence', date: 'May 11, 2026' },
+    { id: 5, title: 'The modern scientific laboratories at Al-Amarah University College facilitate practical training for first-year dentistry students.', date: 'April 27, 2026' },
+    { id: 6, title: 'A new academic partnership—a scientific twinning arrangement—uniting two academic departments to keep pace with research advancements.', date: 'April 28, 2026' },
+    { id: 7, title: 'Chemical Engineering and Petroleum Industries students from Al-Amarah University College conduct a scientific field trip to the laboratories of the Missan Oil Company.', date: 'May 7, 2026' },
+    { id: 8, title: 'Workshop on the Dangers of Drugs, organized by the Accounting Department at Al-Amarah University College.', date: 'April 15, 2026' },
+    { id: 9, title: 'Hawizeh Marsh: Between Life and Oblivion Due to Severe Drought Waves', date: 'April 14, 2026' },
+    { id: 10, title: 'A delegation from the Ministry of Higher Education and Scientific Research visits Al-Amarah University College and commends the level of organization and institutional commitment.', date: 'April 4, 2026' },
+    { id: 11, title: '"Makers of Leaders" is the title of the workshop organized by Al-Amarah Private University under the auspices of the National Youth Council.', date: 'February 19, 2026' },
+    { id: 12, title: 'Al-Amarah University College hosts a delegation from the Kuwait Institute for Scientific Research.', date: 'February 9, 2026' },
 ].map(n => ({
     image: `/images/news/news-${String(n.id).padStart(2, '0')}.webp`,
     titleKey: `news.${n.id}.title`,
