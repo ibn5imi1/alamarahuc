@@ -139,3 +139,7 @@ src
 -style.css
 -scrollReveal.js
 -style.css.map
+map
+package-lock.json
+package.json
+vite.config.js
