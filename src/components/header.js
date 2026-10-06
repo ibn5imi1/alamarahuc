@@ -1,3 +1,4 @@
+import logo from '../assets/images/logos/logo.png';
 export function header() {
     return `
     <header class="header">
@@ -10,7 +11,7 @@ export function header() {
 
             <!-- Brand Logo and Name -->
             <a href="/" class="brand_logo">
-                <img src="./src/assets/images/logos/logo.png" alt="Logo" class="logo_img" />
+                <img src="${logo}" alt="Logo" class="logo_img" />
                 <span class="brand_name" data-i18n="college_name">AL-Amarah University College</span>
             </a>
 
