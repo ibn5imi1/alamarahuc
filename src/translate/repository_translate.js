@@ -2,8 +2,7 @@
 let repositoryTranslationCache = { ar: null, en: null };
 
 const REPOSITORY_TRANSLATION_FILES = {
-  ar: '/repository_translate_ar.json',
-  en: '/repository_translate_en.json'
+  ar: `${import.meta.env.BASE_URL}repository_translate_ar.json`,
 };
 
 async function loadRepositoryTranslations(lang) {

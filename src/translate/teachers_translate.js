@@ -2,8 +2,7 @@
 let teachersTranslationCache = { ar: null, en: null };
 
 const TEACHERS_TRANSLATION_FILES = {
-    ar: '/teachers_translate_ar.json',
-    en: '/teachers_translate_en.json'
+    ar: `${import.meta.env.BASE_URL}teachers_translate_ar.json`,
 };
 
 async function loadTeachersTranslations(lang) {

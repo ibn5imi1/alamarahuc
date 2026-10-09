@@ -2,8 +2,7 @@
 let studentTranslationCache = { ar: null, en: null };
 
 const STUDENT_TRANSLATION_FILES = {
-  ar: '/students_translate_ar.json',
-  en: '/students_translate_en.json'
+  ar: `${import.meta.env.BASE_URL}students_translate_ar.json`,
 };
 
 async function loadStudentTranslations(lang) {

@@ -6,8 +6,8 @@ async function loadDeptTranslations() {
   if (deptAr && deptEn) return;
   try {
     const [arRes, enRes] = await Promise.all([
-      fetch('/department_translate_ar.json'),
-      fetch('/department_translate_en.json')
+      fetch(`${import.meta.env.BASE_URL}department_translate_ar.json`),
+      fetch(`${import.meta.env.BASE_URL}department_translate_en.json`)
     ]);
     deptAr = await arRes.json();
     deptEn = await enRes.json();

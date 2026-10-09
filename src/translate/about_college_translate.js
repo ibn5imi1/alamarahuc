@@ -1,6 +1,6 @@
 let aboutCollegeTranslationCache = null;
 
-const ABOUT_COLLEGE_TRANSLATION_FILE = '/about_college_translate_ar.json';
+const ABOUT_COLLEGE_TRANSLATION_FILE = `${import.meta.env.BASE_URL}about_college_translate_ar.json`;
 
 async function loadAboutCollegeTranslations() {
     if (aboutCollegeTranslationCache) {

@@ -6,7 +6,7 @@ let isLoaded = false;
 async function loadArabicTranslations() {
   if (isLoaded) return;
   try {
-    const response = await fetch('/main_translate_ar.json');
+    const response = await fetch(`${import.meta.env.BASE_URL}main_translate_ar.json`);
     arTranslations = await response.json();
     isLoaded = true;
   } catch (error) {

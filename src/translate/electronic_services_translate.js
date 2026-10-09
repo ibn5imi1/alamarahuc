@@ -2,8 +2,7 @@
 let electronicServicesTranslationCache = { ar: null, en: null };
 
 const ELECTRONIC_SERVICES_TRANSLATION_FILES = {
-  ar: '/electronic_services_translate_ar.json',
-  en: '/electronic_services_translate_en.json'
+  ar: `${import.meta.env.BASE_URL}electronic_services_translate_ar.json`,
 };
 
 async function loadElectronicServicesTranslations(lang) {
