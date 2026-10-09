@@ -57,10 +57,27 @@ import { initScrollReveal } from './scrollReveal.js';
 import { initNewsSlider } from './components/news_slider.js';
 
 /**
+ * Helper: Gets relative path by stripping Vite's BASE_URL from window.location.pathname
+ */
+function getRelativePath() {
+  const baseUrl = import.meta.env.BASE_URL || '/';
+  let path = window.location.pathname;
+
+  if (baseUrl !== '/' && path.startsWith(baseUrl)) {
+    path = path.replace(baseUrl, '/');
+  }
+
+  // Normalize duplicate or trailing slashes (e.g. "//" -> "/")
+  path = path.replace(/\/+/g, '/');
+  if (path.length > 1 && path.endsWith('/')) {
+    path = path.slice(0, -1);
+  }
+
+  return path || '/';
+}
+
+/**
  * Safely executes a view rendering function.
- * @param {Function} viewFunc - Function returning HTML string for a route.
- * @param {Object|string|null} params - Parameters to pass to the view function.
- * @returns {string} The rendered HTML content or a fallback template if undefined.
  */
 function renderView(viewFunc, params = null) {
   if (typeof viewFunc === 'function') {
@@ -71,8 +88,6 @@ function renderView(viewFunc, params = null) {
 
 /**
  * Route Mapping Table.
- * Associates URL pathnames with their corresponding view rendering functions 
- * and post-render initialization scripts (via setTimeout to run after DOM injection).
  */
 const routes = {
   '/': () => {
@@ -183,10 +198,6 @@ const ABOUT_COLLEGE_PATHS = [
   '/about/jobs',
 ];
 
-/**
- * Applies the matching translation dictionary based on the target URL path.
- * @param {string} path - Current window pathname.
- */
 function applyRouteLanguage(path) {
   if (path === '/department') {
     if (typeof applyDeptLanguage === 'function') applyDeptLanguage();
@@ -214,16 +225,11 @@ function applyRouteLanguage(path) {
   }
 }
 
-/**
- * Main routing handler. 
- * Renders page views into the main content container, applies active translations,
- * initializes scroll animations, and resets window scroll position to top.
- */
 export function handleRouting() {
   const mainContent = document.getElementById('main-content');
   if (!mainContent) return;
 
-  const path = window.location.pathname;
+  const path = getRelativePath();
   const renderPage = routes[path] || routes['/'];
 
   const content = renderPage();
@@ -236,21 +242,22 @@ export function handleRouting() {
   window.scrollTo(0, 0);
 }
 
-/**
- * Updates browser history state using HTML5 History API and triggers view rendering.
- * @param {string} url - Target URL path to navigate to.
- */
 export function navigateTo(url) {
-  window.history.pushState(null, null, url);
+  const baseUrl = import.meta.env.BASE_URL || '/';
+
+  // Format target URL with Base URL if not present
+  let targetUrl = url;
+  if (!url.startsWith('http') && !url.startsWith(baseUrl)) {
+    const cleanBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+    const cleanUrl = url.startsWith('/') ? url : '/' + url;
+    targetUrl = cleanBase + cleanUrl;
+  }
+
+  window.history.pushState(null, null, targetUrl);
   handleRouting();
 }
 
-/**
- * Initializes single-page application (SPA) router settings and event listeners.
- * Intercepts anchor tag click events for internal client-side navigation.
- */
 export function initRouter() {
-  // Event Delegation: Intercept link clicks for SPA routing
   document.body.addEventListener('click', (e) => {
     const link = e.target.closest('a');
 
@@ -262,7 +269,6 @@ export function initRouter() {
       e.preventDefault();
       navigateTo(href);
 
-      // Close mobile navigation menu upon clicking a link
       const navList = document.getElementById('nav-list');
       const overlay = document.getElementById('nav-overlay');
       const toggleBtn = document.getElementById('menu-toggle');
@@ -274,18 +280,11 @@ export function initRouter() {
     }
   });
 
-  // Handle browser navigation actions (Back/Forward buttons)
   window.addEventListener('popstate', handleRouting);
-
-  // Perform initial route rendering
   handleRouting();
 }
 
-/**
- * Global Event Listener for language updates.
- * Re-applies translations without triggering a full page reload or route transition.
- */
 window.addEventListener('languageChanged', () => {
-  const path = window.location.pathname;
+  const path = getRelativePath();
   applyRouteLanguage(path);
 });
