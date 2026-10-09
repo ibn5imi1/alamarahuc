@@ -5,6 +5,8 @@ import iso_9001_2015 from '../assets/images/logos/ISO-9001-2015.png';
 import iso_50001_2018 from '../assets/images/logos/ISO-50001-2018.png';
 import iso_45001_2018 from '../assets/images/logos/ISO-45001-2018.png';
 import wm_ranking from '../assets/images/logos/wm-ranking.jpg';
+import gallery_thumbs from "/images/gallery/thumbs/college/photo-008.webp"
+import video_thumbs from "/images/gallery/thumbs/college/photo-009.webp"
 import { buildDeanTalkSection } from './about_college/about/message_from_the_dean.js';
 import { buildNewsSliderSection } from '../components/news_slider.js';
 
@@ -155,7 +157,7 @@ export function home() {
                         <!-- Photo Gallery Card -->
                         <a href="/repository/photos" class="media-card">
                             <div class="card-image-wrapper">
-                                <img src="/images/gallery/thumbs/college/photo-008.webp" alt="Photo Gallery" loading="lazy" />
+                                <img src="${gallery_thumbs}" alt="Photo Gallery" loading="lazy" />
                                 <div class="card-overlay">
                                     <i class="fa-solid fa-images"></i>
                                 </div>
@@ -169,7 +171,7 @@ export function home() {
                         <!-- Video Gallery Card -->
                         <a href="/repository/videos" class="media-card">
                             <div class="card-image-wrapper">
-                                <img src="/images/gallery/thumbs/college/photo-009.webp" alt="Video Gallery" loading="lazy" />
+                                <img src="${video_thumbs}" alt="Video Gallery" loading="lazy" />
                                 <div class="card-overlay">
                                     <i class="fa-solid fa-circle-play"></i>
                                 </div>
