@@ -1,5 +1,5 @@
 import { heroSection } from '../../../components/hero_section.js';
-
+import capture from '../../../assets/images/capture.png';
 export function organizationalStructureView() {
   return `
   <div class="organizational-structure-page">
@@ -22,7 +22,7 @@ export function organizationalStructureView() {
       <!-- Image Display Card -->
       <div class="structure-image-wrapper reveal">
         <img 
-          src="/src/assets/images/capture.png" 
+          src="${capture}" 
           alt="College Organizational Structure" 
           class="structure-image"
           loading="lazy"

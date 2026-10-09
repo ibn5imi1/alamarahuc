@@ -6,12 +6,13 @@
 // - titleDefault: Default English text (required)
 // - subtitleKey / subtitleDefault: Optional subtitle text below the title (optional)
 // - bgImage: Path to a background image other than the default (optional)
+import buildImage from '../assets/images/build.jpg';
 export function heroSection({
     titleKey,
     titleDefault,
     subtitleKey = null,
     subtitleDefault = null,
-    bgImage = '/src/assets/images/build.jpg'
+    bgImage = buildImage
 }) {
     return `
     <section class="hero-section-component" style="background-image: url('${bgImage}');">

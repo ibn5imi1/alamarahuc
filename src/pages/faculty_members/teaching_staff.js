@@ -1,5 +1,9 @@
 import { heroSection } from "../../components/hero_section";
-
+import member1 from "/src/assets/images/teachers/petroleum_eng_head.jpg";
+import member2 from "/src/assets/images/teachers/mechanical_eng_head.jpg";
+import member3  from "/src/assets/images/teachers/medical_devices_eng_head.jpg";
+import member4 from "/src/assets/images/teachers/law_head.jpg";
+import member5 from "/src/assets/images/teachers/accounting_head.jpg";
 export function teachingView() {
   return `
   <div class="teaching-staff-page">
@@ -25,7 +29,7 @@ export function teachingView() {
           <!-- Teacher Card 1 -->
           <div class="teacher-card reveal">
             <div class="image-wrapper">
-              <img src="/src/assets/images/teachers/petroleum_eng_head.jpg" alt="Dr. Amer Ali Ghabra" loading="lazy" />
+              <img src="${member1}" alt="Dr. Amer Ali Ghabra" loading="lazy" />
             </div>
             <div class="teacher-info">
               <h3 data-i18n="heads.card1_name">Dr. Amer Ali Ghabra</h3>
@@ -36,7 +40,7 @@ export function teachingView() {
           <!-- Teacher Card 2 -->
           <div class="teacher-card reveal">
             <div class="image-wrapper">
-              <img src="/src/assets/images/teachers/mechanical_eng_head.jpg" alt="Assistant Professor Dr. Abdul-Hussein Harijah" loading="lazy" />
+              <img src="${member2}" alt="Assistant Professor Dr. Abdul-Hussein Harijah" loading="lazy" />
             </div>
             <div class="teacher-info">
               <h3 data-i18n="heads.card2_name">Assistant Professor Dr. Abdul-Hussein Harijah</h3>
@@ -47,7 +51,7 @@ export function teachingView() {
           <!-- Teacher Card 3 -->
           <div class="teacher-card reveal">
             <div class="image-wrapper">
-              <img src="/src/assets/images/teachers/medical_devices_eng_head.jpg" alt="Lecturer Dr. Kamal Jassim Shaalan Al-Budairi" loading="lazy" />
+              <img src="${member3}" alt="Lecturer Dr. Kamal Jassim Shaalan Al-Budairi" loading="lazy" />
             </div>
             <div class="teacher-info">
               <h3 data-i18n="heads.card3_name">Lecturer Dr. Kamal Jassim Shaalan Al-Budairi</h3>
@@ -58,7 +62,7 @@ export function teachingView() {
           <!-- Teacher Card 4 -->
           <div class="teacher-card reveal">
             <div class="image-wrapper">
-              <img src="/src/assets/images/teachers/law_head.jpg" alt="Asst. Prof. Dr. Kamal Jawad Kazim" loading="lazy" />
+              <img src="${member4}" alt="Asst. Prof. Dr. Kamal Jawad Kazim" loading="lazy" />
             </div>
             <div class="teacher-info">
               <h3 data-i18n="heads.card4_name">Asst. Prof. Dr. Kamal Jawad Kazim</h3>
@@ -69,7 +73,7 @@ export function teachingView() {
           <!-- Teacher Card 5 -->
           <div class="teacher-card reveal">
             <div class="image-wrapper">
-              <img src="/src/assets/images/teachers/accounting_head.jpg" alt="Asst. Prof. Dr. Salman Hammadi" loading="lazy" />
+              <img src="${member5}" alt="Asst. Prof. Dr. Salman Hammadi" loading="lazy" />
             </div>
             <div class="teacher-info">
               <h3 data-i18n="heads.card5_name">Asst. Prof. Dr. Salman Hammadi</h3>
