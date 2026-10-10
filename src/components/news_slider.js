@@ -19,7 +19,7 @@ const NEWS_DATA = [
     { id: 11, title: '"Makers of Leaders" is the title of the workshop organized by Al-Amarah Private University under the auspices of the National Youth Council.', date: 'February 19, 2026' },
     { id: 12, title: 'Al-Amarah University College hosts a delegation from the Kuwait Institute for Scientific Research.', date: 'February 9, 2026' },
 ].map(n => ({
-    image: `/images/news/news-${String(n.id).padStart(2, '0')}.webp`,
+    image: `${import.meta.env.BASE_URL}images/news/news-${String(n.id).padStart(2, '0')}.webp`,
     titleKey: `news.${n.id}.title`,
     dateKey: `news.${n.id}.date`,
     title: n.title,
