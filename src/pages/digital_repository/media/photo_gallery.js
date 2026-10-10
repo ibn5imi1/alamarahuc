@@ -36,8 +36,8 @@ function buildCategoryImages(catSlug, count) {
     const num = String(i + 1).padStart(3, '0');
     return {
       category: catSlug,
-      thumb: `/images/gallery/thumbs/${catSlug}/photo-${num}.webp`,
-      full: `/images/gallery/full/${catSlug}/photo-${num}.jpg`,
+      thumb: `${import.meta.env.BASE_URL}images/gallery/thumbs/${catSlug}/photo-${num}.webp`,
+      full: `${import.meta.env.BASE_URL}images/gallery/full/${catSlug}/photo-${num}.jpg`,
       alt: `${catSlug} photo ${num}`,
     };
   });
